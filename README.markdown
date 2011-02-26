@@ -14,6 +14,10 @@ The first time you use this, use `rake setup` to back up your current dotfiles. 
 * Drop in my current files
 * Set up Vim the way I want
 * Build the Rakefile to support these commands
+* Build a sample config.sample.yml (and ignore config.yml)
 * Build `rake setup` command.
+  * back up existing files
+  * set up symlinks for files in the repo
+  * copy (unless it already exists) config.sample.yml to config.yml
 * Build `rake update` command.
 * `rake setup:work`, `rake setup:work_server` and the like for customized configs

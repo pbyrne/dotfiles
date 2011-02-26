@@ -1,0 +1,23 @@
+# COMMENT OF SCRIPT HERE
+# you can make as many tabs as you wish...
+# tab names are actually arbitrary at this point too.
+
+# server
+tab do
+  run "ssh dev"
+  run "cd ~/workspace/g3dev"
+  run "rss"
+end
+
+# console
+tab do
+  run "ssh dev"
+  run "cd ~/workspace/g3dev"
+  run "rsc"
+end
+
+# for mercurial and specs and the like
+tab do
+  run "ssh dev"
+  run "cd ~/workspace/g3dev"
+end

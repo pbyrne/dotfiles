@@ -1,0 +1,32 @@
+# COMMENT OF SCRIPT HERE
+# you can make as many tabs as you wish...
+# tab names are actually arbitrary at this point too.
+
+config = YAML.load_file(File.expand_path("~/.terminitor/config.yml"))
+# determine which app to load from current directory
+appname = ENV["PWD"].to_s.split("/").last
+# determine
+framework = config["apps"][appname] || "rails2"
+
+# p appname
+# p rails
+
+# server
+tab do
+  run "ssh #{config["server"]}"
+  run "cd #{config["dir"]}/#{appname}"
+  run "#{config["commands"]["server"][framework]} -p #{config["port"]}"
+end
+
+# console
+tab do
+  run "ssh #{config["server"]}"
+  run "cd #{config["dir"]}/#{appname}"
+  run "#{config["commands"]["console"][framework]}"
+end
+
+# for mercurial and specs and the like
+tab do
+  run "ssh #{config["server"]}"
+  run "cd #{config["dir"]}/#{appname}"
+end

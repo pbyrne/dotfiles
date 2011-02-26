@@ -1,0 +1,10 @@
+# COMMENT OF SCRIPT HERE
+# you can make as many tabs as you wish...
+# tab names are actually arbitrary at this point too.
+
+# to do first in every tab
+b = "cd ~/workspace/iswhenrails &&"
+
+tab "#{b} ruby script/console"
+tab "#{b} ruby script/server"
+tab "#{b} hg st"
