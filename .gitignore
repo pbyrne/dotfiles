@@ -3,6 +3,7 @@ tmp
 nerdtree_plugin
 backup
 
+tags
 after
 autoload
 doc
