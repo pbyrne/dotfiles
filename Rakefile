@@ -1,18 +1,39 @@
+require 'rake'
+require 'date'
+
 desc "Run once to initially set up the computer to use the dotfiles"
 task :setup do
   puts "Doesn't do anything just yet"
-  # here's the gist, though:
-  # src/* each do |file|
-  #   if ~/.file.exist?
-  #     if it's a symlink?
-  #       do nothing, we're good
-  #     if it's identical (https://github.com/ryanb/dotfiles/blob/master/Rakefile#L11)
-  #       do nothing, we're good
-  #     else
-  #       back up to ~/.olddotfiles/file
-  #       symlink from src/file to ~/.file
-  #   end
-  # end
+  
+  # inspoired heavily from https://github.com/henrik/dotfiles/blob/master/Rakefile and https://github.com/ryanb/dotfiles/blob/master/Rakefile
+  Dir["src/*"].each do |file|
+    # full path to file
+    source = File.join(Dir.pwd, file)
+    # just the file name
+    basename = File.basename(file)
+    # where we want it to be
+    destination = File.expand_path("~/.#{basename}")
+    
+    if File.symlink?(destination)
+      symlink_to = File.readlink(destination)
+      if symlink_to == source
+        puts "  #{destination} already symlinked, nothing to do"
+      else
+        puts "  relinking #{destination} from #{symlink_to} to #{source}"
+        FileUtils.rm(destination)
+        FileUtils.ln_s(source, destination)
+      end
+    elsif File.exist?(destination)
+      # tack on today's date in YYYYMMDD
+      backup_location = "#{destination}.#{Date.today.strftime("%Y%m%d")}"
+      puts "  #{destination} already exists. Backing up to #{backup_location}"
+      FileUtils.mv(destination, backup_location)
+      FileUtils.ln_s(source, destination)
+    else
+      puts "  creating symlink for #{destination}"
+      FileUtils.ln_s(source, destination)
+    end
+  end
 end
 
 desc "Update to the latest and greatest, and run any installs that need to happen"
