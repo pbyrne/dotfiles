@@ -6,10 +6,12 @@ task :setup do
   #   if ~/.file.exist?
   #     if it's a symlink?
   #       do nothing, we're good
+  #     if it's identical (https://github.com/ryanb/dotfiles/blob/master/Rakefile#L11)
+  #       do nothing, we're good
   #     else
   #       back up to ~/.olddotfiles/file
+  #       symlink from src/file to ~/.file
   #   end
-  #   symlink from src/file to ~/.file
   # end
 end
 
