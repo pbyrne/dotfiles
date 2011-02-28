@@ -122,6 +122,7 @@ let g:JSLintHighlightErrorLine = 0
 let macvim_hig_shift_movement = 1
 
 " % to bounce from do to end etc.
+" also necessary for textobj-rubyblock
 runtime! macros/matchit.vim
 
 " Include user's local vim config

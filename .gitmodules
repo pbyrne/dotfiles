@@ -40,3 +40,12 @@
 [submodule "src/vim/bundle/nerdcommenter"]
 	path = src/vim/bundle/nerdcommenter
 	url = http://github.com/ddollar/nerdcommenter.git
+[submodule "src/vim/bundle/textobj-user"]
+	path = src/vim/bundle/textobj-user
+	url = http://github.com/kana/vim-textobj-user.git
+[submodule "src/vim/bundle/textobj-rubyblock"]
+	path = src/vim/bundle/textobj-rubyblock
+	url = http://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "src/vim/bundle/transmit"]
+	path = src/vim/bundle/transmit
+	url = https://github.com/tmallen/transmit-vim.git
