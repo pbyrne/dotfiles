@@ -129,3 +129,47 @@ runtime! macros/matchit.vim
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+" relative line numbers; if you care about aboslute, look at the status bar
+set relativenumber
+
+" persist the undo even after closing and saving
+set undofile
+
+" highlight the current line
+set cursorline
+
+" perform auto-indentation
+set autoindent
+
+" use sane (not the vim-default) regexes in search
+nnoremap / /\v
+vnoremap / /\v
+
+" be smart about case sensetivity in searches: all lowercase, insensitive; any
+" uppercase, sensitive
+set ignorecase
+set smartcase
+
+" switch between bracket pairs with tab instead of % (easier to type)
+nnoremap <tab> %
+vnoremap <tab> %
+
+" highlight search results as you go
+set incsearch
+set showmatch
+set hlsearch
+
+" clear the search term
+nnoremap <leader><space> :noh<cr>
+
+" force you to Do The Right Thing (don't use arrows to move)
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
