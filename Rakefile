@@ -3,8 +3,6 @@ require 'date'
 
 desc "Run once to initially set up the computer to use the dotfiles"
 task :setup do
-  puts "Doesn't do anything just yet"
-  
   # inspoired heavily from https://github.com/henrik/dotfiles/blob/master/Rakefile and https://github.com/ryanb/dotfiles/blob/master/Rakefile
   Dir["src/*"].each do |file|
     # full path to file
