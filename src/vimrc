@@ -114,6 +114,10 @@ color railscasts2
 " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
+set undodir=~/.vim/backup
+
+" persistent undo, even after closing and saving
+set undofile
 
 " Turn off jslint errors by default
 let g:JSLintHighlightErrorLine = 0
@@ -132,9 +136,6 @@ endif
 
 " relative line numbers; if you care about aboslute, look at the status bar
 set relativenumber
-
-" persist the undo even after closing and saving
-set undofile
 
 " highlight the current line
 set cursorline
