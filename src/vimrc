@@ -174,3 +174,6 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+" build CTags
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+
