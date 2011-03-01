@@ -10,4 +10,3 @@ alias psg='ps aux | grep '
 
 # terminitor gem
 alias ts='terminitor start'
-alias ts='ts dev'
