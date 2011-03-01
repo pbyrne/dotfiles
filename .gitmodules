@@ -49,6 +49,3 @@
 [submodule "src/vim/bundle/repeat"]
 	path = src/vim/bundle/repeat
 	url = http://github.com/tpope/vim-repeat.git
-[submodule "src/vim/bundle/transmit"]
-	path = src/vim/bundle/transmit
-	url = http://github.com/pbyrne/transmit-vim.git
