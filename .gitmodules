@@ -46,9 +46,9 @@
 [submodule "src/vim/bundle/textobj-rubyblock"]
 	path = src/vim/bundle/textobj-rubyblock
 	url = http://github.com/nelstrom/vim-textobj-rubyblock.git
-[submodule "src/vim/bundle/transmit"]
-	path = src/vim/bundle/transmit
-	url = https://github.com/tmallen/transmit-vim.git
 [submodule "src/vim/bundle/repeat"]
 	path = src/vim/bundle/repeat
 	url = http://github.com/tpope/vim-repeat.git
+[submodule "src/vim/bundle/transmit"]
+	path = src/vim/bundle/transmit
+	url = http://github.com/pbyrne/transmit-vim.git
