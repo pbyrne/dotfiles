@@ -7,7 +7,6 @@ tags
 after
 autoload
 doc
-plugin
 ruby
 snippets
 syntax

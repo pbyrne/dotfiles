@@ -1,0 +1,4 @@
+---
+gem: --no-rdoc --no-ri
+:verbose: true
+
