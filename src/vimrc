@@ -5,8 +5,6 @@ call pathogen#helptags()
 " enable lots of cool vim-only features
 set nocompatible
 
-" enable line numbers
-set number 
 " enable syntax highlighting
 syntax on
 
@@ -136,10 +134,15 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-if version >= 730
-  " relative line numbers; if you care about aboslute, look at the status bar
-  set relativenumber
-end
+"if v:version >= 720
+"  " relative line numbers; if you care about aboslute, look at the status bar
+"  set relativenumber
+"else
+"  set number
+"end
+" for some reason, it never loaded relativenumber, so just ignoring it, and
+" can't load it always, because doesn't work on old versions
+set number
 
 " highlight the current line
 set cursorline
