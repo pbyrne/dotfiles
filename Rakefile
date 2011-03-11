@@ -39,6 +39,7 @@ task :update do
   sh "git pull"
   # to ensure that git has loaded the submodules
   sh "git submodule init"
+  sh "git submodule foreach git checkout master" # to ensure that you're all checked out and the update command actually does something
   sh "git submodule update"
 end
 
