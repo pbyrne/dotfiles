@@ -184,3 +184,11 @@ inoremap <right> <nop>
 " build CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
+" more ctags goodness
+" open definition in a new tab
+map <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
+" list the tags
+map <C-t> :Tlist<CR>
+
+" close windows other than the current
+map <Leader><Leader> :ZoomWin<CR>

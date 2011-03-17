@@ -22,7 +22,11 @@ if has("gui_macvim")
   " Command-][ to increase/decrease indentation
   vmap <D-]> >gv
   vmap <D-[> <gv
-
+  
+  " Command-Shift-T for Taglist
+  map <D-T> :Tlist<CR>
+  
+  
   " Map Command-# to switch tabs
   map  <D-0> 0gt
   imap <D-0> <Esc>0gt

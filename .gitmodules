@@ -52,3 +52,6 @@
 [submodule "src/vim/bundle/ragtag"]
 	path = src/vim/bundle/ragtag
 	url = https://github.com/tpope/vim-ragtag.git
+[submodule "src/vim/bundle/zoomwin"]
+	path = src/vim/bundle/zoomwin
+	url = https://github.com/vim-scripts/ZoomWin.git
