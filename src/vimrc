@@ -149,6 +149,7 @@ set cursorline
 
 " perform auto-indentation
 set autoindent
+set shiftround " round to the nearest tabstop when tabbing
 
 " use sane (not the vim-default) regexes in search
 nnoremap / /\v
