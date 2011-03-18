@@ -13,7 +13,7 @@ syntax
 syntax_checkers
 ftdetect
 ftplugin
-colors
+#colors
 indent
 .VimballRecord
 
