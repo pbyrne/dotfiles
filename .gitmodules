@@ -55,9 +55,6 @@
 [submodule "src/vim/bundle/zoomwin"]
 	path = src/vim/bundle/zoomwin
 	url = https://github.com/vim-scripts/ZoomWin.git
-[submodule "src/vim/bundle/sparkup"]
-	path = src/vim/bundle/sparkup
-	url = https://github.com/rstacruz/sparkup.git
 [submodule "src/vim/bundle/indent-guides"]
 	path = src/vim/bundle/indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
