@@ -32,6 +32,11 @@ task :setup do
       FileUtils.ln_s(source, destination)
     end
   end
+
+  # to get git to recognize the gitexcludes file, which is used so all
+  # the tags files created in the pathogen plugins don't keep showing up
+  # as "untracked changes"
+  sh "git config --global core.excludesfile '~/.gitexcludes'"
 end
 
 desc "Update to the latest and greatest, and run any installs that need to happen"
