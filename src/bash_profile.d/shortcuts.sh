@@ -10,3 +10,14 @@ alias psg='ps aux | grep '
 
 # terminitor gem
 alias ts='terminitor start'
+
+# Fuzzy cd
+# Usage:
+#    cdf public
+# Changes to repos-public directory.
+# stolen from @topfunky (http://dpaste.org/P59h/)
+ 
+function cdf() {
+  cd *$1*/
+}
+
