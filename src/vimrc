@@ -193,3 +193,7 @@ map <C-t> :Tlist<CR>
 
 " close windows other than the current
 map <Leader><Leader> :ZoomWin<CR>
+
+" automatically strip whitespace from ends of ruby and ERB files
+autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
+
