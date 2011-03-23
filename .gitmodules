@@ -61,3 +61,6 @@
 [submodule "src/vim/bundle/sparkup"]
 	path = src/vim/bundle/sparkup
 	url = http://github.com/bingaman/vim-sparkup.git
+[submodule "src/vim/bundle/delimitmate"]
+	path = src/vim/bundle/delimitmate
+	url = https://github.com/Raimondi/delimitMate.git
