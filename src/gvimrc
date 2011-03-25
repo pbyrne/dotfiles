@@ -229,4 +229,4 @@ if filereadable(expand("~/.gvimrc.local"))
 endif
 
 " set to a bigger, nicer font than the default
-set gfn=Mensch\ Regular:h14
+set gfn=Monaco:h14
