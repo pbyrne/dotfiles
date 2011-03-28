@@ -16,4 +16,5 @@ ftplugin
 #colors
 indent
 .VimballRecord
+.DS_Store
 
