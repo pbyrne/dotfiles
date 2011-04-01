@@ -64,3 +64,6 @@
 [submodule "src/vim/bundle/delimitmate"]
 	path = src/vim/bundle/delimitmate
 	url = https://github.com/Raimondi/delimitMate.git
+[submodule "src/vim/bundle/color-solarized"]
+	path = src/vim/bundle/color-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

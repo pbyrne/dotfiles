@@ -107,7 +107,8 @@ set modeline
 set modelines=10
 
 " Default color scheme
-color railscasts+
+set background=light
+colorscheme solarized
 
 " Directories for swp files
 set backupdir=~/.vim/backup
@@ -195,5 +196,5 @@ map <C-t> :Tlist<CR>
 map <Leader><Leader> :ZoomWin<CR>
 
 " automatically strip whitespace from ends of ruby and ERB files
-autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
+"autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
 
