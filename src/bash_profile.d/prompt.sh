@@ -4,4 +4,4 @@ hg_ps1() {
 }
 
 
-export PS1="\u @ \h in \w $BOLD\$(hg_ps1)$NC \n$ "
+export PS1="\u @ \h in \w $BOLD\$(hg_ps1)\$(__git_ps1 2> /dev/null)$NC \n$ "
