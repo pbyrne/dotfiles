@@ -2,8 +2,10 @@
 # you can make as many tabs as you wish...
 # tab names are actually arbitrary at this point too.
 
+current = ENV["PWD"]
+
 before do
-  run "cd ~/workspace/circadjs"
+  run "cd #{current}"
 end
 
 # server
@@ -22,6 +24,6 @@ tab do
 end
 
 # for mercurial and specs and the like
-tab do
-  run "clear; echo 'do whatever you want with this tab'"
-end
+# tab do
+#   run "clear; echo 'do whatever you want with this tab'"
+# end
