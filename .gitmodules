@@ -67,3 +67,6 @@
 [submodule "src/vim/bundle/color-solarized"]
 	path = src/vim/bundle/color-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "src/vim/bundle/fugitive"]
+	path = src/vim/bundle/fugitive
+	url = http://github.com/tpope/vim-fugitive.git
