@@ -11,12 +11,12 @@ The first time you use this, use `rake setup` to back up your current dotfiles. 
 
 # TODO
 
-* Set up Vim the way I want
-* Build the Rakefile to support these commands
-* Build `rake setup` command.
-  * back up existing files
-  * set up symlinks for files in the repo
+* <strike>Set up Vim the way I want</strike>
+* <strike>Build the Rakefile to support these commands</strike>
+* <strike>Build `rake setup` command.</strike>
+  * <strike>back up existing files</strike>
+  * <strike>set up symlinks for files in the repo</strike>
   * copy (unless it already exists) config.sample.yml to config.yml
-* Build `rake update` command.
+* <strike>Build `rake update` command.</strike>
 * `rake setup:work`, `rake setup:work_server` and the like for customized configs
 * Build a sample config.sample.yml (and ignore config.yml) to include secret information to place into the files (SSH ports, git keys, etc.)
