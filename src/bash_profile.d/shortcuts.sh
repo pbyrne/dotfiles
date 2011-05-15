@@ -11,6 +11,9 @@ alias psg='ps aux | grep '
 # terminitor gem
 alias ts='terminitor start'
 
+# don't want certain configuration choices when editing my crontab, so will check against VIM_CRONTAB in my .vimrc
+alias crontab="VIM_CRONTAB=true crontab"
+
 # Fuzzy cd
 # Usage:
 #    cdf public
