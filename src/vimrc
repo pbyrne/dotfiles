@@ -41,10 +41,20 @@ map <Leader>n :NERDTreeToggle<CR>
 " Command-T configuration
 let g:CommandTMaxHeight=20
 
-" Remember last location in file
 if has("autocmd")
+  " Remember last location in file
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
+
+  " maps .. to move up a directory when in Fugitive's Gedit view on a folder
+  autocmd User fugitive
+    \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+    \   nnoremap <buffer> .. :edit %:h<CR> |
+    \ endif
+  
+  " delete a Gedit view from the buffer list when leaving it
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+  
 endif
 
 function s:setupWrapping()
@@ -139,9 +149,7 @@ endif
 "  " relative line numbers; if you care about aboslute, look at the status bar
 "  set relativenumber
 "else
-"  set number
-"end
-" for some reason, it never loaded relativenumber, so just ignoring it, and
+"  set number "end " for some reason, it never loaded relativenumber, so just ignoring it, and
 " can't load it always, because doesn't work on old versions
 set number
 
@@ -197,4 +205,12 @@ map <Leader><Leader> :ZoomWin<CR>
 
 " automatically strip whitespace from ends of ruby and ERB files
 "autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
+
+if $VIM_CRONTAB == "true"
+set nobackup
+set nowritebackup
+syntax off " my colorscheme's syntax highlighting in crontab is redongculous
+endif
+
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
