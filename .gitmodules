@@ -70,3 +70,6 @@
 [submodule "src/vim/bundle/fugitive"]
 	path = src/vim/bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
+[submodule "src/vim/bundle/coffee-script"]
+	path = src/vim/bundle/coffee-script
+	url = https://github.com/grayrest/vim-coffee-script.git
