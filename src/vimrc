@@ -128,6 +128,8 @@ if version >= 730
   set undodir=~/.vim/backup
   " persistent undo, even after closing and saving
   set undofile
+  set undolevels = 1000 "maximum number of changes that can be undone
+  set undoreload = 10000 "maximum number lines to save for undo on a buffer reload
 end
 
 " Turn off jslint errors by default
