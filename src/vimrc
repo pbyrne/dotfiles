@@ -124,13 +124,13 @@ colorscheme solarized
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-if version >= 730
-  set undodir=~/.vim/backup
-  " persistent undo, even after closing and saving
-  set undofile
-  set undolevels = 1000 "maximum number of changes that can be undone
-  set undoreload = 10000 "maximum number lines to save for undo on a buffer reload
-end
+
+" persistent undo, even after closing and saving
+set undodir=~/.vim/backup
+
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
 " Turn off jslint errors by default
 let g:JSLintHighlightErrorLine = 0
@@ -147,13 +147,9 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-"if v:version >= 720
-"  " relative line numbers; if you care about aboslute, look at the status bar
-"  set relativenumber
-"else
-"  set number "end " for some reason, it never loaded relativenumber, so just ignoring it, and
-" can't load it always, because doesn't work on old versions
-set number
+" relative line numbers; if you care about aboslute, look at the status bar
+set relativenumber
+" set number
 
 " highlight the current line
 set cursorline
