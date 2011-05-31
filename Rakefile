@@ -63,4 +63,5 @@ task :install_command_t do
   end
 end
 
+# just running `rake` runs `rake update`
 task :default => :update
