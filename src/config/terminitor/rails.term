@@ -19,11 +19,7 @@ tab do
 end
 
 # autotest
-tab do
-  run "be autotest"
-end
-
-# for mercurial and specs and the like
 # tab do
-#   run "clear; echo 'do whatever you want with this tab'"
+#   run "be autotest"
 # end
+
