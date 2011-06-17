@@ -1,5 +1,6 @@
 require 'rake'
 require 'date'
+require 'yaml'
 
 desc "Run once to initially set up the computer to use the dotfiles"
 task :setup do
@@ -12,31 +13,28 @@ task :setup do
     # where we want it to be
     destination = File.expand_path("~/.#{basename}")
     
-    if File.symlink?(destination)
-      symlink_to = File.readlink(destination)
-      if symlink_to == source
-        puts "  #{destination} already symlinked, nothing to do"
-      else
-        puts "  relinking #{destination} from #{symlink_to} to #{source}"
-        FileUtils.rm(destination)
-        FileUtils.ln_s(source, destination)
-      end
-    elsif File.exist?(destination)
-      # tack on today's date in YYYYMMDD
-      backup_location = "#{destination}.#{Date.today.strftime("%Y%m%d")}"
-      puts "  #{destination} already exists. Backing up to #{backup_location}"
-      FileUtils.mv(destination, backup_location)
-      FileUtils.ln_s(source, destination)
-    else
-      puts "  creating symlink for #{destination}"
-      FileUtils.ln_s(source, destination)
-    end
+    conditionally_symlink(source, destination)
   end
 
   # to get git to recognize the gitexcludes file, which is used so all
   # the tags files created in the pathogen plugins don't keep showing up
   # as "untracked changes"
   sh "git config --global core.excludesfile '~/.gitexcludes'"
+end
+
+desc "Set up private symlinks stored in ~/Dropbox/dotfiles"
+task :set_up_private_symlinks do
+  dotfiles_location = "~/Dropbox/dotfiles"
+  manifest_path = "#{dotfiles_location}/manifest.yml"
+  full_path = File.expand_path(manifest_path)
+  if File.exist?(full_path)
+    manifest = YAML.load_file(full_path)
+    manifest.each do |orig, dest|
+      conditionally_symlink("#{dotfiles_location}/#{orig}", "~/#{dest}")
+    end
+  else
+    puts "  #{manifest_path} does not exist, cannot continue"
+  end
 end
 
 desc "Update to the latest and greatest, and run any installs that need to happen"
@@ -65,3 +63,31 @@ end
 
 # just running `rake` runs `rake update`
 task :default => :update
+
+def conditionally_symlink(source, destination)
+  source = File.expand_path(source)
+  destination = File.expand_path(destination)
+  if File.exist?(source)
+    if File.symlink?(destination)
+      symlink_to = File.readlink(destination)
+      if symlink_to == source
+        puts "  #{destination} already symlinked, nothing to do"
+      else
+        puts "  relinking #{destination} from #{symlink_to} to #{source}"
+        FileUtils.rm(destination)
+        FileUtils.ln_s(source, destination)
+      end
+    elsif File.exist?(destination)
+      # tack on today's date in YYYYMMDD
+      backup_location = "#{destination}.#{Date.today.strftime("%Y%m%d")}"
+      puts "  #{destination} already exists. Backing up to #{backup_location}"
+      FileUtils.mv(destination, backup_location)
+      FileUtils.ln_s(source, destination)
+    else
+      puts "  creating symlink for #{destination}"
+      FileUtils.ln_s(source, destination)
+    end
+  else
+    puts "  #{destination} doesn't exist, cannot create symlink"
+  end
+end
