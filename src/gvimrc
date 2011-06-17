@@ -68,8 +68,7 @@ endif
 set guioptions-=T
 
 " Default gui color scheme
-" accepting the value from .vimrc
-" color railscasts2
+color solarized
 
 " ConqueTerm wrapper
 function StartTerm()
