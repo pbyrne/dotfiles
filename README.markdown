@@ -20,7 +20,7 @@ Installs the Command-T Vim binaries.
 Symlinks private files stored in ~/Dropbox/dotfiles as described in
 ~/Dropbox/dotfiles/manifest.yml. A sample is below to symlink gitconfig,
 hgrc, and TextMate bundles and plugins. The value to the left of `:` is
-the original file relative to ~/Dropbox/dotfiles; the value to the right of `:`
+the original file relative to `~/Dropbox/dotfiles`; the value to the right of `:`
 is the destination, relative to `~`.
 
     ---
