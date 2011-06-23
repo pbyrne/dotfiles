@@ -2,12 +2,6 @@
 # you can make as many tabs as you wish...
 # tab names are actually arbitrary at this point too.
 
-current = ENV["PWD"]
-
-before do
-  run "cd #{current}"
-end
-
 # console
 tab do
   run "be rails console"
