@@ -8,18 +8,18 @@ before do
   run "cd #{current}"
 end
 
-# server
-tab do
-  run "be rails server"
-end
-
 # console
 tab do
   run "be rails console"
 end
 
-# autotest
-# tab do
-#   run "be autotest"
-# end
+# log
+tab do
+  run "powder log"
+end
+
+# pow log
+tab do
+  run "powder applog"
+end
 
