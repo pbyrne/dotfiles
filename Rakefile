@@ -37,8 +37,9 @@ task :set_up_private_symlinks do
   end
 end
 
+# TODO express the other update commands in separate dependant rake tasks
 desc "Update to the latest and greatest, and run any installs that need to happen"
-task :update do
+task :update => [:update_tm] do
   sh "git pull"
   # to ensure that git has loaded the submodules
   sh "git submodule update --init"
@@ -58,6 +59,23 @@ task :install_command_t do
       raise StandardError, "No version of Ruby installed"
     end
     sh "make clean && make"
+  end
+end
+
+desc "Update TextMate Bundles and PlugIns checked out with git"
+task :update_tm do
+  %w(
+    ~/Library/Application\ Support/TextMate/Bundles
+    ~/Library/Application\ Support/TextMate/PlugIns
+  ).each do |dir|
+    `ls '#{File.expand_path(dir)}'`.split("\n").each do |subdir|
+      gitdir = File.expand_path(File.join(dir, subdir, ".git"))
+      if File.directory?(gitdir)
+        # TODO pretty up this output. it uses the entire path, which looks ugly
+        # but avoid Dir.chdir, since that changes the current directory, which i don't want
+        sh "git --git-dir='#{gitdir}' pull"
+      end
+    end
   end
 end
 
