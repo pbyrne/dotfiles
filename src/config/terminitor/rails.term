@@ -2,18 +2,23 @@
 # you can make as many tabs as you wish...
 # tab names are actually arbitrary at this point too.
 
+# server
+tab do
+  run "be passenger start"
+end
+
 # console
 tab do
   run "be rails console"
 end
 
 # log
-tab do
-  run "powder log"
-end
+# tab do
+#   run "powder log"
+# end
 
 # pow log
-tab do
-  run "powder applog"
-end
+# tab do
+#   run "powder applog"
+# end
 
