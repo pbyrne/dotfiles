@@ -73,3 +73,6 @@
 [submodule "src/vim/bundle/coffee-script"]
 	path = src/vim/bundle/coffee-script
 	url = https://github.com/grayrest/vim-coffee-script.git
+[submodule "src/vim/bundle/gotosymbol"]
+	path = src/vim/bundle/gotosymbol
+	url = https://github.com/travisjeffery/vim-gotosymbol.git
