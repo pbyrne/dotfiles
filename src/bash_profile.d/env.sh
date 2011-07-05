@@ -5,3 +5,13 @@ export SHARED_WORKSPACE=~/workspace
 export EDITOR=~/Dropbox/bin/vim
 export POW_DOMAINS=dev,local
 
+# for more info, http://git.kernel.org/?p=git/git.git;a=blob;f=contrib/completion/git-completion.bash;hb=HEAD
+# __git_ps1 flags
+# show * if there are untracked changes and + if staged and uncommitted changes
+GIT_PS1_SHOWDIRTYSTATE=1
+# show $ if there are stashed changes
+GIT_PS1_SHOWSTASHSTATE=1
+# show % if there are untracked files
+GIT_PS1_SHOWUNTRACKEDFILES=1
+# show < if there are unpulled changes, > if there are unpushed changes, or <> if there are both
+GIT_PS1_SHOWUPSTREAM=1
