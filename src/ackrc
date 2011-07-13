@@ -1,2 +1,5 @@
 --type-set=bin=.pdf
 --nobin
+--ignore-dir=tmp
+--ignore-dir=coverage
+
