@@ -55,9 +55,6 @@
 [submodule "src/vim/bundle/zoomwin"]
 	path = src/vim/bundle/zoomwin
 	url = https://github.com/vim-scripts/ZoomWin.git
-[submodule "src/vim/bundle/indent-guides"]
-	path = src/vim/bundle/indent-guides
-	url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "src/vim/bundle/sparkup"]
 	path = src/vim/bundle/sparkup
 	url = http://github.com/bingaman/vim-sparkup.git
@@ -73,9 +70,6 @@
 [submodule "src/vim/bundle/coffee-script"]
 	path = src/vim/bundle/coffee-script
 	url = https://github.com/grayrest/vim-coffee-script.git
-[submodule "src/vim/bundle/gotosymbol"]
-	path = src/vim/bundle/gotosymbol
-	url = https://github.com/travisjeffery/vim-gotosymbol.git
 [submodule "src/vim/bundle/git"]
 	path = src/vim/bundle/git
 	url = https://github.com/tpope/vim-git.git
