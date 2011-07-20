@@ -76,3 +76,6 @@
 [submodule "src/vim/bundle/gotosymbol"]
 	path = src/vim/bundle/gotosymbol
 	url = https://github.com/travisjeffery/vim-gotosymbol.git
+[submodule "src/vim/bundle/git"]
+	path = src/vim/bundle/git
+	url = https://github.com/tpope/vim-git.git
