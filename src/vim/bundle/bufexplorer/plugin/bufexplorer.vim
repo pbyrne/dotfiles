@@ -267,7 +267,7 @@ function! s:BEInitialize()
   let &report = 10000
 
   let s:_list = &list
-  set nolist
+  " set nolist
 
   setlocal nonumber
   setlocal foldcolumn=0
