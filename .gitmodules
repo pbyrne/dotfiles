@@ -73,3 +73,6 @@
 [submodule "src/vim/bundle/git"]
 	path = src/vim/bundle/git
 	url = https://github.com/tpope/vim-git.git
+[submodule "src/vim/bundle/html5-syntax.vim"]
+	path = src/vim/bundle/html5-syntax.vim
+	url = https://github.com/othree/html5-syntax.vim.git
