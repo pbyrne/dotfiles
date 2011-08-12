@@ -11,14 +11,3 @@ end
 tab do
   run "be rails console"
 end
-
-# log
-# tab do
-#   run "powder log"
-# end
-
-# pow log
-# tab do
-#   run "powder applog"
-# end
-
