@@ -19,6 +19,9 @@ alias gu='git pull'
 alias gb='git branch'
 alias gdm='git diff | mate'
 
+# alias hub to git for awesomeness https://github.com/defunkt/hub
+eval `hub alias -s bash 2> /dev/null`
+
 # svn
 alias sc='svn commit -m'
 alias ss='svn status'
