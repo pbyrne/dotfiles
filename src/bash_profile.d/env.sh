@@ -4,6 +4,8 @@ export PATH=~/Dropbox/bin:~/.gem/ruby/1.8/bin:/usr/local/mysql-5.1.50-osx10.6-x8
 export SHARED_WORKSPACE=~/workspace
 export EDITOR=~/Dropbox/bin/vim
 export POW_DOMAINS=dev,local
+# in LION, needed this to compile ruby 1.8.7
+export CC=/usr/bin/gcc-4.2
 
 # for more info, http://git.kernel.org/?p=git/git.git;a=blob;f=contrib/completion/git-completion.bash;hb=HEAD
 # __git_ps1 flags
