@@ -69,14 +69,17 @@ task :update_tm do
     ~/Library/Application\ Support/TextMate/PlugIns
   ).each do |dir|
     `ls '#{File.expand_path(dir)}'`.split("\n").each do |subdir|
-      gitdir = File.expand_path(File.join(dir, subdir, ".git"))
-      if File.directory?(gitdir)
+      gitdir = File.expand_path(File.join(dir, subdir))
+      if File.directory?(File.join(gitdir, ".git"))
         # TODO pretty up this output. it uses the entire path, which looks ugly
         # but avoid Dir.chdir, since that changes the current directory, which i don't want
-        sh "git --git-dir='#{gitdir}' pull"
+        sh "cd '#{gitdir}' && git pull"
       end
     end
   end
+
+  # return to the directory where rake was called
+  sh "cd '#{ENV['PWD']}'"
 end
 
 # just running `rake` runs `rake update`
