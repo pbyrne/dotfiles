@@ -5,3 +5,6 @@ fi
 
 # and my own custom configuration
 . ~/.profile
+
+# and a local configuration, if it exists
+[ -e ~/.profile.local ] && . ~/.profile.local
