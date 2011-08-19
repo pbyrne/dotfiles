@@ -6,6 +6,7 @@ export EDITOR=~/Dropbox/bin/vim
 export POW_DOMAINS=dev,local
 # in LION, needed this to compile ruby 1.8.7
 export CC=/usr/bin/gcc-4.2
+export NODE_PATH=/usr/local/lib/node_modules
 
 # for more info, http://git.kernel.org/?p=git/git.git;a=blob;f=contrib/completion/git-completion.bash;hb=HEAD
 # __git_ps1 flags
