@@ -76,3 +76,6 @@
 [submodule "src/vim/bundle/html5-syntax.vim"]
 	path = src/vim/bundle/html5-syntax.vim
 	url = https://github.com/othree/html5-syntax.vim.git
+[submodule "src/vim/bundle/color-tomorrow"]
+	path = src/vim/bundle/color-tomorrow
+	url = https://github.com/ChrisKempson/Tomorrow-Theme.git
