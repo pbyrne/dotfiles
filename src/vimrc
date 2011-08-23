@@ -52,10 +52,32 @@ if has("autocmd")
     \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
     \   nnoremap <buffer> .. :edit %:h<CR> |
     \ endif
-  
+
   " delete a Gedit view from the buffer list when leaving it
   autocmd BufReadPost fugitive://* set bufhidden=delete
-  
+
+  " exit out of vimdiff mode from a fugitive diff, ugly and hacky but it works
+  " from http://stackoverflow.com/questions/2703644/how-do-you-exit-vimdiff-mode-in-vim
+  function! MyCloseDiff()
+    if (&diff == 0 || getbufvar('#', '&diff') == 0)
+          \ && (bufname('%') !~ '^fugitive:' && bufname('#') !~ '^fugitive:')
+      echom "Not in diff view."
+      return
+    endif
+
+    " close current buffer if alternate is not fugitive but current one is
+    if bufname('#') !~ '^fugitive:' && bufname('%') =~ '^fugitive:'
+      if bufwinnr("#") == -1
+        b #
+        bd #
+      else
+        bd
+      endif
+    else
+      bd #
+    endif
+  endfunction
+  nnoremap <Leader>gD :call MyCloseDiff()<cr>
 endif
 
 function s:setupWrapping()
