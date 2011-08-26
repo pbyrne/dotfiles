@@ -68,6 +68,7 @@ endif
 set guioptions-=T
 
 " Default gui color scheme
+set background=light
 color solarized
 
 " ConqueTerm wrapper

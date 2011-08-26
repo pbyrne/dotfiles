@@ -140,8 +140,13 @@ set modeline
 set modelines=10
 
 " Default color scheme
-" set background=light
-" colorscheme solarized
+let g:solarized_contrast="high"    "default value is normal
+let g:solarized_visibility="high"    "default value is normal
+let g:solarized_hitrail=1    "default value is 0
+syntax enable
+set background=dark
+colorscheme solarized
+
 
 " Directories for swp files
 set backupdir=~/.vim/backup
