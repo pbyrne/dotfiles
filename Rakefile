@@ -43,8 +43,7 @@ task :update => [:update_tm] do
   sh "git pull"
   # to ensure that git has loaded the submodules
   sh "git submodule update --init"
-  sh "git submodule foreach git checkout master" # to ensure that you're all checked out and the update command actually does something
-  sh "git submodule foreach git pull"
+  sh "git submodule foreach git pull origin master"
 end
 
 desc "Run the install script for Command-T"
