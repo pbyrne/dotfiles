@@ -3,7 +3,6 @@
 export PATH=~/Dropbox/bin:~/.gem/ruby/1.8/bin:/usr/local/mysql-5.1.50-osx10.6-x86_64/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
 export SHARED_WORKSPACE=~/workspace
 export EDITOR=~/Dropbox/bin/vim
-export POW_DOMAINS=dev,local
 # in LION, needed this to compile ruby 1.8.7
 export CC=/usr/bin/gcc-4.2
 export NODE_PATH=/usr/local/lib/node_modules
