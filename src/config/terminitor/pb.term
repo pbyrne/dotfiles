@@ -1,0 +1,5 @@
+setup 'cd ~/workspace/patrickbyrne.net/'
+
+tab do
+  run 'bundle exec guard'
+end
