@@ -2,4 +2,5 @@
 --nobin
 --ignore-dir=tmp
 --ignore-dir=coverage
+--ignore-dir=app/flash
 
