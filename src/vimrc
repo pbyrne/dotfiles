@@ -243,3 +243,5 @@ endif
 
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%y\ %-14.(%l,%c%V%)\ %P
 
+" reselect the just-pasted text
+nnoremap <leader>v V`]
