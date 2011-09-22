@@ -11,3 +11,8 @@ end
 tab do
   run "be rails console"
 end
+
+# memcached
+tab do
+  run "be memcached -vv"
+end
