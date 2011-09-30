@@ -79,3 +79,6 @@
 [submodule "src/vim/bundle/scratch"]
 	path = src/vim/bundle/scratch
 	url = https://github.com/duff/vim-scratch
+[submodule "src/vim/bundle/color-tomorrow.vim"]
+	path = src/vim/bundle/color-tomorrow.vim
+	url = https://github.com/jasonkuhrt/Tomorrow-Theme
