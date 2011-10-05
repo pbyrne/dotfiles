@@ -157,11 +157,13 @@ set directory=~/.vim/backup
 
 
 " persistent undo, even after closing and saving
-set undodir=~/.vim/backup
+if has("persistent_undo")
+  set undodir=~/.vim/backup
 
-set undofile
-set undolevels=1000 "maximum number of changes that can be undone
-set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+  set undofile
+  set undolevels=1000 "maximum number of changes that can be undone
+  set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+endif
 
 " Turn off jslint errors by default
 let g:JSLintHighlightErrorLine = 0
@@ -245,3 +247,45 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%y\ %-14.(%l,%c%V%)\ %P
 
 " reselect the just-pasted text
 nnoremap <leader>v V`]
+
+" automatically leave insert mode after 15 seconds of inactivity
+au CursorHoldI * stopinsert
+au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
+au InsertLeave * let &updatetime=updaterestore
+
+" move line of text with ALT+[jk], indent with ALT+[hl]
+" normal mode
+nnoremap <A-j> :m+<CR>==
+nnoremap <A-k> :m-2<CR>==
+nnoremap <A-h> <<
+nnoremap <A-l> >>
+" insert mode
+inoremap <A-j> <Esc>:m+<CR>==gi
+inoremap <A-k> <Esc>:m-2<CR>==gi
+inoremap <A-h> <Esc><<`]a
+inoremap <A-l> <Esc>>>`]a
+" visual mode
+vnoremap <A-j> :m'>+<CR>gv=gv
+vnoremap <A-k> :m-2<CR>gv=gv
+vnoremap <A-h> <gv
+vnoremap <A-l> >gv
+
+" start scrolling within 5 lines of the edge of the window
+set scrolloff=5
+
+" awesome buffer switching
+nnoremap <C-j> :bp<CR>
+nnoremap <C-k> :bn<CR>
+
+" shortcuts for beginning and end of the line
+nnoremap H ^
+nnoremap L $
+
+" jj to escape insert mode
+inoremap jj <ESC>
+
+" split below (instead of above) and to the right (instead of to the left)
+set splitbelow
+set splitright
+
+
