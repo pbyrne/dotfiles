@@ -82,3 +82,6 @@
 [submodule "src/vim/bundle/color-tomorrow.vim"]
 	path = src/vim/bundle/color-tomorrow.vim
 	url = https://github.com/jasonkuhrt/Tomorrow-Theme
+[submodule "src/vim/bundle/rake"]
+	path = src/vim/bundle/rake
+	url = https://github.com/tpope/vim-rake.git
