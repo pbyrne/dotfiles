@@ -69,7 +69,7 @@ set guioptions-=T
 
 " Default gui color scheme
 set background=light
-color solarized
+colorscheme solarized
 
 " ConqueTerm wrapper
 function StartTerm()
