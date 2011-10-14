@@ -8,6 +8,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias cd..='cd ..'
 alias psg='ps aux | grep'
+# create a tar file. usage: tarup filename.tar.gz directory/
+alias tarup='tar -cvzf'
+alias untar='tar -xvzf'
 
 # terminitor gem
 alias ts='terminitor start'
