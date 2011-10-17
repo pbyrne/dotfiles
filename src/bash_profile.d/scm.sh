@@ -10,6 +10,7 @@ alias hbs='hg branches'
 alias hpd='hg push && cap deploy'
 
 # git
+alias G='git'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gs='git status'
