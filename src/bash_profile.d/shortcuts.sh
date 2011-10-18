@@ -31,3 +31,7 @@ function cdf() {
   cd *$1*/
 }
 
+# git
+alias G='git'
+# alias hub to git for awesomeness https://github.com/defunkt/hub
+# eval `hub alias -s bash 2> /dev/null`
