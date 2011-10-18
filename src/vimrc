@@ -28,10 +28,12 @@ set listchars=tab:\ \ ,trail:·
 " Searching
 set hlsearch
 set incsearch
+set showmatch
 set ignorecase
 set smartcase
 
 " Tab completion
+set wildmenu
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn
 
@@ -206,11 +208,6 @@ set smartcase
 nnoremap <tab> %
 vnoremap <tab> %
 
-" highlight search results as you go
-set incsearch
-set showmatch
-set hlsearch
-
 " clear the search term
 nnoremap <leader><space> :noh<cr>
 
@@ -272,8 +269,8 @@ vnoremap <A-k> :m-2<CR>gv=gv
 vnoremap <A-h> <gv
 vnoremap <A-l> >gv
 
-" start scrolling within 5 lines of the edge of the window
-set scrolloff=5
+" start scrolling within 3 lines of the edge of the window
+set scrolloff=3
 
 " awesome buffer switching
 nnoremap <C-j> :bp<CR>
@@ -290,4 +287,21 @@ inoremap jj <ESC>
 set splitbelow
 set splitright
 
+" show a window title, even in command-line vim
+set title
 
+" eliminate some extraneous garbage from messages
+" a to truncate text as much as possible
+" t to eliminate long file names
+" I to skip vim's intro message
+set shortmess=atI
+
+" eliminate audio bells
+set visualbell
+
+" store command history FOREVER
+set history=1000
+
+" allow an unsaved buffer to become hidden (no longer the visible), and load
+" its marks and undo history upon becoming visible again
+set hidden
