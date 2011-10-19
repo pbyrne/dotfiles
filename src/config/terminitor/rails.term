@@ -4,7 +4,9 @@
 
 # server
 tab do
-  run "be passenger start"
+  # run "be passenger start"
+  # the bundled version of passenger isn't building correctly on lion
+  run "passenger start"
 end
 
 # console
