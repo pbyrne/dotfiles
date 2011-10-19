@@ -1,5 +1,21 @@
---type-set=bin=.pdf
+# only search with case sensitivity if there is mixed case
+--smart-case
+# follow symliunks
+--follow
+
+# treat these all as plaintext
+--type-set
+plaintext=.md,.markdown,.txt
+# cucumber features
+--type-set
+cucumber=.feature
+# treat PDFs as binary files
+--type-set
+bin=.pdf
+
+# ignore binary files
 --nobin
+
 --ignore-dir=tmp
 --ignore-dir=coverage
 --ignore-dir=app/flash
