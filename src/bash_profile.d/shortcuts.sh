@@ -32,9 +32,9 @@ function cdf() {
 }
 
 # git
-alias G='git'
+alias g='git'
 # and include autocomplete for this shortcut
-complete -o default -o nospace -F _git G
+complete -o default -o nospace -F _git g
 
 # alias hub to git for awesomeness https://github.com/defunkt/hub
 # eval `hub alias -s bash 2> /dev/null`
