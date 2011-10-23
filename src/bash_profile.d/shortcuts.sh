@@ -16,7 +16,7 @@ alias untar='tar -xvzf'
 alias ts='terminitor start'
 
 # clear out the **.orig files left over from opendiff's merges
-alias rmorig='find . -name *.orig | xargs rm'
+alias rmorig="find . -name '*.orig' | xargs rm"
 
 # don't want certain configuration choices when editing my crontab, so will check against VIM_CRONTAB in my .vimrc
 alias crontab="VIM_CRONTAB=true crontab"
