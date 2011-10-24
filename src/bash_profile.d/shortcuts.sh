@@ -38,3 +38,7 @@ complete -o default -o nospace -F _git g
 
 # alias hub to git for awesomeness https://github.com/defunkt/hub
 # eval `hub alias -s bash 2> /dev/null`
+
+# heroku
+alias h='heroku'
+
