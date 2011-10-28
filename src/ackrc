@@ -13,6 +13,13 @@ cucumber=.feature
 --type-set
 bin=.pdf
 
+# search haml, sass, erb, and coffeescript
+--type-set=haml=.haml
+--type-set=sass=.sass
+--type-set=scss=.scss
+--type-set=erb=.erb
+--type-set=coffee=.coffee
+
 # ignore binary files
 --nobin
 
