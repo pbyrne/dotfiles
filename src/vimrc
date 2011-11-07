@@ -305,3 +305,6 @@ set history=1000
 " allow an unsaved buffer to become hidden (no longer the visible), and load
 " its marks and undo history upon becoming visible again
 set hidden
+
+" Increase Max Files in Command-T List (from default of 10,000)
+let g:CommandTMaxFiles=100000
