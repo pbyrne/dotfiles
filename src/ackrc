@@ -26,4 +26,5 @@ bin=.pdf
 --ignore-dir=tmp
 --ignore-dir=coverage
 --ignore-dir=app/flash
+--ignore-dir=cache
 
