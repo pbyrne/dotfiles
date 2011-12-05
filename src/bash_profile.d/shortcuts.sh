@@ -8,6 +8,20 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias cd..='cd ..'
 alias psg='ps aux | grep'
+
+# rails stuff
+alias rs='rails server'
+alias rc='rails console'
+alias b='bundle'
+alias be='bundle exec'
+# awesome spec rake task
+alias s='bundle exec rake spec'
+# stupid test:unit rake tasks
+alias t='bundle exec rake test'
+alias tu='bundle exec rake test:units'
+alias tf='bundle exec rake test:functionals'
+alias ti='bundle exec rake test:integration'
+
 # create a tar file. usage: tarup filename.tar.gz directory/
 alias tarup='tar -cvzf'
 alias untar='tar -xvzf'
@@ -20,16 +34,6 @@ alias rmorig="find . -name '*.orig' | xargs rm"
 
 # don't want certain configuration choices when editing my crontab, so will check against VIM_CRONTAB in my .vimrc
 alias crontab="VIM_CRONTAB=true crontab"
-
-# Fuzzy cd
-# Usage:
-#    cdf public
-# Changes to repos-public directory.
-# stolen from @topfunky (http://dpaste.org/P59h/)
- 
-function cdf() {
-  cd *$1*/
-}
 
 # git
 alias g='git'
