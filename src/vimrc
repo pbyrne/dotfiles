@@ -2,53 +2,142 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-" enable lots of cool vim-only features
-set nocompatible
+" general
+set nocompatible " enable lots of cool vim-only features
+syntax enable " enable syntax highlighting
+set encoding=utf-8 " default encoding
+set showcmd " display incomplete commands
+filetype plugin indent on " load file type plugins and indentation
+set showmatch " highlight the matching {("/")}
+set backupdir=~/.vim/backup " specify location for backup files
+set directory=~/.vim/backup " specify location for swp files
+set relativenumber " relative line numbers; if you care about aboslute, look at the status bar
+set cursorline " highlight the current line
+" set autoindent " perform auto-indentation
+set shiftround " round to the nearest tabstop when tabbing
+set scrolloff=3 " start scrolling within 3 lines of the edge of the window
+set title " show a window title, even in command-line vim
+set visualbell " eliminate audio bells
+set hidden " allow an unsaved buffer to become hidden (no longer the visible), and load its marks and undo history upon becoming visible again
+set history=1000 " store command history FOREVER
 
-" enable syntax highlighting
-syntax on
+" whitespace settings
+set nowrap " don't wrap lines
+set tabstop=2 shiftwidth=2 softtabstop=2 " 2 spaces for tabs
+set expandtab " use spaces, not tabs
+set backspace=indent,eol,start " backspace through everything
+set list " display whitespace characters
+set listchars=tab:\ \ ,trail:· " tabs, spaces, trailing whitespace
 
-" enable status bar at the bottom
-set ruler
-" Status bar
-set laststatus=2
+" searching
+set hlsearch " highlight matches
+set incsearch " search incrementally
+set ignorecase " case-insensitive search
+set smartcase " unless there's a capital later
 
-" Set encoding
-set encoding=utf-8
-
-" Whitespace stuff
-set wrap
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set list
-set listchars=tab:\ \ ,trail:·
-
-" Searching
-set hlsearch
-set incsearch
-set showmatch
-set ignorecase
-set smartcase
+" status bar
+set ruler " enable status bar at the bottom
+set laststatus=2 " Status bar
+" eliminate some extraneous garbage from messages
+" a to truncate text as much as possible
+" t to eliminate long file names
+" I to skip vim's intro message
+set shortmess=atI
 
 " Tab completion
-set wildmenu
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn
-" and ignore binary files, mainly for command-t
-set wildignore+=*.png,*.jpg,*.gif,*.ico,*.swf,*.psd,*.gem
+set wildmenu " enable tab completion
+set wildmode=list:longest,list:full " promiscuous selection of available completions
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn " ignore these files for completion
+set wildignore+=*.png,*.jpg,*.gif,*.ico,*.swf,*.psd,*.gem " and these binaries, too. mainly for command-t
 
-" NERDTree configuration
-let NERDTreeIgnore=['\.rbc$', '\~$']
-map <Leader>n :NERDTreeToggle<CR>
+" window splitting settings
+set splitbelow
+set splitright
 
-" Command-T configuration
-let g:CommandTMaxHeight=20
+" Default color scheme
+let g:solarized_contrast="high"    "default value is normal
+let g:solarized_visibility="high"    "default value is normal
+let g:solarized_hitrail=1    "default value is 0
+set background=dark
+colorscheme Tomorrow-Night
+
+" Undo settings, if available
+if has("persistent_undo")
+  set undodir=~/.vim/backup " specify location of undo files
+
+  set undofile " persistent undo, even after closing and saving
+  set undolevels=1000 "maximum number of changes that can be undone
+  set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+endif
+
+" MacVIM shift+arrow-keys behavior (required in .vimrc)
+let macvim_hig_shift_movement = 1
+
+" % to bounce from do to end etc.
+" also necessary for textobj-rubyblock
+runtime! macros/matchit.vim
+
+" force you to Do The Right Thing (don't use arrows to move)
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+" Custom shortcuts
+" use sane (not the vim-default) regexes in search
+nnoremap / /\v
+" use sane (not the vim-default) regexes in search
+vnoremap / /\v
+" clear the search term
+nnoremap <leader><space> :noh<cr>
+" close windows other than the current
+map <Leader><Leader> :ZoomWin<CR>
+" reselect the just-pasted text
+nnoremap <leader>v V`]
+" awesome buffer switching
+nnoremap <C-j> :bp<CR>
+nnoremap <C-k> :bn<CR>
+" shortcuts for beginning and end of the line
+nnoremap H ^
+nnoremap L $
+" jj to escape insert mode
+inoremap jj <ESC>
+
+" automatically strip whitespace from ends of ruby and ERB files
+"autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
+
+if $VIM_CRONTAB == "true"
+set nobackup " don't back up, causes issues editing crontabs
+set nowritebackup " disabling other backup feature
+syntax off " my colorscheme's syntax highlighting in crontab is redongculous
+endif
+
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%y\ %-14.(%l,%c%V%)\ %P
+
+" Command-T settings
+let g:CommandTMaxHeight=20 " max height of list of matches
+let g:CommandTMaxFiles=100000 " Increase Max Files in Command-T List (from default of 10,000)
+
+" Unimpaired shortcuts
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
+" CTags shortcuts
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+" open definition in a new tab
+map <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 if has("autocmd")
   " Remember last location in file
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
 
   " maps .. to move up a directory when in Fugitive's Gedit view on a folder
@@ -82,231 +171,24 @@ if has("autocmd")
     endif
   endfunction
   nnoremap <Leader>gD :call MyCloseDiff()<cr>
+  
+  " make uses real tabs
+  autocmd FileType make set noexpandtab
+  
+  " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+  autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.term,Guardfile}    set ft=ruby
+  
+  " json is really just javascript
+  autocmd BufNewFile,BufRead *.json set ft=javascript
+  
+  " clean up quickfix (e.g., Ack) output
+  autocmd Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
+  
+  " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+  autocmd FileType python  set tabstop=4 textwidth=79
+  
+  " automatically leave insert mode after 15 seconds of inactivity
+  autocmd CursorHoldI * stopinsert
+  autocmd InsertEnter * let updaterestore=&updatetime | set updatetime=15000
+  autocmd InsertLeave * let &updatetime=updaterestore
 endif
-
-function s:setupWrapping()
-  set wrap
-  set wm=2
-  set textwidth=72
-endfunction
-
-function s:setupMarkup()
-  call s:setupWrapping()
-  map <buffer> <Leader>p :Mm <CR>
-endfunction
-
-" make uses real tabs
-au FileType make                                     set noexpandtab
-
-" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.term,Guardfile}    set ft=ruby
-
-" md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-" json is really just javascript
-autocmd BufNewFile,BufRead *.json set ft=javascript
-
-au BufRead,BufNewFile *.txt call s:setupWrapping()
-
-" clean up quickfix (e.g., Ack) output
-au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
-
-" make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python  set tabstop=4 textwidth=79
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-" load the plugin and indent settings for the detected filetype
-filetype plugin indent on
-
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Inserts the path of the currently edited file into a command
-" Command mode: Ctrl+P
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
-
-" Enable syntastic syntax checking
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
-
-" Use modeline overrides
-set modeline
-set modelines=10
-
-" Default color scheme
-let g:solarized_contrast="high"    "default value is normal
-let g:solarized_visibility="high"    "default value is normal
-let g:solarized_hitrail=1    "default value is 0
-syntax enable
-set background=dark
-colorscheme Tomorrow-Night
-
-
-" Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
-
-
-" persistent undo, even after closing and saving
-if has("persistent_undo")
-  set undodir=~/.vim/backup
-
-  set undofile
-  set undolevels=1000 "maximum number of changes that can be undone
-  set undoreload=10000 "maximum number lines to save for undo on a buffer reload
-endif
-
-" Turn off jslint errors by default
-let g:JSLintHighlightErrorLine = 0
-
-" MacVIM shift+arrow-keys behavior (required in .vimrc)
-let macvim_hig_shift_movement = 1
-
-" % to bounce from do to end etc.
-" also necessary for textobj-rubyblock
-runtime! macros/matchit.vim
-
-" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
-
-" relative line numbers; if you care about aboslute, look at the status bar
-set relativenumber
-" set number
-
-" highlight the current line
-set cursorline
-
-" perform auto-indentation
-set autoindent
-set shiftround " round to the nearest tabstop when tabbing
-
-" use sane (not the vim-default) regexes in search
-nnoremap / /\v
-vnoremap / /\v
-
-" be smart about case sensetivity in searches: all lowercase, insensitive; any
-" uppercase, sensitive
-set ignorecase
-set smartcase
-
-" switch between bracket pairs with tab instead of % (easier to type)
-nnoremap <tab> %
-vnoremap <tab> %
-
-" clear the search term
-nnoremap <leader><space> :noh<cr>
-
-" force you to Do The Right Thing (don't use arrows to move)
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
-" build CTags
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-
-" more ctags goodness
-" open definition in a new tab
-map <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
-" list the tags
-map <C-t> :Tlist<CR>
-
-" close windows other than the current
-map <Leader><Leader> :ZoomWin<CR>
-
-" automatically strip whitespace from ends of ruby and ERB files
-"autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
-
-if $VIM_CRONTAB == "true"
-set nobackup
-set nowritebackup
-syntax off " my colorscheme's syntax highlighting in crontab is redongculous
-endif
-
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%y\ %-14.(%l,%c%V%)\ %P
-
-" reselect the just-pasted text
-nnoremap <leader>v V`]
-
-" automatically leave insert mode after 15 seconds of inactivity
-au CursorHoldI * stopinsert
-au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
-au InsertLeave * let &updatetime=updaterestore
-
-" move line of text with ALT+[jk], indent with ALT+[hl]
-" normal mode
-nnoremap <A-j> :m+<CR>==
-nnoremap <A-k> :m-2<CR>==
-nnoremap <A-h> <<
-nnoremap <A-l> >>
-" insert mode
-inoremap <A-j> <Esc>:m+<CR>==gi
-inoremap <A-k> <Esc>:m-2<CR>==gi
-inoremap <A-h> <Esc><<`]a
-inoremap <A-l> <Esc>>>`]a
-" visual mode
-vnoremap <A-j> :m'>+<CR>gv=gv
-vnoremap <A-k> :m-2<CR>gv=gv
-vnoremap <A-h> <gv
-vnoremap <A-l> >gv
-
-" start scrolling within 3 lines of the edge of the window
-set scrolloff=3
-
-" awesome buffer switching
-nnoremap <C-j> :bp<CR>
-nnoremap <C-k> :bn<CR>
-
-" shortcuts for beginning and end of the line
-nnoremap H ^
-nnoremap L $
-
-" jj to escape insert mode
-inoremap jj <ESC>
-
-" split below (instead of above) and to the right (instead of to the left)
-set splitbelow
-set splitright
-
-" show a window title, even in command-line vim
-set title
-
-" eliminate some extraneous garbage from messages
-" a to truncate text as much as possible
-" t to eliminate long file names
-" I to skip vim's intro message
-set shortmess=atI
-
-" eliminate audio bells
-set visualbell
-
-" store command history FOREVER
-set history=1000
-
-" allow an unsaved buffer to become hidden (no longer the visible), and load
-" its marks and undo history upon becoming visible again
-set hidden
-
-" Increase Max Files in Command-T List (from default of 10,000)
-let g:CommandTMaxFiles=100000
