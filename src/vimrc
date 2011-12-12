@@ -95,7 +95,7 @@ vnoremap / /\v
 " clear the search term
 nnoremap <leader><space> :noh<cr>
 " close windows other than the current
-map <Leader><Leader> :ZoomWin<CR>
+map <Leader>w :ZoomWin<CR>
 " reselect the just-pasted text
 nnoremap <leader>v V`]
 " awesome buffer switching
