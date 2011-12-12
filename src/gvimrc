@@ -2,7 +2,8 @@
 set background=light
 colorscheme solarized
 set gfn=Monaco:h14 " set to a bigger, nicer font than the default
-map <D-F> :Ack<space> " Command-Shift-F for Ack
+" Command-Shift-F for Ack
+map <D-F> :Ack<space>
 
 " Command-/ to toggle comments
 map <D-/> <plug>NERDCommenterToggle<CR>
