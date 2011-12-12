@@ -10,9 +10,6 @@
 [submodule "src/vim/bundle/javascript"]
 	path = src/vim/bundle/javascript
 	url = http://github.com/pangloss/vim-javascript.git
-[submodule "src/vim/bundle/nerdtree"]
-	path = src/vim/bundle/nerdtree
-	url = http://github.com/wycats/nerdtree.git
 [submodule "src/vim/bundle/surround"]
 	path = src/vim/bundle/surround
 	url = http://github.com/tpope/vim-surround.git
@@ -25,9 +22,6 @@
 [submodule "src/vim/bundle/rspec"]
 	path = src/vim/bundle/rspec
 	url = http://github.com/taq/vim-rspec.git
-[submodule "src/vim/bundle/snipmate"]
-	path = src/vim/bundle/snipmate
-	url = http://github.com/msanders/snipmate.vim.git
 [submodule "src/vim/bundle/unimpaired"]
 	path = src/vim/bundle/unimpaired
 	url = http://github.com/tpope/vim-unimpaired.git
