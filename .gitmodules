@@ -76,3 +76,6 @@
 [submodule "src/vim/bundle/rake"]
 	path = src/vim/bundle/rake
 	url = https://github.com/tpope/vim-rake.git
+[submodule "src/vim/bundle/commentary"]
+	path = src/vim/bundle/commentary
+	url = https://github.com/tpope/vim-commentary.git
