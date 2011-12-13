@@ -1,9 +1,3 @@
-current_git_branch() {
-  git branch 2> /dev/null |
-  grep '^\* ' |
-  awk '{ print $2 }'
-}
-
 # `work foo` to navigate to SHARED_WORKSPACE/foo.
 work() {
   dir=$(workspace)
