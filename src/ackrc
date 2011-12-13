@@ -14,14 +14,22 @@ cucumber=.feature
 bin=.pdf
 
 # search haml, sass, erb, and coffeescript
---type-set=haml=.haml
---type-set=sass=.sass
---type-set=scss=.scss
+--type-set=ruby=.haml,.rake
+--type-set=css=.sass,.scss
 --type-set=erb=.erb
---type-set=coffee=.coffee
+--type-set=js=.coffee
+--type-set=markdown=.markdown,.md,.mdown
 
 # ignore binary files
 --nobin
+
+# Specify types to search
+--ruby
+--css
+--js
+--markdown
+--actionscript
+--objc
 
 --ignore-dir=tmp
 --ignore-dir=coverage
