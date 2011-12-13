@@ -19,6 +19,7 @@ bin=.pdf
 --type-set=erb=.erb
 --type-set=js=.coffee
 --type-set=markdown=.markdown,.md,.mdown
+--type-set=shell=.sh
 
 # ignore binary files
 --nobin
@@ -29,7 +30,7 @@ bin=.pdf
 --js
 --markdown
 --actionscript
---objc
+--shell
 
 --ignore-dir=tmp
 --ignore-dir=coverage
