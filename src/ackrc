@@ -14,10 +14,9 @@ cucumber=.feature
 bin=.pdf
 
 # search haml, sass, erb, and coffeescript
---type-set=ruby=.haml,.rake
---type-set=css=.sass,.scss
---type-set=erb=.erb
---type-set=js=.coffee
+--type-set=ruby=.haml,.rake,.erb,.rb
+--type-set=css=.sass,.scss,.css
+--type-set=js=.coffee,.js
 --type-set=markdown=.markdown,.md,.mdown
 --type-set=shell=.sh
 
