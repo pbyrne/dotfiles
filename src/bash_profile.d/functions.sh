@@ -26,4 +26,8 @@ _work() {
 }
 
 # enable completion for work() function using _work(), but only if `complete` exists
-command -v complete && complete -o nospace -F _work work
+command -v complete > /dev/null && complete -o nospace -F _work work
+
+# now use w for work()
+alias w='work'
+command -v complete > /dev/null && complete -o nospace -F _work w
