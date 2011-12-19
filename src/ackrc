@@ -28,6 +28,7 @@ bin=.pdf
 --css
 --js
 --markdown
+--html
 --actionscript
 --shell
 
