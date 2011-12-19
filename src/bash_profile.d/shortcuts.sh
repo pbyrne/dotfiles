@@ -1,5 +1,4 @@
 # quality of life
-alias grep='grep --color=auto'
 alias ll='ls -FlaG'
 alias llg='ll | grep'
 alias lc='wc -l'
