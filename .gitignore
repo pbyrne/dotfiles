@@ -1,7 +1,8 @@
 .netrwhist
 tmp
 nerdtree_plugin
-backup
+_backup
+_swp
 
 tags
 after

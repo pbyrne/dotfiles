@@ -9,8 +9,8 @@ set encoding=utf-8 " default encoding
 set showcmd " display incomplete commands
 filetype plugin indent on " load file type plugins and indentation
 set showmatch " highlight the matching {("/")}
-set backupdir=~/.vim/backup " specify location for backup files
-set directory=~/.vim/backup " specify location for swp files
+set backupdir=~/.vim/_backup " specify location for backup files
+set directory=~/.vim/_swp " specify location for swp files
 set relativenumber " relative line numbers; if you care about aboslute, look at the status bar
 set cursorline " highlight the current line
 " set autoindent " perform auto-indentation
