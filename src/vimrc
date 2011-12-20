@@ -63,7 +63,7 @@ colorscheme Tomorrow-Night
 
 " Undo settings, if available
 if has("persistent_undo")
-  set undodir=~/.vim/backup " specify location of undo files
+  set undodir=~/.vim/_undo " specify location of undo files
 
   set undofile " persistent undo, even after closing and saving
   set undolevels=1000 "maximum number of changes that can be undone
