@@ -79,3 +79,6 @@
 [submodule "src/vim/bundle/commentary"]
 	path = src/vim/bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "src/vim/bundle/liquid"]
+	path = src/vim/bundle/liquid
+	url = https://github.com/tpope/vim-liquid.git
