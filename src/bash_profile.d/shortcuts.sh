@@ -13,10 +13,11 @@ alias be='bundle exec'
 # awesome spec rake task
 alias s='bundle exec rake spec'
 # stupid test:unit rake tasks
-alias t='RAILS_ENV=test bundle exec rake db:create test'
-alias tu='RAILS_ENV=test bundle exec rake db:create test:units'
-alias tf='RAILS_ENV=test bundle exec rake db:create test:functionals'
-alias ti='RAILS_ENV=test bundle exec rake db:create test:integration'
+alias mktest='RAILS_ENV=test bundle exec rake db:create'
+alias t='mktest && bundle exec rake test'
+alias tu='mktest && bundle exec rake test:units'
+alias tf='mktest && bundle exec rake test:functionals'
+alias ti='mktest && bundle exec rake test:integration'
 
 # create a tar file. usage: tarup filename.tar.gz directory/
 alias tarup='tar -cvzf'
