@@ -135,6 +135,14 @@ map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " open definition in a new tab
 map <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" Create the tag on multiple lines: e.g.
+" <p>
+"   |
+" </p>
+" instead of
+" <p>|</p>
+imap <Leader>e <C-e><CR><ESC>O
+
 if has("autocmd")
   " Remember last location in file
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
