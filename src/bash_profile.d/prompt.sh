@@ -11,4 +11,4 @@ hg_ps1() {
 # rvm-prompt is the RVM prompt information
 # $BOLD bolds text, \NC resets back to normal color
 # 2> /dev/null swallows any errors
-export PS1="\w \$(rvm-prompt 2> /dev/null)$BOLD\$(__git_ps1 2> /dev/null)$NC \n$ "
+export PS1="\w \$(rvm-prompt i v 2> /dev/null)$BOLD\$(__git_ps1 2> /dev/null)$NC \n$ "
