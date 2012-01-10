@@ -49,6 +49,7 @@ set wildmenu " enable tab completion
 set wildmode=list:longest,list:full " promiscuous selection of available completions
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn " ignore these files for completion
 set wildignore+=*.png,*.jpg,*.gif,*.ico,*.swf,*.psd,*.gem " and these binaries, too. mainly for command-t
+set wildignore+=_site,cache " and auto-generated files
 
 " window splitting settings
 set splitbelow
