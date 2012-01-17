@@ -82,3 +82,6 @@
 [submodule "src/vim/bundle/liquid"]
 	path = src/vim/bundle/liquid
 	url = https://github.com/tpope/vim-liquid.git
+[submodule "src/vim/bundle/pasta"]
+	path = src/vim/bundle/pasta
+	url = https://github.com/sickill/vim-pasta.git
