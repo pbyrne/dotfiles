@@ -20,6 +20,8 @@ alias tf='bundle exec rake test:functionals'
 alias ti='bundle exec rake test:integration'
 # and rake
 alias r='bundle exec rake'
+# and vagrant
+alias v='bundle exec vagrant'
 
 # create a tar file. usage: tarup filename.tar.gz directory/
 alias tarup='tar -cvzf'
