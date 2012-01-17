@@ -110,6 +110,8 @@ inoremap jj <ESC>
 
 " automatically strip whitespace from ends of ruby and ERB files
 "autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
+nmap <Leader>WS :%s/\s\+$//e<CR>
+imap <Leader>WS :%s/\s\+$//e<CR>
 
 if $VIM_CRONTAB == "true"
 set nobackup " don't back up, causes issues editing crontabs
