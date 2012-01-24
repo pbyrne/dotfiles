@@ -1,6 +1,7 @@
 " Default gui color scheme
 set background=light
-colorscheme solarized
+" colorscheme solarized
+colorscheme github
 set gfn=Monaco:h14 " set to a bigger, nicer font than the default
 " Command-Shift-F for Ack
 map <D-F> :Ack<space>
