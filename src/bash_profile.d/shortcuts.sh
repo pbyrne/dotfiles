@@ -46,4 +46,6 @@ complete -o default -o nospace -F _git g
 
 # heroku
 alias h='heroku'
-
+# and kumade
+alias k='bundle exec kumade'
+alias kp='bundle exec kumade production'
