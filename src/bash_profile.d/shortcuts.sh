@@ -21,7 +21,8 @@ alias ti='bundle exec rake test:integration'
 # and rake
 alias r='bundle exec rake'
 # and vagrant
-alias v='bundle exec vagrant'
+alias bv='bundle exec vagrant'
+alias v='vagrant' # TODO remove and switch bv to v once we get ngin onto rails 3.1 and can put vagrant back into the gemfile
 
 # create a tar file. usage: tarup filename.tar.gz directory/
 alias tarup='tar -cvzf'
