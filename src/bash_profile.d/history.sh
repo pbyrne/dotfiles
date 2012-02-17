@@ -5,6 +5,11 @@ export HISTSIZE=5000
 export HISTCONTROL=ignoredups
 # ignore simple commands
 export HISTIGNORE="&:ls:[bf]g:exit:%[0-9]"
+# history -a adds the command to history immediately
+# history -n reloads the history
+# PROMPT_COMMAND is performed immediately before showing a command-prompt, so after every command
+export PROMPT_COMMAND="history -a; history -n;$PROMPT_COMMAND"
+
 
 # append each history entry from ALL terminals in realtime (not after session ending)
 shopt -s histappend
