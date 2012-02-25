@@ -12,8 +12,12 @@ task :setup do
     basename = File.basename(file)
     # where we want it to be
     destination = File.expand_path("~/.#{basename}")
-    
+
     conditionally_symlink(source, destination)
+  end
+
+  if RUBY_PLATFORM.include? "darwin"
+    sh "scripts/mac_defaults.sh"
   end
 end
 
