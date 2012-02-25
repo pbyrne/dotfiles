@@ -1,0 +1,64 @@
+# vim: syntax=gitconfig ft=gitconfig
+# See: man gitconfig
+# or http://www.kernel.org/pub/software/scm/git/docs/git-config.html
+[core]
+  excludesfile = ~/.gitexcludes
+  quotepath = false
+  autocrlf = input
+[alias]
+  a = add
+  aa = add .
+  # Files that are in the staging area
+  added = diff --cached --name-only
+  amend = commit --amend
+  ammend = commit --amend
+  br = branch
+  branches-with = branch -a --contains
+  branchname = !git branch | grep '^* ' | awk '{ print $2 }'
+  brs = branch -a
+  c = commit
+  changes = "!f() { git log --pretty=format:'* %s' $1..$2; }; f"
+  cm = commit -m
+  co = checkout
+  d = diff
+  dc = diff --cached
+  dcm = !git diff --cached | mate
+  deleted = ls-files --deleted
+  details = log -n1 -p --format=fuller
+  dm = !git diff | mate
+  ff = !git fetch && git wtf
+  head = log -n1
+  lg = log --graph --abbrev-commit --date=relative
+  ls = ls-files
+  m = merge
+  mergeupstream = !git fetch upstream && git merge upstream/master master
+  # Not yet added - doesn't include ignored files
+  new = ls-files --others --exclude-standard
+  p = push
+  s = status
+  searchlogs = !git log --oneline | grep
+  st = status
+  sub = submodule update --init --recursive
+  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  u = pull
+  unstage = reset HEAD
+  ur = pull --rebase
+[color]
+  ui = auto
+[format]
+  # git log uses --pretty format by default, so this changes the default format
+  # Now log uses --pretty by default
+  # 4436819 Gabe Berke-Williams - One line prompt (2 hours ago)
+  pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
+[push]
+  default = tracking
+[diff]
+  tool = opendiff
+[merge]
+  tool = opendiff
+[difftool]
+  prompt = false
+[mergetool]
+  prompt = false
+[rerere]
+  enabled = true
