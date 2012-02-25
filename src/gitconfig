@@ -32,6 +32,7 @@
   ls = ls-files
   m = merge
   mergeupstream = !git fetch upstream && git merge upstream/master master
+  nb = checkout -b
   # Not yet added - doesn't include ignored files
   new = ls-files --others --exclude-standard
   p = push
