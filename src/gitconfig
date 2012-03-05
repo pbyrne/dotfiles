@@ -26,6 +26,7 @@
   deleted = ls-files --deleted
   details = log -n1 -p --format=fuller
   dm = !git diff | mate
+  f = fetch
   ff = !git fetch && git wtf
   head = log -n1
   lg = log --graph --abbrev-commit --date=relative
