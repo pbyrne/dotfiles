@@ -1,0 +1,6 @@
+# show all matches on first press of Tab instead of second
+set show-all-if-ambiguous on
+# perform case-insensitive matching
+set completion-ignore-case on
+# and treat punctuation like - and _ insensitively
+set completion-map-case on
