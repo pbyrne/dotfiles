@@ -1,2 +1,12 @@
+# generic
 tags
+tmp/**/*
+tmp/*
 
+# Mac
+.DS_Store
+._*
+
+# Vim
+*.swp
+*.swo
