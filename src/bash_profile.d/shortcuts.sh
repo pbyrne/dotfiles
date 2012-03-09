@@ -3,7 +3,7 @@ alias ll='ls -FlaG'
 alias llg='ll | grep'
 alias lc='wc -l'
 alias du='du -hc'
-alias psg='ps aux | grep'
+alias psg='ps aux | grep -v grep | grep'
 
 # rails stuff
 alias rs='rails server'
