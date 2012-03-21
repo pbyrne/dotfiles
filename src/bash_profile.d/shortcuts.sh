@@ -23,6 +23,8 @@ alias r='bundle exec rake'
 # and vagrant
 alias bv='bundle exec vagrant'
 alias v='vagrant' # TODO remove and switch bv to v once we get ngin onto rails 3.1 and can put vagrant back into the gemfile
+# verify which ports an app runs on: e.g. ports mysqld
+alias ports='sudo lsof -i -P | ack'
 
 # create a tar file. usage: tarup filename.tar.gz directory/
 alias tarup='tar -cvzf'
@@ -52,3 +54,5 @@ alias h='heroku'
 # and kumade
 alias k='bundle exec kumade'
 alias kp='bundle exec kumade production'
+
+
