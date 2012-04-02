@@ -1,8 +1,8 @@
 export PATH=~/Dropbox/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/:$DYLD_LIBRARY_PATH
 export SHARED_WORKSPACE=~/workspace
-# `vim` and `mvim` aren't working for me now with the automation scripts wrapping around hub and the like; until that's solved, falling back to textmate
-export EDITOR='mate -w'
+# open in gui vim and wait for the window to close
+export EDITOR='mvim -f'
 # in LION, needed this to compile ruby 1.8.7
 export CC=/usr/bin/gcc-4.2
 export NODE_PATH=/usr/local/lib/node_modules
