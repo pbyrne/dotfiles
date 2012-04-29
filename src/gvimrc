@@ -5,8 +5,6 @@ colorscheme github
 set gfn=Monaco:h14 " set to a bigger, nicer font than the default
 " Command-Shift-F for Ack
 map <D-F> :Ack<space>
-" Ctrl-Shift-F for Ack on current word
-map <C-F> :Ack<space><cword><space>
 
 " Command-/ to toggle comments
 map <D-/> <plug>NERDCommenterToggle<CR>

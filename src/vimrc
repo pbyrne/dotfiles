@@ -133,6 +133,11 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
+" ack for current word (based on cursor)
+" Ctrl-Shift-F for Ack on current word
+map <C-F> :Ack<space><C-r><C-w>
+
+
 " CTags shortcuts
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " open definition in a new tab
