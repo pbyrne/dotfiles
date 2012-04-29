@@ -5,6 +5,9 @@
 # Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
+# Enable subpixel font smoothing on non-Apple LCDs
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
 # Enable the 2D Dock
 defaults write com.apple.dock no-glass -bool true
 
@@ -47,4 +50,18 @@ defaults write com.apple.terminal StringEncodings -array 4
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
+# Use current directory as default search scope in Finder
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Enable snap-to-grid for desktop icons
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+# Make Safari’s search banners default to Contains instead of Starts With
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+
+# Disable the Ping sidebar in iTunes
+defaults write com.apple.iTunes disablePingSidebar -bool true
+
+# copy email addresses in Mail as foo@example.com instead of <Foo User> foo@example.com
+defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
