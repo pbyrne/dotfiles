@@ -65,3 +65,5 @@ defaults write com.apple.iTunes disablePingSidebar -bool true
 # copy email addresses in Mail as foo@example.com instead of <Foo User> foo@example.com
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
+# do not restart the prior open tabs when opening Terminal
+defaults write com.apple.Terminal NSQuitAlwaysKeepsWindows -int 0
