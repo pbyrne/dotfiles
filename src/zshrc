@@ -38,8 +38,9 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Users/pbyrne/.rvm/gems/ruby-1.9.3-p125/bin:/Users/pbyrne/.rvm/gems/ruby-1.9.3-p125@global/bin:/Users/pbyrne/.rvm/rubies/ruby-1.9.3-p125/bin:/Users/pbyrne/.rvm/bin:/Users/pbyrne/Dropbox/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export PATH=/Users/pbyrne/Dropbox/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
-
+# conditionally load rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
