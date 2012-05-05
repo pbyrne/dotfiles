@@ -21,6 +21,11 @@ task :setup do
   end
 end
 
+desc "Install Oh My ZSH"
+task :install_zsh do
+  sh "curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh"
+end
+
 desc "Set up private symlinks stored in ~/Dropbox/dotfiles"
 task :set_up_private_symlinks do
   dotfiles_location = "~/Dropbox/dotfiles"
