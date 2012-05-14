@@ -69,5 +69,5 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 defaults write com.apple.Terminal NSQuitAlwaysKeepsWindows -int 0
 
 # add ~/Dropbox/Action to the list of PDF printing locations
-ln -s ~/Dropbox/Action ~/Library/PDF\ Services/Action
+ln -sf ~/Dropbox/Action ~/Library/PDF\ Services/
 
