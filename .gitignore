@@ -20,3 +20,4 @@ indent
 .VimballRecord
 .DS_Store
 
+src/config/hub
