@@ -3,21 +3,58 @@ require 'date'
 require 'yaml'
 
 desc "Run once to initially set up the computer to use the dotfiles"
-task :setup do
-  # inspoired heavily from https://github.com/henrik/dotfiles/blob/master/Rakefile and https://github.com/ryanb/dotfiles/blob/master/Rakefile
-  Dir["src/*"].each do |file|
-    # full path to file
-    source = File.join(Dir.pwd, file)
-    # just the file name
-    basename = File.basename(file)
-    # where we want it to be
-    destination = File.expand_path("~/.#{basename}")
+task :setup => ["setup:setup"]
 
-    conditionally_symlink(source, destination)
+namespace :setup do
+  task :setup do
+    Rake::Task["setup:symlink_dotfiles"].invoke
+    Rake::Task["setup:symlink_private_dotfiles"].invoke
+    Rake::Task["setup:symlink_custom_zsh"].invoke
+    Rake::Task["setup:mac_defaults"].invoke
   end
 
-  if RUBY_PLATFORM.include? "darwin"
-    sh "scripts/mac_defaults.sh"
+  task :symlink_dotfiles do
+    # inspoired heavily from https://github.com/henrik/dotfiles/blob/master/Rakefile and https://github.com/ryanb/dotfiles/blob/master/Rakefile
+    Dir["src/*"].each do |file|
+      # full path to file
+      source = File.join(Dir.pwd, file)
+      # just the file name
+      basename = File.basename(file)
+      # where we want it to be
+      destination = File.expand_path("~/.#{basename}")
+
+      conditionally_symlink(source, destination)
+    end
+  end
+
+  desc "Set up private symlinks stored in ~/Dropbox/dotfiles"
+  task :symlink_private_dotfiles do
+    dotfiles_location = "~/Dropbox/dotfiles"
+    manifest_path = "#{dotfiles_location}/manifest.yml"
+    full_path = File.expand_path(manifest_path)
+    if File.exist?(full_path)
+      manifest = YAML.load_file(full_path)
+      manifest.each do |orig, dest|
+        conditionally_symlink("#{dotfiles_location}/#{orig}", "~/#{dest}")
+      end
+    else
+      puts "  #{manifest_path} does not exist, cannot continue"
+    end
+  end
+
+  desc "Symlink Oh My Zsh! customizations"
+  task :symlink_custom_zsh do
+    source = File.join Dir.pwd, "zsh" # zsh in the root of the repo
+    destination = File.expand_path "~/.oh-my-zsh/custom"
+
+    conditionally_symlink source, destination
+  end
+
+  desc "Set up Mac defaults"
+  task :mac_defaults do
+    if RUBY_PLATFORM.include? "darwin"
+      sh "scripts/mac_defaults.sh"
+    end
   end
 end
 
@@ -26,20 +63,6 @@ task :install_zsh do
   sh "curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh"
 end
 
-desc "Set up private symlinks stored in ~/Dropbox/dotfiles"
-task :set_up_private_symlinks do
-  dotfiles_location = "~/Dropbox/dotfiles"
-  manifest_path = "#{dotfiles_location}/manifest.yml"
-  full_path = File.expand_path(manifest_path)
-  if File.exist?(full_path)
-    manifest = YAML.load_file(full_path)
-    manifest.each do |orig, dest|
-      conditionally_symlink("#{dotfiles_location}/#{orig}", "~/#{dest}")
-    end
-  else
-    puts "  #{manifest_path} does not exist, cannot continue"
-  end
-end
 
 # TODO express the other update commands in separate dependant rake tasks
 desc "Update to the latest and greatest, and run any installs that need to happen"
