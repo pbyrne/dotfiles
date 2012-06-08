@@ -6,6 +6,7 @@ alias du='du -hc'
 alias psg='ps aux | grep -v grep | grep'
 
 alias b='bundle'
+alias be='bundle exec'
 # awesome spec rake task
 alias s='bundle exec rake spec'
 # stupid test:unit rake tasks
