@@ -23,6 +23,9 @@ alias v='vagrant' # TODO remove and switch bv to v once we get ngin onto rails 3
 # verify which ports an app runs on: e.g. ports mysqld
 alias ports='sudo lsof -i -P | ack'
 
+alias rc='bundle exec rails console'
+alias rs='bundle exec rails server'
+
 # create a tar file. usage: tarup filename.tar.gz directory/
 alias tarup='tar -cvzf'
 alias untar='tar -xvzf'
