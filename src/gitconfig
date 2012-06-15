@@ -26,7 +26,7 @@
   deleted = ls-files --deleted
   details = log -n1 -p --format=fuller
   dm = !git diff | mate
-  f = fetch
+	f = fetch --prune
   ff = !git fetch && git wtf
   head = log -n1
   lg = log --graph --abbrev-commit --date=relative
@@ -42,7 +42,7 @@
   st = status
   sub = submodule update --init --recursive
   today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
-  u = pull
+	u = pull --prune
   unstage = reset HEAD
   ur = pull --rebase
 [color]
