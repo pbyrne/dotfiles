@@ -2,8 +2,22 @@
 autoload -U promptinit
 promptinit
 
-# Customize to your needs...
-export PATH=/Users/pbyrne/Dropbox/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+autoload -U compinit
+compinit
+zmodload -i zsh/complist
+
+autoload colors; colors
+
+# add dropbox to PATH
+export PATH=/Users/pbyrne/Dropbox/bin:$PATH
+# and local mysql install
+export PATH=/usr/local/mysql/bin:$PATH
+# and homebrew
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# i have a color screen, you know
+export TERM='xterm-color'
+
 
 if [[ -e ~/.zsh ]]; then
   for a in `ls ~/.zsh/*.zsh`; do
