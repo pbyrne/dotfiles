@@ -19,6 +19,7 @@ bin=.pdf
 --type-set=js=.coffee,.js
 --type-set=markdown=.markdown,.md,.mdown
 --type-set=shell=.sh
+--type-set=zsh=.zsh
 
 # ignore binary files
 --nobin
@@ -31,6 +32,7 @@ bin=.pdf
 --html
 --actionscript
 --shell
+--zsh
 
 --ignore-dir=tmp
 --ignore-dir=coverage
