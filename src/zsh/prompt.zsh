@@ -51,17 +51,17 @@ function pjb_gitinfo() {
       s+="$__CURRENT_GIT_BRANCH"
       case "$__CURRENT_GIT_BRANCH_STATUS" in
           ahead)
-          s+="↑"
+          s+=" ↑"
           ;;
           diverged)
-          s+="↕"
+          s+=" ↕"
           ;;
           behind)
-          s+="↓"
+          s+=" ↓"
           ;;
       esac
       if [ -n "$__CURRENT_GIT_BRANCH_IS_DIRTY" ]; then
-          s+="⚡"
+          s+=" ⚡"
       fi
       s+=")"
 
