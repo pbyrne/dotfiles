@@ -9,7 +9,6 @@ namespace :setup do
   task :setup do
     Rake::Task["setup:symlink_dotfiles"].invoke
     Rake::Task["setup:symlink_private_dotfiles"].invoke
-    Rake::Task["setup:symlink_custom_zsh"].invoke
     Rake::Task["setup:mac_defaults"].invoke
   end
 
@@ -42,25 +41,12 @@ namespace :setup do
     end
   end
 
-  desc "Symlink Oh My Zsh! customizations"
-  task :symlink_custom_zsh do
-    source = File.join Dir.pwd, "zsh" # zsh in the root of the repo
-    destination = File.expand_path "~/.oh-my-zsh/custom"
-
-    conditionally_symlink source, destination
-  end
-
   desc "Set up Mac defaults"
   task :mac_defaults do
     if RUBY_PLATFORM.include? "darwin"
       sh "scripts/mac_defaults.sh"
     end
   end
-end
-
-desc "Install Oh My ZSH"
-task :install_zsh do
-  sh "curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh"
 end
 
 
