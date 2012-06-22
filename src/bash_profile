@@ -1,8 +1,0 @@
-# homebrew completion files for installed libraries
-[ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
-
-# and my own custom configuration
-. ~/.profile
-
-# and a local configuration, if it exists
-[ -f ~/.profile.local ] && . ~/.profile.local

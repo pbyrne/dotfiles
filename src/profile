@@ -1,8 +1,0 @@
-if [[ -e ~/.bash_profile.d ]]; then
-  for a in `ls ~/.bash_profile.d/*.sh`; do 
-    source $a
-  done
-fi
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-
