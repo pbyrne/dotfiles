@@ -199,6 +199,16 @@ function! RunTests(filename)
     end
 endfunction
 
+function! PromoteToLet()
+  :normal! dd
+  " :exec '?^\s*it\>'
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
+endfunction
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>p :PromoteToLet<cr>
+
 if has("autocmd")
   " Remember last location in file
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
