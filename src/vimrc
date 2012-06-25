@@ -135,6 +135,7 @@ augroup END
 
 " emulate MacVim keybindings
 noremap <Leader>s :w<CR>
+inoremap <Leader>s <ESC>:w<CR>i
 " the "* register is the system clipboard
 " cut the selection, if selected
 vnoremap <Leader>x "*d
