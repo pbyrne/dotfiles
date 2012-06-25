@@ -3,6 +3,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 " general
+"let mapleader = ","
 set nocompatible " enable lots of cool vim-only features
 syntax enable " enable syntax highlighting
 set encoding=utf-8 " default encoding
