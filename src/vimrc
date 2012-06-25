@@ -97,14 +97,12 @@ vnoremap / /\v
 nnoremap <leader><space> :noh<cr>
 " close windows other than the current
 map <Leader>w :ZoomWin<CR>
-" reselect the just-pasted text
-nnoremap <leader>v V`]
 " awesome buffer switching
 nnoremap <C-j> :bp<CR>
 nnoremap <C-k> :bn<CR>
 " shortcuts for beginning and end of the line
-nnoremap H ^
-nnoremap L $
+nnoremap <Leader>h ^
+nnoremap <Leader>l $
 " jj to escape insert mode
 inoremap jj <ESC>
 
