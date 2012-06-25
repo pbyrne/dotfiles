@@ -33,7 +33,7 @@
   la = "!git l --all"
   r = "!git l -30"
   ra = "!git r --all"
-  lg = log --graph --abbrev-commit --date=relative
+  ; lg = log --graph --abbrev-commit --date=relative
   ls = ls-files
   m = merge
   mergeupstream = !git fetch upstream && git merge upstream/master master
