@@ -177,9 +177,6 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-" ack for current word (based on cursor)
-" Ctrl-Shift-F for Ack on current word
-map <C-F> :Ack<space><C-r><C-w>
 
 
 " CTags shortcuts
@@ -252,6 +249,15 @@ function! PromoteToLet()
 endfunction
 :command! PromoteToLet :call PromoteToLet()
 :map <leader>p :PromoteToLet<cr>
+
+" ack
+noremap <Leader>f :Ack<space>
+" ack for current word (based on cursor)
+map <Leader>F :Ack<space><C-r><C-w>
+
+" Command-][ to increase/decrease indentation
+vmap <Leader>] >gv
+vmap <Leader>[ <gv
 
 if has("autocmd")
   " Remember last location in file
