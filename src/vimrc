@@ -57,11 +57,9 @@ set splitbelow
 set splitright
 
 " Default color scheme
-let g:solarized_contrast="high"    "default value is normal
-let g:solarized_visibility="high"    "default value is normal
-let g:solarized_hitrail=1    "default value is 0
+set t_Co=256 " 256 colors
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme solarized
 
 " Undo settings, if available
 if has("persistent_undo")
