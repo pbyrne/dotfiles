@@ -106,6 +106,35 @@ nnoremap <Leader>l $
 " jj to escape insert mode
 inoremap jj <ESC>
 
+" open the .vimrc
+noremap <Leader>` :sp $MYVIMRC<CR>
+" and reload it automatically when saving it
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
+
+" emulate MacVim keybindings
+noremap <Leader>s :w<CR>
+" the "* register is the system clipboard
+" cut the selection, if selected
+vnoremap <Leader>x "*d
+" cut the line if not in selection
+nnoremap <Leader>x "*dd
+inoremap <Leader>x <ESC>"*di
+" copy the selection, if selected
+vnoremap <Leader>c "*y
+" copy the line, if not in selection
+nnoremap <Leader>c "*yy
+inoremap <Leader>c <ESC>"*yi
+" paste
+noremap <Leader>v "*p
+inoremap <Leader>v <ESC>"*pi
+" paste before
+noremap <Leader>V "*P
+inoremap <Leader>V <ESC>"*Pi
+
 " automatically strip whitespace from ends of ruby and ERB files
 "autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
 nmap <Leader>WS :%s/\s\+$//e<CR>
