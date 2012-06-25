@@ -2,7 +2,7 @@
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/:$DYLD_LIBRARY_PATH
 export SHARED_WORKSPACE=~/workspace
 # open in gui vim and wait for the window to close
-export EDITOR='mvim -f'
+export EDITOR='vim'
 # in LION, needed this to compile ruby 1.8.7
 export CC=/usr/bin/gcc-4.2
 export NODE_PATH=/usr/local/lib/node_modules
