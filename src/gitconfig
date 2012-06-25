@@ -29,6 +29,10 @@
 	f = fetch --prune
   ff = !git fetch && git wtf
   head = log -n1
+  l = "!source ~/.githelpers && pretty_git_log"
+  la = "!git l --all"
+  r = "!git l -30"
+  ra = "!git r --all"
   lg = log --graph --abbrev-commit --date=relative
   ls = ls-files
   m = merge
@@ -51,7 +55,7 @@
   # git log uses --pretty format by default, so this changes the default format
   # Now log uses --pretty by default
   # 4436819 Gabe Berke-Williams - One line prompt (2 hours ago)
-  pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
+  # pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
 [push]
   default = tracking
 [diff]
