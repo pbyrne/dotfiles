@@ -54,7 +54,7 @@ alias k='bundle exec kumade'
 alias kp='bundle exec kumade production'
 
 # grep through history
-alias hgrep='history | grep $1'
+alias hgrep='history 1 | grep $1'
 
 # go to the oh-my-zsh directory
 alias zz='cd $ZSH'
