@@ -3,5 +3,5 @@
 # cat > /dev/null
 # And press it
 
-# bindkey "^S" backward-word
-# bindkey "^D" forward-word
+bindkey '^B' emacs-backward-word
+bindkey '^F' emacs-forward-word
