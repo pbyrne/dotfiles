@@ -1,5 +1,8 @@
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+
+__git_files () { 
+  _wanted files expl 'local files' _files 
+}
 
 ## case-insensitive (all),partial-word and then substring completion
 if [ "x$CASE_SENSITIVE" = "xtrue" ]; then
