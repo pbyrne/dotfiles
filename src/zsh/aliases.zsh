@@ -49,6 +49,7 @@ alias g='git'
 
 # heroku
 alias h='heroku'
+alias bh='bundle exec heroku'
 # and kumade
 alias k='bundle exec kumade'
 alias kp='bundle exec kumade production'
