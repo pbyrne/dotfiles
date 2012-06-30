@@ -250,6 +250,9 @@ noremap <Leader>f :Ack<space>
 " ack for current word (based on cursor)
 map <Leader>F :Ack<space><C-r><C-w>
 
+" make %% map to the directory path containing the current file
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
 " Command-][ to increase/decrease indentation
 vmap <Leader>] >gv
 vmap <Leader>[ <gv
