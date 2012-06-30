@@ -246,12 +246,23 @@ endfunction
 :map <leader>p :PromoteToLet<cr>
 
 " ack
-noremap <Leader>f :Ack<space>
+noremap <Leader>a :Ack<space>
 " ack for current word (based on cursor)
-map <Leader>F :Ack<space><C-r><C-w>
+map <Leader>A :Ack<space><C-r><C-w>
 
 " make %% map to the directory path containing the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+" command-t
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+" are these overkill? '<Leader>f apmo' should do the trick, right?
+map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
 
 " Command-][ to increase/decrease indentation
 vmap <Leader>] >gv
@@ -292,7 +303,7 @@ if has("autocmd")
       bd #
     endif
   endfunction
-  nnoremap <Leader>gD :call MyCloseDiff()<cr>
+  nnoremap <Leader>dd :call MyCloseDiff()<cr>
   
   " make uses real tabs
   autocmd FileType make set noexpandtab
