@@ -26,12 +26,12 @@
   deleted = ls-files --deleted
   details = log -n1 -p --format=fuller
   dm = !git diff | mate
-	f = fetch --prune
+  f = fetch --prune
   ff = !git fetch && git wtf
   head = log -n1
   l = "!source ~/.githelpers && pretty_git_log"
   la = "!git l --all"
-  r = "!git l -30"
+  r = !git l -25
   ra = "!git r --all"
   ; lg = log --graph --abbrev-commit --date=relative
   ls = ls-files
