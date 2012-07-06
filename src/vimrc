@@ -60,7 +60,7 @@ set splitright
 " Default color scheme
 set t_Co=256 " 256 colors
 set background=dark
-colorscheme solarized
+colorscheme Tomorrow-night
 
 " Undo settings, if available
 if has("persistent_undo")
