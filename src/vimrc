@@ -248,6 +248,9 @@ endfunction
 :command! PromoteToLet :call PromoteToLet()
 :map <leader>p :PromoteToLet<cr>
 
+" get out of here!
+:command! -bang Q :qa<bang>
+
 " ack
 noremap <Leader>a :Ack<space>
 " ack for current word (based on cursor)
