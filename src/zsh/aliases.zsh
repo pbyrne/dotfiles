@@ -9,6 +9,8 @@ alias b='bundle'
 alias be='bundle exec'
 # awesome spec rake task
 alias s='bundle exec rake spec'
+# potentially awesome cucumber rake task
+alias c='bundle exec rake cucumber'
 # stupid test:unit rake tasks
 alias mktest='RAILS_ENV=test bundle exec rake db:create'
 alias t='bundle exec rake test'
@@ -58,5 +60,5 @@ alias kp='bundle exec kumade production'
 # grep through history
 alias hgrep='history 1 | grep $1'
 
-# go to the oh-my-zsh directory
-alias zz='cd $ZSH'
+# list jobs
+alias j='jobs'
