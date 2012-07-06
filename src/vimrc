@@ -51,6 +51,7 @@ set wildmode=list:longest,list:full " promiscuous selection of available complet
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn " ignore these files for completion
 set wildignore+=*.png,*.jpg,*.gif,*.ico,*.swf,*.psd,*.gem " and these binaries, too. mainly for command-t
 set wildignore+=_site,cache,tmp " and auto-generated files
+set wildignore+=_undo,_swp,_backup " and vim's backups
 
 " window splitting settings
 set splitbelow
