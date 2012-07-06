@@ -38,6 +38,7 @@ remove_extra_date_info() {
 
 truncate_time_names() {
   # replace years with y, months with m, days with d
+  sed -Ee 's/(^[^<]*) seconds?/\1s/' |
   sed -Ee 's/(^[^<]*) minutes?/\1m/' |
   sed -Ee 's/(^[^<]*) hours?/\1h/' |
   sed -Ee 's/(^[^<]*) days?/\1d/' |
