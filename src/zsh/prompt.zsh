@@ -15,6 +15,14 @@ function pjb_tools() {
   echo `rvm-prompt i v 2> /dev/null`
 }
 
+function pjb_background_jobs() {
+  # if at least one background job: %1(j
+  # then display the number of jobs in brackets: [%j]
+  # otherwise, display nothing: )
+  # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+  echo "%1(j|[%j]|)"
+}
+
 # lifted from http://sebastiancelis.com/2009/11/16/zsh-prompt-git-users/
 unset __CURRENT_GIT_BRANCH
 unset __CURRENT_GIT_BRANCH_STATUS
@@ -70,5 +78,5 @@ function pjb_gitinfo() {
 }
 
 export PROMPT='
-$(pjb_path) $(pjb_tools) $(pjb_gitinfo)
+$(pjb_path) $(pjb_background_jobs) $(pjb_tools) $(pjb_gitinfo)
 $(pjb_redgreen_prompt) '
