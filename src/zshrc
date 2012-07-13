@@ -14,6 +14,8 @@ export PATH=/Users/pbyrne/Dropbox/bin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
 # and homebrew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# and the currently install NPM-installed executables
+export PATH=./node_modules/.bin:$PATH
 
 # i have a color screen, you know
 export TERM='xterm-color'
