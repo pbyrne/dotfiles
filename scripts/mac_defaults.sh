@@ -14,7 +14,7 @@ defaults write com.apple.dock no-glass -bool true
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool false
 
-# Make Dock icons of hidden applications translucent
+# move dock to the left
 defaults write com.apple.dock orientation left
 
 # put the Dock in the corner, not center
