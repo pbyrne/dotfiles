@@ -259,6 +259,10 @@ noremap <Leader>a :Ack<space>
 " ack for current word (based on cursor)
 map <Leader>A :Ack<space><C-r><C-w>
 
+" disable some delimitmate mappings which cause a delay when hitting <ESC>O
+" (which creates a new line above the current, while in insert mode)
+let delimitMate_no_esc_mapping = 1
+
 " make %% map to the directory path containing the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
