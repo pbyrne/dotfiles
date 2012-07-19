@@ -38,4 +38,5 @@ bin=.pdf
 --ignore-dir=coverage
 --ignore-dir=app/flash
 --ignore-dir=cache
+--ignore-dir=node_modules
 
