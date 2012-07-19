@@ -62,3 +62,5 @@ alias hgrep='history 1 | grep $1'
 
 # list jobs
 alias j='jobs'
+# foreground
+alias f='fg'
