@@ -287,6 +287,10 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" autoresize plugin configuration
+let g:AUTORESIZE_ANOTHER_WINDOW_HEIGHT = 10
+
+
 if has("autocmd")
   " Remember last location in file
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
