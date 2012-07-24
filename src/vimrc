@@ -277,9 +277,15 @@ map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
 map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
 
-" Command-][ to increase/decrease indentation
+" Leader-][ to increase/decrease indentation
 vmap <Leader>] >gv
 vmap <Leader>[ <gv
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 if has("autocmd")
   " Remember last location in file
