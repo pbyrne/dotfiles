@@ -290,6 +290,7 @@ nnoremap <c-l> <c-w>l
 
 " autoresize plugin configuration
 let g:AUTORESIZE_ANOTHER_WINDOW_HEIGHT = 10
+let g:AUTORESIZE_ANOTHER_WINDOW_WIDTH = 10
 
 
 if has("autocmd")
