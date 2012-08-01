@@ -8,7 +8,7 @@ alias psg='ps aux | grep -v grep | grep'
 alias b='bundle'
 alias be='bundle exec'
 # awesome spec rake task
-alias s='bundle exec rake spec'
+alias s='bundle exec rspec'
 # potentially awesome cucumber rake task
 alias c='bundle exec rake cucumber'
 # stupid test:unit rake tasks
