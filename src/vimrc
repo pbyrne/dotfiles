@@ -119,9 +119,6 @@ vnoremap / /\v
 nnoremap <leader><space> :noh<cr>
 " close windows other than the current
 map <Leader>w :ZoomWin<CR>
-" awesome buffer switching
-nnoremap <C-j> :bp<CR>
-nnoremap <C-k> :bn<CR>
 " shortcuts for beginning and end of the line
 nnoremap <Leader>h ^
 nnoremap <Leader>l $
@@ -140,6 +137,8 @@ augroup END
 " emulate MacVim keybindings
 noremap <Leader>s :w<CR>
 inoremap <Leader>s <ESC>:w<CR>i
+noremap <Leader>S :W<CR>
+noremap <Leader>S <ESC>:W<CR>i
 " the "* register is the system clipboard
 " cut the selection, if selected
 vnoremap <Leader>x "*d
@@ -287,6 +286,8 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+" loop through the open windows
+nnoremap <c-i> <c-w>w
 
 " autoresize plugin configuration
 let g:AUTORESIZE_ANOTHER_WINDOW_HEIGHT = 10
