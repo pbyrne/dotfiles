@@ -88,3 +88,6 @@
 [submodule "src/vim/bundle/eunuch"]
 	path = src/vim/bundle/eunuch
 	url = git://github.com/tpope/vim-eunuch.git
+[submodule "src/vim/bundle/ruby"]
+	path = src/vim/bundle/ruby
+	url = git://github.com/vim-ruby/vim-ruby.git

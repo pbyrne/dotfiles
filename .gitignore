@@ -1,21 +1,9 @@
 .netrwhist
 tmp
-nerdtree_plugin
 _backup
 _swp
 _undo
 
-tags
-after
-autoload
-doc
-ruby
-snippets
-syntax
-syntax_checkers
-ftdetect
-ftplugin
-#colors
 indent
 .VimballRecord
 .DS_Store
