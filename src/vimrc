@@ -252,7 +252,7 @@ endfunction
 
 " get out of here!
 :command! -bang Q :qa<bang>
-:command! -bang WQ :wa<cr>:qa<bang>
+:command! -bang WQ :wa | :qa<bang>
 
 " ack
 noremap <Leader>a :Ack<space>
