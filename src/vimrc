@@ -41,6 +41,7 @@ Bundle "vim-scripts/Color-Sampler-Pack"
 Bundle "vim-scripts/ZoomWin"
 Bundle "w0ng/vim-hybrid"
 Bundle "wincent/Command-T"
+Bundle "bufexplorer.zip"
 
 " general
 "let mapleader = ","
