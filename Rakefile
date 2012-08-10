@@ -55,8 +55,7 @@ desc "Update to the latest and greatest, and run any installs that need to happe
 task :update => [:update_tm] do
   sh "git pull"
   # to ensure that git has loaded the submodules
-  sh "git submodule update --init"
-  sh "git submodule foreach git pull origin master"
+  sh "vim +BundleInstall +qall"
 end
 
 desc "Run the install script for Command-T"
