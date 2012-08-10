@@ -4,6 +4,8 @@ _backup
 _swp
 _undo
 
+src/vim/bundle/*
+
 indent
 .VimballRecord
 .DS_Store

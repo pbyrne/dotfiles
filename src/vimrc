@@ -1,10 +1,49 @@
-" set up pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+set nocompatible " enable lots of cool vim-only features
+set filetype=off " required for vundle setup
+
+" set up vundle iteself
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle required!
+Bundle 'gmarik/vundle'
+
+" and let's add some vundles
+Bundle "altercation/vim-colors-solarized"
+Bundle "bingaman/vim-sparkup"
+Bundle "duff/vim-scratch"
+Bundle "ervandew/supertab"
+Bundle "grayrest/vim-coffee-script"
+Bundle "jasonkuhrt/Tomorrow-Theme"
+Bundle "kana/vim-textobj-user"
+Bundle "michaeljsmith/vim-indent-object"
+Bundle "mileszs/ack.vim"
+Bundle "nelstrom/vim-textobj-rubyblock"
+Bundle "othree/html5-syntax.vim"
+Bundle "pangloss/vim-javascript"
+Bundle "Raimondi/delimitMate"
+Bundle "sickill/vim-pasta"
+Bundle "taq/vim-rspec"
+Bundle "tpope/vim-commentary"
+Bundle "tpope/vim-endwise"
+Bundle "tpope/vim-eunuch"
+Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-git"
+Bundle "tpope/vim-liquid"
+Bundle "tpope/vim-ragtag"
+Bundle "tpope/vim-rails"
+Bundle "tpope/vim-rake"
+Bundle "tpope/vim-repeat"
+Bundle "tpope/vim-surround"
+Bundle "tpope/vim-unimpaired"
+Bundle "vim-ruby/vim-ruby"
+Bundle "vim-scripts/Color-Sampler-Pack"
+Bundle "vim-scripts/ZoomWin"
+Bundle "w0ng/vim-hybrid"
+Bundle "wincent/Command-T"
 
 " general
 "let mapleader = ","
-set nocompatible " enable lots of cool vim-only features
 syntax enable " enable syntax highlighting
 set encoding=utf-8 " default encoding
 set showcmd " display incomplete commands
@@ -168,7 +207,7 @@ set nowritebackup " disabling other backup feature
 syntax off " my colorscheme's syntax highlighting in crontab is redongculous
 endif
 
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%y\ %-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
 
 " Command-T settings
 let g:CommandTMaxHeight=20 " max height of list of matches
