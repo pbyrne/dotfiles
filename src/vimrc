@@ -1,5 +1,5 @@
 set nocompatible " enable lots of cool vim-only features
-set filetype=off " required for vundle setup
+filetype off " required for vundle setup
 
 " set up vundle iteself
 set rtp+=~/.vim/bundle/vundle/
