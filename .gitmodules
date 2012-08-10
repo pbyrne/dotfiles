@@ -91,3 +91,6 @@
 [submodule "src/vim/bundle/ruby"]
 	path = src/vim/bundle/ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "src/vim/bundle/color-hybrid"]
+	path = src/vim/bundle/color-hybrid
+	url = git://github.com/w0ng/vim-hybrid.git
