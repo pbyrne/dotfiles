@@ -221,8 +221,6 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-
-
 " CTags shortcuts
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " open definition in a new tab
