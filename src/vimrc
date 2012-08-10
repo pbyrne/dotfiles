@@ -385,6 +385,9 @@ if has("autocmd")
   
   " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   autocmd FileType python  set tabstop=4 textwidth=79
+
+  " check spelling from within git commit messages
+  autocmd FileType gitcommit setlocal spell
   
   " automatically leave insert mode after 15 seconds of inactivity
   autocmd CursorHoldI * stopinsert
