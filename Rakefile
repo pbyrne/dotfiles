@@ -10,6 +10,7 @@ namespace :setup do
     Rake::Task["setup:symlink_dotfiles"].invoke
     Rake::Task["setup:symlink_private_dotfiles"].invoke
     Rake::Task["setup:mac_defaults"].invoke
+    Rake::Task["setup:install_vundle"].invoke
   end
 
   task :symlink_dotfiles do
@@ -46,6 +47,11 @@ namespace :setup do
     if RUBY_PLATFORM.include? "darwin"
       sh "scripts/mac_defaults.sh"
     end
+  end
+
+  desc "Set up vundle so that the Vim Bundle command works"
+  task :install_vundle do
+    sh "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
   end
 end
 
