@@ -51,7 +51,9 @@ namespace :setup do
 
   desc "Set up vundle so that the Vim Bundle command works"
   task :install_vundle do
-    sh "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
+    unless File.directory? File.expand_path "~/.vim/bundle/vundle/.git"
+      sh "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
+    end
   end
 end
 
