@@ -387,6 +387,12 @@ if has("autocmd")
   " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   autocmd FileType python  set tabstop=4 textwidth=79
 
+  " For some reason, iskeyword gets set differently sometimes on ruby files,
+  " not splitting on '.' or ':', which makes namespaces and methods names a
+  " pain to autocomplete or modify. This ensures that iskeyword is always
+  " consistent until I figure out what's going wrong.
+  autocmd FileType ruby set iskeyword=@,48-57,_,192-255
+
   " check spelling from within git commit messages
   autocmd FileType gitcommit setlocal spell
   
