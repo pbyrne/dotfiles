@@ -27,8 +27,10 @@ function pjb_background_jobs() {
 unset __CURRENT_GIT_BRANCH
 unset __CURRENT_GIT_BRANCH_STATUS
 unset __CURRENT_GIT_BRANCH_IS_DIRTY
+unset __CURRENT_GIT_HAS_STASH
 function pjb_gitinfo() {
   local st="$(git status 2>/dev/null)"
+  local stash_count="$(git stash list 2>/dev/null | wc -l)"
   if [[ -n "$st" ]]; then
       local -a arr
       arr=(${(f)st})
@@ -52,6 +54,10 @@ function pjb_gitinfo() {
       if [[ ! $st =~ 'nothing to commit' ]]; then
           __CURRENT_GIT_BRANCH_IS_DIRTY='1'
       fi
+
+      if [[ $stash_count -gt 0 ]]; then
+        __CURRENT_GIT_HAS_STASH='1'
+      fi
   fi
 
   if [ -n "$__CURRENT_GIT_BRANCH" ]; then
@@ -70,6 +76,9 @@ function pjb_gitinfo() {
       esac
       if [ -n "$__CURRENT_GIT_BRANCH_IS_DIRTY" ]; then
           s+=" ⚡"
+      fi
+      if [ -n "$__CURRENT_GIT_HAS_STASH" ]; then
+        s+=' ∩'
       fi
       s+=")"
 
