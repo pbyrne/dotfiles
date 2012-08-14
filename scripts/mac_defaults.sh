@@ -26,12 +26,6 @@ killall Dock
 # Disable menu bar transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
-# Always show scrollbars
-# defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
-# Never mind. Mountain Lion is smarter now, showing scrollbars when holding two
-# fingers on the track pad
-defaults delete NSGlobalDomain AppleShowScrollBars
-
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
