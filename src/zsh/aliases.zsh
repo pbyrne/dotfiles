@@ -9,6 +9,8 @@ alias b='bundle'
 alias be='bundle exec'
 # awesome spec rake task
 alias s='bundle exec rspec'
+# run each spec on its own (to verify that all dependencies are set up correctly, without requiring a global require-all-files setup step
+alias solospec='git ls | grep _spec.rb | while read specfile; do echo testing $specfile; bundle exec rspec $specfile; done'
 # potentially awesome cucumber rake task
 alias c='bundle exec rake cucumber'
 # stupid test:unit rake tasks
