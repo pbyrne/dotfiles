@@ -104,3 +104,5 @@
 	protocol = https
 
 # vim: syntax=gitconfig ft=gitconfig
+[branch]
+	autosetuprebase = always
