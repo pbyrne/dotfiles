@@ -75,6 +75,7 @@
   # remove file from the index - DOES NOT UNDO THE CHANGES
   unstage = reset HEAD
   ur = pull --rebase
+	orphank = !gitk --all `git reflog | cut -c1-7`&
 [color]
   ui = auto
 [format]
