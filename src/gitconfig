@@ -30,9 +30,9 @@
   co = checkout
   d = diff
   # perform diff against the index (files that have been added but not committed)
-  dc = diff --cached
+  ds = diff --staged
   # and pipe that to textmate
-  dcm = !git diff --cached | mate
+  dsm = !git diff --staged | mate
   # list the files deleted but not committed
   deleted = ls-files --deleted
   # give the complete details (diff, timestamps, author info) of a given commit
