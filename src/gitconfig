@@ -1,108 +1,107 @@
+# vim: syntax=gitconfig ft=gitconfig
 # See: man gitconfig
 # or http://www.kernel.org/pub/software/scm/git/docs/git-config.html
 [core]
-  # global ignore file
-  excludesfile = ~/.gitexcludes
-  quotepath = false
-  # match the OS EOL character when checking out files
-  autocrlf = input
+	# global ignore file
+	excludesfile = ~/.gitexcludes
+	quotepath = false
+	# match the OS EOL character when checking out files
+	autocrlf = input
 [alias]
-  a = add
-  aa = add .
-  # Files that are in the staging area
-  added = diff --cached --name-only
-  # edit the previous commit (don't use if already pushed)
-  amend = commit --amend
-  # sometimes i can't spell
-  ammend = commit --amend
-  br = branch
-  # search for braches that contain the given commit
-  branches-with = branch -a --contains
-  # how is this not built into git?
-  branchname = !git branch | grep '^* ' | awk '{ print $2 }'
-  # all branches, even remote
-  brs = branch -a
-  c = commit
-  # display the changes between the two given commits
-  changes = "!f() { git log --pretty=format:'* %s' $1..$2; }; f"
-  # commit with the given message
-  cm = commit -m
-  co = checkout
-  d = diff
-  # perform diff against the index (files that have been added but not committed)
-  ds = diff --staged
-  # and pipe that to textmate
-  dsm = !git diff --staged | mate
-  # list the files deleted but not committed
-  deleted = ls-files --deleted
-  # give the complete details (diff, timestamps, author info) of a given commit
-  details = log -n1 -p --format=fuller
-  # pipe the diff to textmate
-  dm = !git diff | mate
-  # also clean up branches deleted from the server
-  f = fetch --prune
-  ff = !git fetch && git wtf
-  # latest commit (emulate's mercurials 'hg head' command)
-  head = log -n1
-  # pretty graphed log
-  l = "!source ~/.githelpers && pretty_git_log"
-  # pretty graphed log, including commits not merged into the branch
-  la = "!git l --all"
-  # just the most recent 25, but same format
-  r = !git l -25
-  # recent, including commits not merged into the branch
-  ra = "!git r --all"
-  # lg = log --graph --abbrev-commit --date=relative
-  # list the files in the repo, but using bash-like 'ls' command
-  ls = ls-files
-  m = merge
-  # for use with forked repos, assumes the original repo's remote is named 'upstream'
-  mergeupstream = !git fetch upstream && git merge upstream/master master
-  # new branch with the given name
-  nb = checkout -b
-  # Not yet added - doesn't include ignored files
-  new = ls-files --others --exclude-standard
-  p = push
-  s = status
-  # search through commit messages for the given word
-  searchlogs = !git log --oneline | grep
-  st = status
-  # initialize and update the repo's submodules
-  sub = submodule update --init --recursive
-  # show today's work
-  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+	a = add
+	aa = add .
+	# Files that are in the staging area
+	added = diff --cached --name-only
+	# edit the previous commit (don't use if already pushed)
+	amend = commit --amend
+	# sometimes i can't spell
+	ammend = commit --amend
+	br = branch
+	# search for braches that contain the given commit
+	branches-with = branch -a --contains
+	# how is this not built into git?
+	branchname = !git branch | grep '^* ' | awk '{ print $2 }'
+	# all branches, even remote
+	brs = branch -a
+	c = commit
+	# display the changes between the two given commits
+	changes = "!f() { git log --pretty=format:'* %s' $1..$2; }; f"
+	# commit with the given message
+	cm = commit -m
+	co = checkout
+	d = diff
+	# perform diff against the index (files that have been added but not committed)
+	ds = diff --staged
+	# and pipe that to textmate
+	dsm = !git diff --staged | mate
+	# list the files deleted but not committed
+	deleted = ls-files --deleted
+	# give the complete details (diff, timestamps, author info) of a given commit
+	details = log -n1 -p --format=fuller
+	# pipe the diff to textmate
+	dm = !git diff | mate
+	# also clean up branches deleted from the server
+	f = fetch --prune
+	ff = !git fetch && git wtf
+	# latest commit (emulate's mercurials 'hg head' command)
+	head = log -n1
+	# pretty graphed log
+	l = "!source ~/.githelpers && pretty_git_log"
+	# pretty graphed log, including commits not merged into the branch
+	la = "!git l --all"
+	# just the most recent 25, but same format
+	r = !git l -25
+	# recent, including commits not merged into the branch
+	ra = "!git r --all"
+	# lg = log --graph --abbrev-commit --date=relative
+	# list the files in the repo, but using bash-like 'ls' command
+	ls = ls-files
+	m = merge
+	# for use with forked repos, assumes the original repo's remote is named 'upstream'
+	mergeupstream = !git fetch upstream && git merge upstream/master master
+	# new branch with the given name
+	nb = checkout -b
+	# Not yet added - doesn't include ignored files
+	new = ls-files --others --exclude-standard
+	p = push
+	s = status
+	# search through commit messages for the given word
+	searchlogs = !git log --oneline | grep
+	st = status
+	# initialize and update the repo's submodules
+	sub = submodule update --init --recursive
+	# show today's work
+	today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
 	u = pull --prune
-  # remove file from the index - DOES NOT UNDO THE CHANGES
-  unstage = reset HEAD
-  ur = pull --rebase
+	# remove file from the index - DOES NOT UNDO THE CHANGES
+	unstage = reset HEAD
+	ur = pull --rebase
 	orphank = !gitk --all `git reflog | cut -c1-7`&
 [color]
-  ui = auto
+	ui = auto
 [format]
-  # git log uses --pretty format by default, so this changes the default format
-  # Now log uses --pretty by default
-  # 4436819 Gabe Berke-Williams - One line prompt (2 hours ago)
-  # pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
+	# git log uses --pretty format by default, so this changes the default format
+	# Now log uses --pretty by default
+	# 4436819 Gabe Berke-Williams - One line prompt (2 hours ago)
+	# pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
 [push]
-  # only push the current git branch, not all branches
-  default = tracking
+	# only push the current git branch, not all branches
+	default = tracking
 [diff]
-  # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
-  # instead of a/b/c/d as prefixes for patches
-  mnemonicprefix = true
-  tool = opendiff
+	# Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+	# instead of a/b/c/d as prefixes for patches
+	mnemonicprefix = true
+	tool = opendiff
 [merge]
-  tool = opendiff
+	tool = opendiff
 [difftool]
-  prompt = false
+	prompt = false
 [mergetool]
-  prompt = false
+	prompt = false
 [rerere]
-  # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
-  enabled = true
+	# http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+	enabled = true
 [hub]
 	protocol = https
-
-# vim: syntax=gitconfig ft=gitconfig
 [branch]
 	autosetuprebase = always
