@@ -387,6 +387,9 @@ if has("autocmd")
   " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   autocmd FileType python  set tabstop=4 textwidth=79
 
+  " hard tabs for git configs, to make consistent with how the git tool writes
+  autocmd FileType gitconfig set tabstop=4 shiftwidth=4 noexpandtab
+
   " For some reason, iskeyword gets set differently sometimes on ruby files,
   " not splitting on '.' or ':', which makes namespaces and methods names a
   " pain to autocomplete or modify. This ensures that iskeyword is always
