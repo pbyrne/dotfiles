@@ -105,3 +105,9 @@
 	protocol = https
 [branch]
 	autosetuprebase = always
+[url "git@github.com:tstmedia/"]
+	insteadOf = gtst://
+[url "git@github.com:pbyrne/"]
+	insteadOf = gpb://
+[url "git@github.com:/"]
+	insteadOf = gh://
