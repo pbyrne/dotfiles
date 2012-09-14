@@ -1,4 +1,4 @@
 ---
-gem: --no-rdoc --no-ri
+gem: --no-rdoc
 :verbose: true
 
