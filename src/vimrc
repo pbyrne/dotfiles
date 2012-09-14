@@ -40,7 +40,8 @@ Bundle "vim-ruby/vim-ruby"
 Bundle "vim-scripts/Color-Sampler-Pack"
 Bundle "vim-scripts/ZoomWin"
 Bundle "w0ng/vim-hybrid"
-Bundle "wincent/Command-T"
+" Bundle "wincent/Command-T"
+Bundle "ctrlp.vim"
 Bundle "bufexplorer.zip"
 
 " general
