@@ -420,3 +420,6 @@ autocmd BufWinLeave * call clearmatches()
 " when doing line wrap, prepend with a fancy character to distinguish from the
 " next actual line
 set showbreak=↪
+
+" load my zsh settings
+set shell=/bin/zsh\ -i
