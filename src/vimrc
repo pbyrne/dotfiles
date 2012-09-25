@@ -422,4 +422,5 @@ autocmd BufWinLeave * call clearmatches()
 set showbreak=↪
 
 " load my zsh settings
-set shell=/bin/zsh\ -i
+" turned off until i figure out why this is causing vim to suspend all the time
+" set shell=/bin/zsh\ -i
