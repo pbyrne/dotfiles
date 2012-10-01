@@ -79,3 +79,7 @@ defaults write com.apple.Terminal NSQuitAlwaysKeepsWindows -int 0
 # add ~/Dropbox/Action to the list of PDF printing locations
 ln -sf ~/Dropbox/Action ~/Library/PDF\ Services/
 
+# enhance sub-pizel antialiazing for non-Apple LCDs
+# nabbed from @mrDarcyMurphy (https://twitter.com/mrDarcyMurphy/status/252791938800050177)
+defaults -currentHost write -g AppleFontSmoothing -int 2
+
