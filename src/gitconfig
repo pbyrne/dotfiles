@@ -10,6 +10,9 @@
 [alias]
 	a = add
 	aa = add .
+	# zsh-specific, conditionally abort the merge (prevent accidentally resetting to head
+	# not working for some reason, so skipping for now
+	# abortmerge = "!f() { resp=''; vared -p 'abort the merge? (y/n) ' resp; [ $resp = 'y' ] && echo aborting the merge && git reset --hard HEAD || echo doing nothing }; f"
 	# Files that are in the staging area
 	added = diff --cached --name-only
 	# edit the previous commit (don't use if already pushed)
