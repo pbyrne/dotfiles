@@ -66,21 +66,6 @@ task :update => [:update_tm] do
   sh "vim +BundleInstall +qall"
 end
 
-desc "Run the install script for Command-T"
-task :install_command_t do
-  # lifted from the Janus setup, https://github.com/carlhuda/janus/blob/master/Rakefile
-  Dir.chdir "src/vim/bundle/command-t/ruby/command-t" do
-    if File.exists?("/usr/bin/ruby") # prefer system rubies
-      sh "/usr/bin/ruby extconf.rb"
-    elsif `rvm > /dev/null 2>&1` && $?.exitstatus == 0
-      sh "rvm system ruby extconf.rb"
-    else
-      raise StandardError, "No version of Ruby installed"
-    end
-    sh "make clean && make"
-  end
-end
-
 desc "Update TextMate Bundles and PlugIns checked out with git"
 task :update_tm do
   %w(
