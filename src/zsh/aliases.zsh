@@ -66,3 +66,6 @@ alias hgrep='history 1 | grep $1'
 alias j='jobs'
 # foreground
 alias f='fg'
+
+# run a simple fileserver in current location
+alias serve='python -mSimpleHTTPServer'
