@@ -69,3 +69,6 @@ alias f='fg'
 
 # run a simple fileserver in current location
 alias serve='python -mSimpleHTTPServer'
+
+# parse and pretty-print some JSON
+alias json='python -mjson.tool'
