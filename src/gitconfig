@@ -79,7 +79,9 @@
 	# remove file from the index - DOES NOT UNDO THE CHANGES
 	unstage = reset HEAD
 	ur = pull --rebase
-	orphank = !gitk --all `git reflog | cut -c1-7`&
+	; orphank = !gitk --all `git reflog | cut -c1-7`&
+	orphans = "!source ~/.githelpers && locals_not_on_remote"
+	deleteorphans = "!source ~/.githelpers && delete_orphaned_local_branches"
 [color]
 	ui = auto
 [format]

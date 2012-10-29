@@ -62,3 +62,27 @@ pretty_git_log() {
     less -FXRS
 }
 
+# Delete any branches locally which don't exist on remote (e.g., which have already been deleted)
+delete_orphaned_local_branches() {
+  for branch in $(locals_not_on_remote); do
+    echo Deleting $branch
+    git branch -d $branch
+  done
+}
+
+locals_not_on_remote() {
+  git branch | strip_current_branch_marker | strip_branches_on_remote
+}
+
+# clear the leading whitespace and the * from branches, so you end up with just
+# bare branch names
+strip_current_branch_marker() {
+  cut -c 3-
+}
+
+# Remove from the list any branches which exist on the remote
+strip_branches_on_remote() {
+  while read branch; do
+    git branch --remote | grep origin/$branch > /dev/null || echo $branch
+  done
+}
