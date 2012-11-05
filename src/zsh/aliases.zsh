@@ -72,3 +72,6 @@ alias serve='python -mSimpleHTTPServer'
 
 # parse and pretty-print some JSON
 alias json='python -mjson.tool'
+
+# capture my public IP address
+alias publicip='curl --silent http://ifconfig.me/'
