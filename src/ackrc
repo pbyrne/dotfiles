@@ -4,21 +4,18 @@
 --follow
 
 # treat these all as plaintext
---type-set
-plaintext=.md,.markdown,.txt
+--type-set=plaintext=.md,.markdown,.txt
 # cucumber features
---type-set
-cucumber=.feature
+--type-set=cucumber=.feature
 # treat PDFs as binary files
---type-set
-bin=.pdf
+--type-set=bin=.pdf
 
 # search haml, sass, erb, and coffeescript
---type-set=ruby=.haml,.rake,.erb,.rb,Gemfile
---type-set=css=.sass,.scss,.css
---type-set=js=.coffee,.js
+--type-add=ruby=.haml,Gemfile
+--type-add=css=.sass,.scss
+--type-add=js=.coffee
+# and my custom types
 --type-set=markdown=.markdown,.md,.mdown
---type-set=shell=.sh
 --type-set=zsh=.zsh
 
 # ignore binary files
