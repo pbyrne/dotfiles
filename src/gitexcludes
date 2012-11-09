@@ -10,3 +10,6 @@ tmp/*
 # Vim
 *.swp
 *.swo
+
+# filemerge
+*.orig
