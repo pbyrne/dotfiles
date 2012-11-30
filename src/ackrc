@@ -11,7 +11,7 @@
 --type-set=bin=.pdf
 
 # search haml, sass, erb, and coffeescript
---type-add=ruby=.haml,Gemfile
+--type-add=ruby=.haml,Gemfile,.gemspec
 --type-add=css=.sass,.scss
 --type-add=js=.coffee
 # and my custom types
