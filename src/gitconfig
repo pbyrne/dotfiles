@@ -63,7 +63,7 @@
 	# for use with forked repos, assumes the original repo's remote is named 'upstream'
 	mergeupstream = !git fetch upstream && git merge upstream/master master
 	# new branch with the given name
-	nb = checkout -b
+	nb = "!f() { git checkout -b $1 && git push --set-upstream origin $1; }; f"
 	# Not yet added - doesn't include ignored files
 	new = ls-files --others --exclude-standard
 	p = push
