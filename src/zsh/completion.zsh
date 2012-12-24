@@ -3,8 +3,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 zstyle ':completion:*' use-cache on
 
-__git_files () { 
-  _wanted files expl 'local files' _files 
+__git_files () {
+  _wanted files expl 'local files' _files
 }
 
 ## case-insensitive (all),partial-word and then substring completion
