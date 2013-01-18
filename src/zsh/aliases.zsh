@@ -5,6 +5,12 @@ alias lc='wc -l'
 alias du='du -hc'
 alias psg='ps aux | grep -v grep | grep'
 
+alias -g G='| grep'
+alias -g M='| less'
+alias -g L='| wc -l'
+alias -g ONE="| awk '{ print \$1 }'"
+alias -g TWO="| awk '{ print \$2 }'"
+
 alias b='bundle'
 alias be='bundle exec'
 # awesome spec rake task
@@ -75,3 +81,11 @@ alias json='python -mjson.tool'
 
 # capture my public IP address
 alias publicip='curl --silent http://ifconfig.me/'
+
+# generate a sha checksum of a given file
+alias sha='shasum'
+
+# convenience wrappers  around curl
+alias curl='curl --silent'
+alias curlgz='curl --silent -H "Accept-Encoding: gzip,deflate"'
+
