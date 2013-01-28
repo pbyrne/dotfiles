@@ -43,6 +43,8 @@ Bundle "w0ng/vim-hybrid"
 " Bundle "wincent/Command-T"
 Bundle "ctrlp.vim"
 Bundle "bufexplorer.zip"
+Bundle "sjl/strftimedammit.vim"
+Bundle "tpope/vim-characterize"
 
 " general
 "let mapleader = ","
