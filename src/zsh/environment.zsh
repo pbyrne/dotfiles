@@ -16,6 +16,3 @@ export RUBY_HEAP_FREE_MIN=500000
 
 # what to split on
 export WORDCHARS='*?[]~&;!$%^<>'
-
-# enable extended colors
-export TERM=xterm-256color
