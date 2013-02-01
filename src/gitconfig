@@ -21,7 +21,7 @@
 	ammend = commit --amend
 	br = branch
 	# search for braches that contain the given commit
-	branches-with = branch -a --contains
+	branches-with = branch --all --contains
 	# how is this not built into git?
 	branchname = !git branch | grep '^* ' | awk '{ print $2 }'
 	# all branches, even remote
