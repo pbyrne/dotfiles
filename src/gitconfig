@@ -29,6 +29,8 @@
 	c = commit
 	# display the changes between the two given commits
 	changes = "!f() { git log --pretty=format:'* %s' $1..$2; }; f"
+	# commit the updated changelog
+	clog = "!git add CHANGELOG.markdown && git commit -m 'update changelog'"
 	# commit with the given message
 	cm = commit -m
 	co = checkout
