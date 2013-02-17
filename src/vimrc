@@ -331,10 +331,6 @@ nnoremap <c-l> <c-w>l
 " loop through the open windows
 nnoremap <c-i> <c-w>w
 
-" autoresize plugin configuration
-let g:AUTORESIZE_ANOTHER_WINDOW_HEIGHT = 10
-let g:AUTORESIZE_ANOTHER_WINDOW_WIDTH = 10
-
 
 if has("autocmd")
   " Remember last location in file
