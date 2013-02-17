@@ -308,17 +308,6 @@ let delimitMate_no_esc_mapping = 1
 " make %% map to the directory path containing the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" command-t
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
-" are these overkill? '<Leader>f apmo' should do the trick, right?
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
-
 " Leader-][ to increase/decrease indentation
 vmap <Leader>] >gv
 vmap <Leader>[ <gv
