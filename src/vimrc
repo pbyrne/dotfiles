@@ -9,12 +9,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " and let's add some vundles
-Bundle "altercation/vim-colors-solarized"
-Bundle "bingaman/vim-sparkup"
-Bundle "duff/vim-scratch"
 Bundle "ervandew/supertab"
 Bundle "grayrest/vim-coffee-script"
-Bundle "jasonkuhrt/Tomorrow-Theme"
 Bundle "kana/vim-textobj-user"
 Bundle "michaeljsmith/vim-indent-object"
 Bundle "mileszs/ack.vim"
@@ -23,24 +19,20 @@ Bundle "othree/html5-syntax.vim"
 Bundle "pangloss/vim-javascript"
 Bundle "Raimondi/delimitMate"
 Bundle "sickill/vim-pasta"
-Bundle "taq/vim-rspec"
 Bundle "tpope/vim-commentary"
 Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-eunuch"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-git"
 Bundle "tpope/vim-liquid"
-Bundle "tpope/vim-ragtag"
 Bundle "tpope/vim-rails"
 Bundle "tpope/vim-rake"
 Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-surround"
 Bundle "tpope/vim-unimpaired"
 Bundle "vim-ruby/vim-ruby"
-Bundle "vim-scripts/Color-Sampler-Pack"
 Bundle "vim-scripts/ZoomWin"
 Bundle "w0ng/vim-hybrid"
-" Bundle "wincent/Command-T"
 Bundle "ctrlp.vim"
 Bundle "bufexplorer.zip"
 Bundle "sjl/strftimedammit.vim"
@@ -229,14 +221,6 @@ vmap <C-Down> ]egv
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " open definition in a new tab
 map <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-" Create the tag on multiple lines: e.g.
-" <p>
-"   |
-" </p>
-" instead of
-" <p>|</p>
-imap <Leader>e <C-e><CR><ESC>O
 
 " test running
 " lifted from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
