@@ -85,6 +85,7 @@
 	orphans = "!source ~/.githelpers && locals_not_on_remote"
 	deleteorphans = "!source ~/.githelpers && delete_orphaned_local_branches"
 	empty = commit --allow-empty
+	fs = !git fetch && git status
 [color]
 	ui = auto
 [format]
