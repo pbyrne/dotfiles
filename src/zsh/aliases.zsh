@@ -91,3 +91,5 @@ alias sha='shasum'
 alias curl='curl --silent'
 alias curlgz='curl --silent -H "Accept-Encoding: gzip,deflate"'
 
+# fix duplicate entries in Open With
+alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
