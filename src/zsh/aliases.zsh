@@ -6,6 +6,7 @@ alias du='du -hc'
 alias psg='ps aux | grep -v grep | grep'
 
 alias -g G='| grep'
+alias -g GV='| grep -v'
 alias -g M='| less'
 alias -g L='| wc -l'
 alias -g ONE="| awk '{ print \$1 }'"
