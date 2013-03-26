@@ -386,3 +386,8 @@ augroup cline
   au WinLeave,InsertEnter * set nocursorline
   au WinEnter,InsertLeave * set cursorline
 augroup END
+
+" Try using the silver searcher instead of ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+set shell=/bin/sh
