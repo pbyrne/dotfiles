@@ -140,6 +140,8 @@ nnoremap <Leader>h ^
 nnoremap <Leader>l $
 " jj to escape insert mode
 inoremap jj <ESC>
+" ug, and kk because i keep hitting it
+inoremap kk <ESC>
 
 " open the .vimrc
 noremap <Leader>` :sp $MYVIMRC<CR>
