@@ -33,8 +33,6 @@ alias r='bundle exec rake'
 # and vagrant
 alias bv='bundle exec vagrant'
 alias v='vagrant' # TODO remove and switch bv to v once we get ngin onto rails 3.1 and can put vagrant back into the gemfile
-# verify which ports an app runs on: e.g. ports mysqld
-alias ports='sudo lsof -i -P | ack'
 
 alias ra='bundle exec rails'
 alias rc='bundle exec rails console'
@@ -94,3 +92,6 @@ alias curlgz='curl --silent -H "Accept-Encoding: gzip,deflate"'
 
 # fix duplicate entries in Open With
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
+
+# list open ports
+alias ports='sudo netstat -tulanp'
