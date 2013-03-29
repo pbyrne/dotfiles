@@ -34,6 +34,8 @@
 	# commit with the given message
 	cm = commit -m
 	co = checkout
+	# choose from other local branches you have checked out, and check it out
+	colist = "!select choice in $(git branch | grep -v '*'); do echo checking out $choice; git checkout $choice; break; done"
 	d = diff
 	# perform diff against the index (files that have been added but not committed)
 	ds = diff --staged
