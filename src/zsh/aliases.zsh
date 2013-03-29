@@ -95,3 +95,6 @@ alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/
 
 # list open ports
 alias ports='sudo netstat -tulanp'
+
+# run faster tests!
+alias rubytest='ruby -I test '
