@@ -391,3 +391,7 @@ augroup END
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 set shell=/bin/sh
+
+" Open the current file with the :Marked command
+command! Marked silent exe "!open -a Marked.app '%:p'" | redraw!
+
