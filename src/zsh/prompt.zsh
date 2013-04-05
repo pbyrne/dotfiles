@@ -1,8 +1,8 @@
 setopt prompt_subst
 
 function pjb_redgreen_prompt() {
-  # green $ for good commands, red $ for failed commands
-  echo "%(?,%{%F{green}%},%{%F{red}%})$%{$reset_color%}"
+  # green ✓ for good commands, red ! for failed commands
+  echo "%(?,%{%F{green}%}✓,%{%F{red}%}!)%{$reset_color%}"
 }
 
 function pjb_path() {
