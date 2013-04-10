@@ -188,10 +188,6 @@ endif
 
 set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
 
-" Command-T settings
-let g:CommandTMaxHeight=20 " max height of list of matches
-let g:CommandTMaxFiles=100000 " Increase Max Files in Command-T List (from default of 10,000)
-
 " Unimpaired shortcuts
 " Bubble single lines
 nmap <C-Up> [e
