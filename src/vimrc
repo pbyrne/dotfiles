@@ -271,6 +271,9 @@ let delimitMate_no_esc_mapping = 1
 " make %% map to the directory path containing the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
+" Create parent directories for the current file
+command! Mkdirs silent exe ':silent !mkdir -p %:h' | redraw!
+
 " Leader-][ to increase/decrease indentation
 vmap <Leader>] >gv
 vmap <Leader>[ <gv
