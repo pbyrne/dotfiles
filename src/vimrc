@@ -155,7 +155,7 @@ augroup END
 
 " emulate MacVim keybindings
 noremap <Leader>s :w<CR>
-inoremap <Leader>s <ESC>:w<CR>i
+inoremap <Leader>s <ESC>:w<CR>
 noremap <Leader>S :W<CR>
 noremap <Leader>S <ESC>:W<CR>i
 " the "* register is the system clipboard
