@@ -37,6 +37,7 @@ Bundle "ctrlp.vim"
 Bundle "bufexplorer.zip"
 Bundle "sjl/strftimedammit.vim"
 Bundle "tpope/vim-characterize"
+Bundle "tpope/vim-markdown"
 
 " general
 "let mapleader = ","
