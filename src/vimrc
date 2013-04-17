@@ -204,7 +204,7 @@ map <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 " test running
 " lifted from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 map <leader>t :call RunTestFile()<cr>
-imap <leader>t <esc>:call RunTestFile()<cr>
+" imap <leader>t <esc>:call RunTestFile()<cr>
 
 function! RunTestFile(...)
     if a:0
