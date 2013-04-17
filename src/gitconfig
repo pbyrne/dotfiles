@@ -103,6 +103,7 @@
 	# instead of a/b/c/d as prefixes for patches
 	mnemonicprefix = true
 	tool = opendiff
+	algorithm = patience
 [merge]
 	tool = opendiff
 [difftool]
