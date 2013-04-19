@@ -106,6 +106,7 @@
 	algorithm = patience
 [merge]
 	tool = opendiff
+	conflictstyle = diff3
 [difftool]
 	prompt = false
 [mergetool]
