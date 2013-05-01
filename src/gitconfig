@@ -32,7 +32,8 @@
 	# commit the updated changelog
 	clog = "!git add CHANGELOG.markdown && git commit -m 'update changelog'"
 	# commit with the given message
-	cm = commit -m
+	# turning this off for now, because i want to start using the editor to encourage me to provide richer commit messages
+	# cm = commit -m
 	co = checkout
 	# choose from other local branches you have checked out, and check it out
 	colist = "!select choice in $(git branch | grep -v '*'); do echo checking out $choice; git checkout $choice; break; done"
