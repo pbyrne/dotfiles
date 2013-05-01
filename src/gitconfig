@@ -26,7 +26,8 @@
 	branchname = !git branch | grep '^* ' | awk '{ print $2 }'
 	# all branches, even remote
 	brs = branch -a
-	c = commit
+	# display the diff to be committed when entring commit message
+	c = commit --verbose
 	# display the changes between the two given commits
 	changes = "!f() { git log --pretty=format:'* %s' $1..$2; }; f"
 	# commit the updated changelog
