@@ -37,6 +37,8 @@ Bundle "bufexplorer.zip"
 Bundle "sjl/strftimedammit.vim"
 Bundle "tpope/vim-characterize"
 Bundle "tpope/vim-markdown"
+Bundle "rizzatti/funcoo.vim"
+Bundle "rizzatti/dash.vim"
 
 " general
 "let mapleader = ","
