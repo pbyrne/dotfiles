@@ -324,22 +324,22 @@ if has("autocmd")
     endif
   endfunction
   nnoremap <Leader>dd :call MyCloseDiff()<cr>
-  
+
   " make uses real tabs
   autocmd FileType make set noexpandtab
-  
+
   " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
   autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.term,Guardfile}    set ft=ruby
-  
+
   " *.md are markdown
   autocmd BufRead,BufNewFile *.md set ft=markdown
-  
+
   " json is really just javascript
   autocmd BufNewFile,BufRead *.json set ft=javascript
-  
+
   " clean up quickfix (e.g., Ack) output
   autocmd Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
-  
+
   " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   autocmd FileType python  set tabstop=4 textwidth=79
 
@@ -354,7 +354,7 @@ if has("autocmd")
 
   " check spelling from within git commit messages
   autocmd FileType gitcommit setlocal spell
-  
+
   " automatically leave insert mode after 15 seconds of inactivity
   autocmd CursorHoldI * stopinsert
   autocmd InsertEnter * let updaterestore=&updatetime | set updatetime=15000
@@ -400,3 +400,4 @@ command! Marked silent exe "!open -a Marked.app '%:p'" | redraw!
 " copy the current line to the line below, replace with an equal number of =
 map <Leader>1 yypVr=
 map <Leader>2 yypVr-
+
