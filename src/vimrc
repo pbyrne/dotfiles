@@ -136,7 +136,7 @@ vnoremap / /\v
 " clear the search term
 nnoremap <leader><space> :noh<cr>
 " close windows other than the current
-map <Leader>w :ZoomWin<CR>
+noremap <Leader>w :ZoomWin<CR>
 " shortcuts for beginning and end of the line
 nnoremap <Leader>h ^
 nnoremap <Leader>l $
@@ -198,13 +198,13 @@ vnoremap <C-Up> [egv
 vnoremap <C-Down> ]egv
 
 " CTags shortcuts
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+noremap <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " open definition in a new tab
-map <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
+noremap <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " test running
 " lifted from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-map <leader>t :call RunTestFile()<cr>
+noremap <leader>t :call RunTestFile()<cr>
 " inoremap <leader>t <esc>:call RunTestFile()<cr>
 
 function! RunTestFile(...)
@@ -254,7 +254,7 @@ function! PromoteToLet()
   :normal j
 endfunction
 :command! PromoteToLet :call PromoteToLet()
-:map <leader>p :PromoteToLet<cr>
+:noremap <leader>p :PromoteToLet<cr>
 
 " get out of here!
 :command! -bang Q :qa<bang>
@@ -263,7 +263,7 @@ endfunction
 " ack
 noremap <Leader>a :Ack<space>
 " ack for current word (based on cursor)
-map <Leader>A :Ack<space><C-r><C-w>
+noremap <Leader>A :Ack<space><C-r><C-w>
 
 " disable some delimitmate mappings which cause a delay when hitting <ESC>O
 " (which creates a new line above the current, while in insert mode)
@@ -398,6 +398,6 @@ command! Marked silent exe "!open -a Marked.app '%:p'" | redraw!
 
 " create first- and second-level markdown headings
 " copy the current line to the line below, replace with an equal number of =
-map <Leader>1 yypVr=
-map <Leader>2 yypVr-
+noremap <Leader>1 yypVr=
+noremap <Leader>2 yypVr-
 
