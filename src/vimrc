@@ -179,7 +179,7 @@ inoremap <Leader>V <ESC>"*Pi
 
 " automatically strip whitespace from ends of ruby and ERB files
 "autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
-nmap <Leader>WS :%s/\s\+$//e<CR>
+nnoremap <Leader>WS :%s/\s\+$//e<CR>
 
 if $VIM_CRONTAB == "true"
 set nobackup " don't back up, causes issues editing crontabs
@@ -191,11 +191,11 @@ set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
 
 " Unimpaired shortcuts
 " Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
+nnoremap <C-Up> [e
+nnoremap <C-Down> ]e
 " Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+vnoremap <C-Up> [egv
+vnoremap <C-Down> ]egv
 
 " CTags shortcuts
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -205,7 +205,7 @@ map <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 " test running
 " lifted from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 map <leader>t :call RunTestFile()<cr>
-" imap <leader>t <esc>:call RunTestFile()<cr>
+" inoremap <leader>t <esc>:call RunTestFile()<cr>
 
 function! RunTestFile(...)
     if a:0
@@ -276,8 +276,8 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 command! Mkdirs silent exe ':silent !mkdir -p %:h' | redraw!
 
 " Leader-][ to increase/decrease indentation
-vmap <Leader>] >gv
-vmap <Leader>[ <gv
+vnoremap <Leader>] >gv
+vnoremap <Leader>[ <gv
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
