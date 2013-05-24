@@ -154,7 +154,7 @@ augroup myvimrc
 augroup END
 
 " save really quickly
-noremap <cr> :w<cr>
+" noremap <cr> :w<cr>
 
 " emulate MacVim keybindings
 noremap <Leader>s :w<CR>
