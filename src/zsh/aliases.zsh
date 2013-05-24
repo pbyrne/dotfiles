@@ -48,7 +48,7 @@ alias ts='terminitor start'
 # clear out the **.orig files left over from opendiff's merges
 alias rmorig="find . -name '*.orig' | xargs rm"
 # clear out vim's temporary files
-alias cleanvim='rm -f ~/.vim/_backup/* ~/.vim/_swp/* ~/.vim/_undo/*'
+alias cleanvim='rm -f ~/.vim/_backup/*; rm -f ~/.vim/_swp/*; rm -f ~/.vim/_undo/*'
 
 # don't want certain configuration choices when editing my crontab, so will check against VIM_CRONTAB in my .vimrc
 alias crontab="VIM_CRONTAB=true crontab"
