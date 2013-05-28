@@ -278,8 +278,8 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 command! Mkdirs silent exe ':silent !mkdir -p %:h' | redraw!
 
 " Leader-][ to increase/decrease indentation
-vnoremap <Leader>] >gv
-vnoremap <Leader>[ <gv
+vnoremap > >gv
+vnoremap < <gv
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
