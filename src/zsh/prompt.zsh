@@ -41,7 +41,7 @@ function pjb_gitinfo() {
           __CURRENT_GIT_BRANCH="${arr[1][(w)4]}";
       fi
 
-      if [[ $arr[2] =~ 'Your branch is' ]]; then
+      if [[ $arr[2] =~ 'Your branch ' ]]; then
           if [[ $arr[2] =~ 'ahead' ]]; then
               __CURRENT_GIT_BRANCH_STATUS='ahead'
           elif [[ $arr[2] =~ 'diverged' ]]; then
