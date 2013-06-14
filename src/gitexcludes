@@ -13,3 +13,4 @@ tmp/*
 
 # filemerge
 *.orig
+.ruby-version
