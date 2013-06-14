@@ -28,6 +28,7 @@ alias t='bundle exec rake test'
 alias tu='bundle exec rake test:units'
 alias tf='bundle exec rake test:functionals'
 alias ti='bundle exec rake test:integration'
+alias tc='bundle exec rake test:capybara'
 # and rake
 alias r='bundle exec rake'
 # and vagrant
