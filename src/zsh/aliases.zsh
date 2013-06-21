@@ -115,3 +115,12 @@ function receivefile() {
   # listen on port 5566 and dump what you receive to $file
   nc -l 5566 > $file
 }
+
+# report the file extensions in your project
+#
+# 1. get list of files from git
+# 2. get the filename by passing the list of files into basename
+# 3. fetching only files with extensions (that have a dot)
+# 4. splitting by dot and grabbing the last item
+# 5. reporting from most frequent to least frequent occurrence
+alias filextensions="g ls-files | xargs basename | grep '\.' | awk -F'.' '{ print \$(NF) }' | sort | uniq -c | sort -rn"
