@@ -99,3 +99,19 @@ alias ports='sudo netstat -tulanp'
 
 # run faster tests!
 alias rubytest='ruby -I test '
+
+# send and receive files with netcat
+# lifted from http://us2.campaign-archive2.com/?u=542a01cc849b6e2f33b5ada6f&id=4e347c6c35&e=06fe6d0bb6
+# ex: sendfile 1.2.3.4 ~/Downloads/foo.txt
+function sendfile() {
+  ip=$1; file=$2;
+  # send the contents of $file to $ip on port 5566
+  nc $ip 5566 < $file
+}
+
+# ex: receivefile ~/Downloads/bar.txt
+function receivefile() {
+  file=$1;
+  # listen on port 5566 and dump what you receive to $file
+  nc -l 5566 > $file
+}
