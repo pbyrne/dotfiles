@@ -1,5 +1,4 @@
 # export PATH=~/Dropbox/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/:$DYLD_LIBRARY_PATH
 export SHARED_WORKSPACE=~/workspace
 # open in gui vim and wait for the window to close
 export EDITOR='vim'
