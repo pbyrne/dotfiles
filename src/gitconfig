@@ -69,10 +69,15 @@
 	# for use with forked repos, assumes the original repo's remote is named 'upstream'
 	mergeupstream = !git fetch upstream && git merge upstream/master master
 	# new branch with the given name
-	nb = "!f() { git checkout -b $1 && git push --set-upstream origin $1; }; f"
+	nb = "!f() { git checkout -b $1; }; f"
+	# new branch with the given name and set its upstream
+	nbp = "!f() { git checkout -b $1 && git push --set-upstream origin $1; }; f"
+	out = !git log `bundle exec cap deploy:revision -q`..HEAD
 	# Not yet added - doesn't include ignored files
 	new = ls-files --others --exclude-standard
-	p = push
+	p = "!f() { git push origin `git branchname`; }; f"
+	# push and set the upstream
+	pu = "!f() { git push --set-upstream origin `git branchname`; }; f"
 	s = status
 	# search through commit messages for the given word
 	searchlogs = !git log --oneline | grep
