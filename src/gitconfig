@@ -54,8 +54,7 @@
 	ff = !git fetch && git wtf
 	# latest commit (emulate's mercurials 'hg head' command)
 	head = log -n1
-	# pretty graphed log
-	l = "!source ~/.githelpers && pretty_git_log"
+	l = log --oneline --decorate
 	# pretty graphed log, including commits not merged into the branch
 	la = "!git l --all"
 	# just the most recent 25, but same format
