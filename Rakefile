@@ -58,32 +58,11 @@ namespace :setup do
 end
 
 
-# TODO express the other update commands in separate dependant rake tasks
 desc "Update to the latest and greatest, and run any installs that need to happen"
-task :update => [:update_tm] do
+task :update do
   sh "git pull"
   # to ensure that git has loaded the submodules
   sh "vim +BundleInstall +qall"
-end
-
-desc "Update TextMate Bundles and PlugIns checked out with git"
-task :update_tm do
-  %w(
-    ~/Library/Application\ Support/TextMate/Bundles
-    ~/Library/Application\ Support/TextMate/PlugIns
-  ).each do |dir|
-    `ls '#{File.expand_path(dir)}'`.split("\n").each do |subdir|
-      gitdir = File.expand_path(File.join(dir, subdir))
-      if File.directory?(File.join(gitdir, ".git"))
-        # TODO pretty up this output. it uses the entire path, which looks ugly
-        # but avoid Dir.chdir, since that changes the current directory, which i don't want
-        sh "cd '#{gitdir}' && git pull"
-      end
-    end
-  end
-
-  # return to the directory where rake was called
-  sh "cd '#{ENV['PWD']}'"
 end
 
 # just running `rake` runs `rake update`
