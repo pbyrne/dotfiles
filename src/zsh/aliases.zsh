@@ -32,8 +32,11 @@ alias tc='bundle exec rake test:capybara'
 # and rake
 alias r='bundle exec rake'
 # and vagrant
-alias bv='bundle exec vagrant'
-alias v='vagrant' # TODO remove and switch bv to v once we get ngin onto rails 3.1 and can put vagrant back into the gemfile
+alias v='bundle exec vagrant'
+alias vu='bundle exec vagrant up'
+alias vp='bundle exec vagrant provision'
+alias vh='bundle exec vagrant halt'
+alias vs='bundle exec vagrant ssh'
 
 alias ra='bundle exec rails'
 alias rc='bundle exec rails console'
