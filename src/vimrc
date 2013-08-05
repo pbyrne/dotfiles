@@ -206,47 +206,82 @@ noremap <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " test running
 " lifted from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-noremap <leader>t :call RunTestFile()<cr>
-" inoremap <leader>t <esc>:call RunTestFile()<cr>
+noremap <leader>t :call RunTest()<cr>
+" inoremap <leader>t <esc>:call RunTest()<cr>
 
-function! RunTestFile(...)
-    if a:0
-        let command_suffix = a:1
+" Run tests in the current file, if the file is a test, or in the last test
+" file this was called from.
+function! RunTest()
+  let in_test_file = match(expand("%"), '\(_spec.rb\|test/\)') != -1
+  if in_test_file
+    " capture the path to the test file
+    call SetTestFile()
+  endif
+  if !exists("t:pjb_test_file")
+    " if the file doesn't exist, bomb out
+    call UnableToRunTest("No test file has been captured. Run this command from a test file.")
+    return
+  endif
+
+  call RunTestFile(t:pjb_test_file)
+endfunction
+
+" Set current file to be the test file to run
+function! SetTestFile()
+  let t:pjb_test_file=@%
+endfunction
+
+" Run the given test file, using the appropriate command
+function! RunTestFile(filename)
+  if match(a:filename, "_spec") != -1
+    " rspec
+    let pjb_test_command = ":!bundle exec rspec " . a:filename
+  elseif match(a:filename, "test/") != -1
+    " test:unit
+    if match(a:filename, "/unit/") != -1
+      let test_type = "test:units"
+    elseif match(a:filename, "/functional/") != -1
+      let test_type = "test:functionals"
+    elseif match(a:filename, "/integration/") != -1
+      let test_type = "test:integration"
+    elseif match(a:filename, "/capybara/") != -1
+      let test_type = "test:capybara"
     else
-        let command_suffix = ""
+      call UnableToRunTest("Unable to determine which type of test:unit test to run for " . a:filename)
+      return
     endif
 
-    " Run the tests for the previously-marked file.
-    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
-    if in_test_file
-        call SetTestFile()
-    elseif !exists("t:grb_test_file")
-        return
-    end
-    call RunTests(t:grb_test_file . command_suffix)
+    let pjb_test_command =  ":!bundle exec rake " . test_type . " TEST=" . a:filename
+  else
+    call UnableToRunTest("Unable to determine a test command for " . a:filename)
+    return
+  endif
+
+  echo pjb_test_command
+  exec pjb_test_command
 endfunction
 
-function! SetTestFile()
-    " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
+" Bomb out of test run
+function! UnableToRunTest(reason)
+  exec ":!echo Unable to run test: " . a:reason
 endfunction
 
-function! RunTests(filename)
-    " Write the file and run tests for the given filename
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo -----------------------
-    if match(a:filename, '\.feature$') != -1
-        exec ":!script/features " . a:filename
-    else
-        if filereadable("script/test")
-            exec ":!script/test " . a:filename
-        elseif filereadable("Gemfile")
-            exec ":!bundle exec rspec --color " . a:filename
-        else
-            exec ":!rspec --color " . a:filename
-        end
-    end
-endfunction
+" function! RunTests(filename)
+"     " Write the file and run tests for the given filename
+"     :w
+"     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo -----------------------
+"     if match(a:filename, '\.feature$') != -1
+"         exec ":!script/features " . a:filename
+"     else
+"         if filereadable("script/test")
+"             exec ":!script/test " . a:filename
+"         elseif filereadable("Gemfile")
+"             exec ":!bundle exec rspec --color " . a:filename
+"         else
+"             exec ":!rspec --color " . a:filename
+"         end
+"     end
+" endfunction
 
 function! PromoteToLet()
   :normal! dd
