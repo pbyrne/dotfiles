@@ -1,5 +1,6 @@
 #!/usr/bin/env phantomjs
 // vim :ft=javascript:
+// usage: bin/screencap URL FILE.png
 var page = require('webpage').create(),
     system = require('system'),
     address, output, size;
