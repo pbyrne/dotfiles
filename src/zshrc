@@ -8,6 +8,8 @@ zmodload -i zsh/complist
 
 autoload colors; colors
 
+# add this repo's bin to PATH
+export PATH=~/bin:$PATH
 # add dropbox to PATH
 export PATH=/Users/pbyrne/Dropbox/bin:$PATH
 # and local mysql install

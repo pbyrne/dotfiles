@@ -9,6 +9,7 @@ namespace :setup do
   task :setup do
     Rake::Task["setup:symlink_dotfiles"].invoke
     Rake::Task["setup:symlink_private_dotfiles"].invoke
+    Rake::Task["setup:symlink_bin"].invoke
     Rake::Task["setup:mac_defaults"].invoke
     Rake::Task["setup:install_vundle"].invoke
   end
@@ -25,6 +26,10 @@ namespace :setup do
 
       conditionally_symlink(source, destination)
     end
+  end
+
+  task :symlink_bin do
+    conditionally_symlink(File.join(Dir.pwd, "bin"), File.expand_path("~/bin"))
   end
 
   desc "Set up private symlinks stored in ~/Dropbox/dotfiles"
