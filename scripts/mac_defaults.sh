@@ -84,3 +84,6 @@ ln -sf ~/Dropbox/Action ~/Library/PDF\ Services/
 # nabbed from @mrDarcyMurphy (https://twitter.com/mrDarcyMurphy/status/252791938800050177)
 defaults -currentHost write -g AppleFontSmoothing -int 2
 
+defaults write com.apple.screencapture location ~/Downloads
+# so that the screencapture settings take effect
+killall SystemUIServer
