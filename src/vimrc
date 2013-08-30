@@ -213,6 +213,11 @@ noremap <leader>t :call RunTest()<cr>
 " Run tests in the current file, if the file is a test, or in the last test
 " file this was called from.
 function! RunTest()
+  " Write the file and run tests for the given filename
+  if expand("%") != ""
+    :w
+  end
+
   let in_test_file = match(expand("%"), '\(_spec.rb\|test/\)') != -1
   if in_test_file
     " capture the path to the test file
