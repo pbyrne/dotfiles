@@ -1,5 +1,4 @@
-# calculate the average of the numbers passed in, assumes
-# one number per line
+# calculate the average of the numbers passed in, assumes one number per line
 #
 # usage: pbpaste | mean
 # usage: mean < file.txt
