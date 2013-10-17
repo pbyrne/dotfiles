@@ -12,7 +12,7 @@ function pjb_path() {
 
 function pjb_tools() {
   # interpreter and short version (e.g., ruby-1.9.3 or ree-1.8.7)
-  echo `rvm-prompt i v 2> /dev/null`
+  echo `rbenv version-name 2> /dev/null`
 }
 
 function pjb_background_jobs() {
