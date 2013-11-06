@@ -20,7 +20,10 @@ defaults write com.apple.dock orientation left
 # put the Dock in the corner, not center
 defaults write com.apple.Dock pinning end
 
-# restart the Dock
+# auto-hide the dock
+defaults write com.apple.dock autohide -boolean true
+
+# restart the Dock, so the changes take effect
 killall Dock
 
 # Disable menu bar transparency
