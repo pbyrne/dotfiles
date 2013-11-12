@@ -218,7 +218,7 @@ function! RunTest()
     :w
   end
 
-  let in_test_file = match(expand("%"), '\(_spec.rb\|test/\)') != -1
+  let in_test_file = match(expand("%"), '\(_spec.rb\|_test.rb\)') != -1
   if in_test_file
     " capture the path to the test file
     call SetTestFile()
@@ -242,7 +242,7 @@ function! RunTestFile(filename)
   if match(a:filename, "_spec") != -1
     " rspec
     let pjb_test_command = ":!bundle exec rspec " . a:filename
-  elseif match(a:filename, "test/") != -1
+  elseif match(a:filename, "_test") != -1
     " test:unit
     if match(a:filename, "/unit/") != -1
       let test_type = "test:units"
