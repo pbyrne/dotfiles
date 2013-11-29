@@ -46,6 +46,8 @@ function pjb_gitinfo() {
               __CURRENT_GIT_BRANCH_STATUS='ahead'
           elif [[ $arr[2] =~ 'diverged' ]]; then
               __CURRENT_GIT_BRANCH_STATUS='diverged'
+            elif [[ $arr[2] =~ 'up-to-date' ]]; then
+              __CURRENT_GIT_BRANCH_STATUS='up-to-date'
           else
               __CURRENT_GIT_BRANCH_STATUS='behind'
           fi
