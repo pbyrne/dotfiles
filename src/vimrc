@@ -444,3 +444,6 @@ command! Marked silent exe "!open -a Marked.app '%:p'" | redraw!
 noremap <Leader>1 yypVr=
 noremap <Leader>2 yypVr-
 
+" Add go-supplied syntax highlighting
+set rtp+=/usr/local/Cellar/go/1.1.2/libexec/misc/vim
+au BufRead,BufNewFile *.go set filetype=go
