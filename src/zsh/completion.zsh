@@ -1,5 +1,7 @@
 # from homebrew's zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
+# And rebuild completions
+compinit
 
 zstyle ':completion:*' use-cache on
 
@@ -14,3 +16,4 @@ if [ "x$CASE_SENSITIVE" = "xtrue" ]; then
 else
   zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 fi
+
