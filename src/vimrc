@@ -372,7 +372,7 @@ if has("autocmd")
   autocmd FileType make set noexpandtab
 
   " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-  autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.term,Guardfile}    set ft=ruby
+  autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.term,Guardfile,*.cap}    set ft=ruby
 
   " *.md are markdown
   autocmd BufRead,BufNewFile *.md set ft=markdown
