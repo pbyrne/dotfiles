@@ -449,3 +449,16 @@ set rtp+=/usr/local/Cellar/go/1.2/libexec/misc/vim
 au BufRead,BufNewFile *.go set filetype=go
 " Run the current .go file with <leader>g
 autocmd FileType go nnoremap <leader>g :w<cr>:!go run %<cr>
+
+" Teach vim-rails about custom directories
+let g:rails_projections = {
+  \ "app/jobs/*.rb": {
+  \   "command": "job",
+  \   "template": "class %S\nend",
+  \   "test": [
+  \     "test/unit/jobs/%s_test.rb",
+  \     "spec/jobs/%_spect.rb"
+  \   ],
+  \   "keywords": "background jobs"}}
+
+
