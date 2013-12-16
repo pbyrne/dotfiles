@@ -15,3 +15,8 @@ export RUBY_HEAP_FREE_MIN=500000
 
 # what to split on
 export WORDCHARS='*?[]~&;!$%^<>'
+
+# Tell shell where GO bins are installed
+export GOPATH=$HOME/.go
+mkdir -p $GOPATH
+export PATH=$GOPATH/bin:$PATH
