@@ -18,6 +18,8 @@ export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # and the currently install NPM-installed executables
 export PATH=./node_modules/.bin:$PATH
+# Display time to complete commands longer than $REPORTTIME
+export REPORTTIME=5
 
 # i have a color screen, you know
 export TERM='xterm-color'
@@ -34,3 +36,4 @@ fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
