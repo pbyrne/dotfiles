@@ -11,3 +11,5 @@ indent
 .DS_Store
 
 src/config/hub
+src/config/gh
+src/config/gh-update
