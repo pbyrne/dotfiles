@@ -40,6 +40,7 @@ Bundle "tpope/vim-markdown"
 Bundle "rizzatti/funcoo.vim"
 Bundle "rizzatti/dash.vim"
 Bundle "slim-template/vim-slim"
+Bundle "tpope/vim-vinegar"
 
 " general
 "let mapleader = ","
