@@ -337,6 +337,15 @@ if has("autocmd")
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
 
+  " But in commit messages hop back to the top
+  augroup gitCommitEditMsg
+    autocmd!
+    autocmd BufReadPost *
+        \ if @% == '.git/COMMIT_EDITMSG' |
+        \   exe "normal gg" |
+        \ endif
+  augroup END
+
   " maps .. to move up a directory when in Fugitive's Gedit view on a folder
   autocmd User fugitive
     \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
