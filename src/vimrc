@@ -450,6 +450,9 @@ set shell=/bin/sh
 " Open the current file with the :Marked command
 command! Marked silent exe "!open -a Marked.app '%:p'" | redraw!
 
+" Go to the next conflict
+command! NextConflict silent :normal /\<\<\<\<\<\<\</
+
 " create first- and second-level markdown headings
 " copy the current line to the line below, replace with an equal number of =
 noremap <Leader>1 yypVr=
