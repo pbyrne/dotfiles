@@ -13,6 +13,8 @@ alias -g ONE="| awk '{ print \$1 }'"
 alias -g TWO="| awk '{ print \$2 }'"
 alias -g X="| xargs"
 alias -g XRM="| xargs rm"
+alias -g H="| head"
+alias -g WC="| wc"
 
 alias b='bundle'
 alias be='bundle exec'
