@@ -94,6 +94,7 @@ set wildignore+=_site,cache,tmp " and auto-generated files
 set wildignore+=_undo,_swp,_backup " and vim's backups
 set wildignore+=node_modules " and npm-installed modules
 set wildignore+=build
+set wildignore+=.bundle/,.git/,.sass-cache/
 
 " window splitting settings
 set splitbelow
@@ -129,7 +130,6 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-
 
 " Custom shortcuts
 " use sane (not the vim-default) regexes in search
