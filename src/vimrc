@@ -61,7 +61,7 @@ set title " show a window title, even in command-line vim
 set visualbell " eliminate audio bells
 set hidden " allow an unsaved buffer to become hidden (no longer the visible), and load its marks and undo history upon becoming visible again
 set history=1000 " store command history FOREVER
-
+set lazyredraw
 " whitespace settings
 set nowrap " don't wrap lines
 set tabstop=2 shiftwidth=2 softtabstop=2 " 2 spaces for tabs
