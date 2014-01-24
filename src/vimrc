@@ -41,6 +41,7 @@ Bundle "rizzatti/funcoo.vim"
 Bundle "rizzatti/dash.vim"
 Bundle "slim-template/vim-slim"
 Bundle "tpope/vim-vinegar"
+Bundle "sjl/badwolf"
 
 " general
 "let mapleader = ","
@@ -101,8 +102,7 @@ set splitright
 " Default color scheme
 set t_Co=256 " 256 colors
 set background=dark
-" colorscheme lucius
-colorscheme hybrid
+colorscheme badwolf
 
 " Undo settings, if available
 if has("persistent_undo")
