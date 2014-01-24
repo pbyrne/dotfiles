@@ -148,6 +148,10 @@ inoremap jj <ESC>
 " ug, and kk because i keep hitting it
 inoremap kk <ESC>
 
+" highlight last inserted text
+nnoremap gV `[v`]
+
+
 " open the .vimrc
 noremap <Leader>` :sp $MYVIMRC<CR>
 " and reload it automatically when saving it
