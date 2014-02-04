@@ -68,9 +68,6 @@ alias g='git'
 # heroku
 alias h='heroku'
 alias bh='bundle exec heroku'
-# and kumade
-alias k='bundle exec kumade'
-alias kp='bundle exec kumade production'
 
 # grep through history
 alias hgrep='history 1 | grep $1'
