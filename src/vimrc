@@ -456,7 +456,7 @@ set shell=/bin/sh
 command! Marked silent exe "!open -a Marked.app '%:p'" | redraw!
 
 " Go to the next conflict
-command! NextConflict silent :normal /\<\<\<\<\<\<\</
+command! NextConflict silent :execute "normal /\\<\\<\\<\\<\\<\\<\\<\<CR>"
 
 " create first- and second-level markdown headings
 " copy the current line to the line below, replace with an equal number of =
