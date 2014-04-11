@@ -31,12 +31,6 @@ alias ti='bundle exec rake test:integration'
 alias tc='bundle exec rake test:capybara'
 # and rake
 alias r='bundle exec rake'
-# and vagrant
-alias v='bundle exec vagrant'
-alias vu='bundle exec vagrant up'
-alias vp='bundle exec vagrant provision'
-alias vh='bundle exec vagrant halt'
-alias vs='bundle exec vagrant ssh'
 
 alias ra='bundle exec rails'
 alias rc='bundle exec rails console'
