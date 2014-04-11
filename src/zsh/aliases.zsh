@@ -22,8 +22,6 @@ alias be='bundle exec'
 alias s='bundle exec rspec'
 # run each spec on its own (to verify that all dependencies are set up correctly, without requiring a global require-all-files setup step
 alias solospec='git ls | grep _spec.rb | while read specfile; do echo testing $specfile; bundle exec rspec $specfile; done'
-# potentially awesome cucumber rake task
-alias c='bundle exec rake cucumber'
 # stupid test:unit rake tasks
 alias mktest='RAILS_ENV=test bundle exec rake db:create'
 alias t='bundle exec rake test'
@@ -48,9 +46,6 @@ alias rs='bundle exec rails server'
 alias tarup='tar -cvzf'
 alias untar='tar -xvzf'
 
-# terminitor gem
-alias ts='terminitor start'
-
 # clear out the **.orig files left over from opendiff's merges
 alias rmorig="find . -name '*.orig' | xargs rm"
 # clear out vim's temporary files
@@ -67,7 +62,6 @@ alias g='git'
 
 # heroku
 alias h='heroku'
-alias bh='bundle exec heroku'
 
 # grep through history
 alias hgrep='history 1 | grep $1'
