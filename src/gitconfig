@@ -130,3 +130,5 @@
 	insteadOf = gpb://
 [url "git@github.com:/"]
 	insteadOf = gh://
+[credential]
+	helper = osxkeychain
