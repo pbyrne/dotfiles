@@ -29,7 +29,7 @@ unset __CURRENT_GIT_BRANCH_STATUS
 unset __CURRENT_GIT_BRANCH_IS_DIRTY
 unset __CURRENT_GIT_HAS_STASH
 function pjb_gitinfo() {
-  local st="$(git status 2>/dev/null)"
+  local st="$(git status --long 2>/dev/null)"
   local stash_count="$(git stash list 2>/dev/null | wc -l)"
   if [[ -n "$st" ]]; then
       local -a arr
