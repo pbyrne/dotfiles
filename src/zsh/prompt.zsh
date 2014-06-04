@@ -1,4 +1,17 @@
 setopt prompt_subst
+# display git information
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true # support staged/unstaged changes output
+precmd() {
+    vcs_info
+}
+# %b - branch name
+# %m - stash details
+# %u - unstaged changes
+# %c - staged changes
+zstyle ':vcs_info:git*' formats "| %b %m%u%c"
+
 
 function pjb_redgreen_prompt() {
   # green ✓ for good commands, red ! for failed commands
@@ -24,70 +37,6 @@ function pjb_background_jobs() {
 }
 
 # lifted from http://sebastiancelis.com/2009/11/16/zsh-prompt-git-users/
-unset __CURRENT_GIT_BRANCH
-unset __CURRENT_GIT_BRANCH_STATUS
-unset __CURRENT_GIT_BRANCH_IS_DIRTY
-unset __CURRENT_GIT_HAS_STASH
-function pjb_gitinfo() {
-  local st="$(git status --long 2>/dev/null)"
-  local stash_count="$(git stash list 2>/dev/null | wc -l)"
-  if [[ -n "$st" ]]; then
-      local -a arr
-      arr=(${(f)st})
-
-      if [[ $arr[1] =~ 'Not currently on any branch.' ]]; then
-          __CURRENT_GIT_BRANCH='no-branch'
-      else
-          __CURRENT_GIT_BRANCH="${arr[1][(w)4]}";
-      fi
-
-      if [[ $arr[2] =~ 'Your branch ' ]]; then
-          if [[ $arr[2] =~ 'ahead' ]]; then
-              __CURRENT_GIT_BRANCH_STATUS='ahead'
-          elif [[ $arr[2] =~ 'diverged' ]]; then
-              __CURRENT_GIT_BRANCH_STATUS='diverged'
-            elif [[ $arr[2] =~ 'up-to-date' ]]; then
-              __CURRENT_GIT_BRANCH_STATUS='up-to-date'
-          else
-              __CURRENT_GIT_BRANCH_STATUS='behind'
-          fi
-      fi
-
-      if [[ ! $st =~ 'nothing to commit' ]]; then
-          __CURRENT_GIT_BRANCH_IS_DIRTY='1'
-      fi
-
-      if [[ $stash_count -gt 0 ]]; then
-        __CURRENT_GIT_HAS_STASH='1'
-      fi
-  fi
-
-  if [ -n "$__CURRENT_GIT_BRANCH" ]; then
-      local s="("
-      s+="$__CURRENT_GIT_BRANCH"
-      case "$__CURRENT_GIT_BRANCH_STATUS" in
-          ahead)
-          s+=" ↑"
-          ;;
-          diverged)
-          s+=" ↕"
-          ;;
-          behind)
-          s+=" ↓"
-          ;;
-      esac
-      if [ -n "$__CURRENT_GIT_BRANCH_IS_DIRTY" ]; then
-          s+=" ⚡"
-      fi
-      if [ -n "$__CURRENT_GIT_HAS_STASH" ]; then
-        s+=' ∩'
-      fi
-      s+=")"
-
-      printf " %s%s" "%{${fg[yellow]}%}" $s
-  fi
-}
-
 export PROMPT='
-$(pjb_path) $(pjb_background_jobs) $(pjb_tools) $(pjb_gitinfo)
+$(pjb_path) $(pjb_background_jobs) $(pjb_tools) ${vcs_info_msg_0_}
 $(pjb_redgreen_prompt) '
