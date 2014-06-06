@@ -1,17 +1,51 @@
 setopt prompt_subst
 # display git information
 autoload -Uz vcs_info
+precmd() { vcs_info }
+
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true # support staged/unstaged changes output
-precmd() {
-    vcs_info
-}
+# zstyle ':vcs_info:git*:*' get-revision true # spporrt getting additional revision information (like sha)
+zstyle ':vcs_info:git:*' stagedstr '⚡'
+zstyle ':vcs_info:git:*' unstagedstr '⚡'
+# tell vcs_info how to populate %m (custom message)
+zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-incoming-outgoing
+
 # %b - branch name
-# %m - stash details
+# %m - custom misc message
 # %u - unstaged changes
 # %c - staged changes
+# %a - current action (e.g., merge conflict, rebase)
 zstyle ':vcs_info:git*' formats "| %b %m%u%c"
+zstyle ':vcs_info:git*' actionformats "| %a %b %m%u%c"
 
++vi-git-stash() {
+  local stash_count
+  stash_count=$(git stash list 2> /dev/null | wc -l)
+
+  [[ $stash_count -gt 0 ]] && hook_com[misc]+="∩"
+  return 0
+}
+
++vi-git-incoming-outgoing() {
+  local ahead behind
+  local -a gitstatus
+
+  ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+  behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+
+  # -a means &&, essentially
+  if [ $ahead -gt 0 -a $behind -gt 0 ]; then
+    gitstatus='↕'
+  elif [ $ahead -gt 0 ]; then
+    gitstatus='↑'
+  elif [ $behind -gt 0 ]; then
+    gitstatus='↓'
+  fi
+
+  hook_com[misc]+=$gitstatus
+  return 0
+}
 
 function pjb_redgreen_prompt() {
   # green ✓ for good commands, red ! for failed commands
