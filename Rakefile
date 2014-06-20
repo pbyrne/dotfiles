@@ -67,7 +67,7 @@ desc "Update to the latest and greatest, and run any installs that need to happe
 task :update do
   sh "git pull"
   # to ensure that git has loaded the submodules
-  sh "vim +BundleInstall +qall"
+  sh "vim +PluginInstall! +qall"
 end
 
 # just running `rake` runs `rake update`
