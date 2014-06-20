@@ -259,6 +259,8 @@ function! RunTestFile(filename)
       let test_type = "test:integration"
     elseif match(a:filename, "/capybara/") != -1
       let test_type = "test:capybara"
+    elseif match(a:filename, "/helpers/") != -1
+      let test_type = "minitest:helpers"
     else
       call UnableToRunTest("Unable to determine which type of test:unit test to run for " . a:filename)
       return
