@@ -52,6 +52,7 @@
 	# also clean up branches deleted from the server
 	f = fetch --prune
 	ff = !git fetch && git wtf
+	freebase = !git fetch && git rebase origin/master
 	# latest commit (emulate's mercurials 'hg head' command)
 	head = log -n1
 	l = log --oneline --decorate
@@ -104,6 +105,9 @@
 [push]
 	# only push the current git branch, not all branches
 	default = tracking
+[fetch]
+	# always prune when fetching
+	prune = true
 [diff]
 	# Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
 	# instead of a/b/c/d as prefixes for patches
