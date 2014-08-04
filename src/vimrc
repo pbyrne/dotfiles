@@ -458,7 +458,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
 set shell=/bin/sh
 
 " Open the current file with the :Marked command
-command! Marked silent exe "!open -a Marked.app '%:p'" | redraw!
+command! Marked silent exe "!open -a 'Marked 2.app' '%:p'" | redraw!
 
 " Go to the next conflict
 command! NextConflict silent :execute "normal /\\<\\<\\<\\<\\<\\<\\<\<CR>"
