@@ -11,3 +11,7 @@
 -- If a command is run more than once in a row, only store it once in the
 -- history.
 \set HISTCONTROL ignoredups
+-- When in an interactive connection, do not immediately roll back within a
+-- transaction when an error occurs.
+\set ON_ERROR_ROLLBACK interactive
+
