@@ -469,7 +469,7 @@ noremap <Leader>1 yypVr=
 noremap <Leader>2 yypVr-
 
 " Add go-supplied syntax highlighting
-set rtp+=/usr/local/Cellar/go/1.2/libexec/misc/vim
+set rtp+=/usr/local/Cellar/go/1.3/libexec/misc/vim
 au BufRead,BufNewFile *.go set filetype=go
 " Run the current .go file with <leader>g
 autocmd FileType go nnoremap <leader>g :w<cr>:!go run %<cr>
