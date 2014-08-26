@@ -5,9 +5,9 @@ precmd() { vcs_info }
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true # support staged/unstaged changes output
-# zstyle ':vcs_info:git*:*' get-revision true # spporrt getting additional revision information (like sha)
-zstyle ':vcs_info:git:*' stagedstr '⚡'
-zstyle ':vcs_info:git:*' unstagedstr '⚡'
+zstyle ':vcs_info:git*:*' get-revision true # spporrt getting additional revision information (like sha)
+zstyle ':vcs_info:git:*' stagedstr '+'
+zstyle ':vcs_info:git:*' unstagedstr '+'
 # tell vcs_info how to populate %m (custom message)
 zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-incoming-outgoing
 
