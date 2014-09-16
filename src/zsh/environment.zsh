@@ -7,7 +7,7 @@ export GREP_OPTIONS='--color=auto'
 export WORDCHARS='*?[]~&;!$%^<>'
 
 # Tell shell where GO bins are installed
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/workspace/go
 mkdir -p $GOPATH
 export PATH=$GOPATH/bin:$PATH
 
