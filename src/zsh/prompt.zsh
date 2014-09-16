@@ -16,8 +16,8 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-incoming-outgoing
 # %u - unstaged changes
 # %c - staged changes
 # %a - current action (e.g., merge conflict, rebase)
-zstyle ':vcs_info:git*' formats "| %b %m%u%c"
-zstyle ':vcs_info:git*' actionformats "| %a %b %m%u%c"
+zstyle ':vcs_info:git*' formats "| %b %.7i %m%u%c"
+zstyle ':vcs_info:git*' actionformats "| %a %b %.7i %m%u%c"
 
 +vi-git-stash() {
   local stash_count
