@@ -14,6 +14,7 @@ alias -g TWO="| awk '{ print \$2 }'"
 alias -g X="| xargs"
 alias -g XRM="| xargs rm"
 alias -g H="| head"
+alias -g T="| tail"
 alias -g WC="| wc"
 
 alias b='bundle'
