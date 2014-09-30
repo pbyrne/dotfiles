@@ -78,9 +78,9 @@ alias publicip='dig +short myip.opendns.com @resolver1.opendns.com'
 # generate a sha checksum of a given file
 alias sha='shasum'
 
-# convenience wrappers  around curl
-alias curl='curl --silent'
-alias curlgz='curl --silent -H "Accept-Encoding: gzip,deflate"'
+# convenience wrappers around curl
+alias curl='curl -sS' # -s to silence progress bar when piping, -S to unsilence errors
+alias curlgz='curl -sS -H "Accept-Encoding: gzip,deflate"'
 
 # fix duplicate entries in Open With
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
