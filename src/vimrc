@@ -492,4 +492,6 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_working_path_mode = 0
 
-" More netrw tweaks
+" Populate some helpful macros
+let @h = 'xea:wdw' " convert from old Ruby hashes to new
+let @n = ':cn' " move to the next quickfix match
