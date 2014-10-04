@@ -12,12 +12,8 @@ autoload colors; colors
 export PATH=~/bin:$PATH
 # add dropbox to PATH
 export PATH=/Users/pbyrne/Dropbox/bin:$PATH
-# and local mysql install
-export PATH=/usr/local/mysql/bin:$PATH
 # and homebrew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-# and the currently install NPM-installed executables
-export PATH=./node_modules/.bin:$PATH
 # Display time to complete commands longer than $REPORTTIME
 export REPORTTIME=5
 
