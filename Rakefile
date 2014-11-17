@@ -9,6 +9,7 @@ namespace :setup do
   task :setup do
     Rake::Task["setup:symlink_dotfiles"].invoke
     Rake::Task["setup:symlink_private_dotfiles"].invoke
+    Rake::Task["setup:symlink_shared_application_support"].invoke
     Rake::Task["setup:symlink_bin"].invoke
     Rake::Task["setup:mac_defaults"].invoke
     Rake::Task["setup:install_vundle"].invoke
@@ -44,6 +45,19 @@ namespace :setup do
       end
     else
       puts "  #{manifest_path} does not exist, cannot continue"
+    end
+  end
+
+  desc "Symlink shared Application Support directories"
+  task :symlink_shared_application_support do
+    shared_app_support_path = File.expand_path("~/Dropbox/Library/Application Support")
+    if File.exist?(shared_app_support_path)
+      Dir["#{shared_app_support_path}/*"].each do |orig|
+        dest = File.expand_path("~/Library/Application Support/#{File.basename(orig)}")
+        conditionally_symlink(orig, dest)
+      end
+    else
+      puts "  #{shared_app_support_path} does not exist, skipping"
     end
   end
 
