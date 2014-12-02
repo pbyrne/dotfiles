@@ -40,6 +40,7 @@ Bundle "rizzatti/dash.vim"
 Bundle "slim-template/vim-slim"
 Bundle "tpope/vim-vinegar"
 Bundle "sjl/badwolf"
+Bundle "fatih/vim-go"
 
 " general
 "let mapleader = ","
@@ -466,9 +467,6 @@ command! NextConflict silent :execute "normal /\\<\\<\\<\\<\\<\\<\\<\<CR>"
 noremap <Leader>1 yypVr=
 noremap <Leader>2 yypVr-
 
-" Add go-supplied syntax highlighting
-set rtp+=/usr/local/Cellar/go/1.3/libexec/misc/vim
-au BufRead,BufNewFile *.go set filetype=go
 " Run the current .go file with <leader>g
 autocmd FileType go nnoremap <leader>g :w<cr>:!go run %<cr>
 
