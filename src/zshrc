@@ -33,3 +33,6 @@ fi
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+
+# added by travis gem
+[ -f /Users/pbyrne/.travis/travis.sh ] && source /Users/pbyrne/.travis/travis.sh
