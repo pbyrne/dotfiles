@@ -479,7 +479,8 @@ let g:rails_projections = {
   \   "template": "class %S\nend",
   \   "test": [
   \     "test/unit/jobs/%s_test.rb",
-  \     "spec/jobs/%_spect.rb"
+  \     "test/jobs/%s_test.rb",
+  \     "spec/jobs/%_spec.rb"
   \   ],
   \   "keywords": "background jobs"}}
 
