@@ -252,6 +252,8 @@ function! RunTestFile(filename)
     " test:unit
     if match(a:filename, "/unit/") != -1
       let test_type = "test:units"
+    elseif match(a:filename, "/mailers/") != -1
+      let test_type = "test:mailers"
     elseif match(a:filename, "/functional/") != -1
       let test_type = "test:functionals"
     elseif match(a:filename, "/integration/") != -1
