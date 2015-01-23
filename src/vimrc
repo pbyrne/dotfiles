@@ -325,9 +325,6 @@ let delimitMate_no_esc_mapping = 1
 " make %% map to the directory path containing the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" Create parent directories for the current file
-command! Mkdirs silent exe ':silent !mkdir -p %:h' | redraw!
-
 " Leader-][ to increase/decrease indentation
 vnoremap > >gv
 vnoremap < <gv
@@ -339,7 +336,6 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 " loop through the open windows
 nnoremap <c-i> <c-w>w
-
 
 if has("autocmd")
   " Remember last location in file
