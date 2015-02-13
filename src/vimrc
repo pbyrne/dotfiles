@@ -249,25 +249,8 @@ function! RunTestFile(filename)
     " rspec
     let pjb_test_command = ":!bundle exec rspec " . a:filename
   elseif match(a:filename, "_test") != -1
-    " test:unit
-    if match(a:filename, "/unit/") != -1
-      let test_type = "test:units"
-    elseif match(a:filename, "/mailers/") != -1
-      let test_type = "test:mailers"
-    elseif match(a:filename, "/functional/") != -1
-      let test_type = "test:functionals"
-    elseif match(a:filename, "/integration/") != -1
-      let test_type = "test:integration"
-    elseif match(a:filename, "/capybara/") != -1
-      let test_type = "test:capybara"
-    elseif match(a:filename, "/helpers/") != -1
-      let test_type = "minitest:helpers"
-    else
-      call UnableToRunTest("Unable to determine which type of test:unit test to run for " . a:filename)
-      return
-    endif
-
-    let pjb_test_command =  ":!bundle exec rake " . test_type . " TEST=" . a:filename
+    " minitest + spring
+    let pjb_test_command = ":!bin/rake test " . a:filename
   else
     call UnableToRunTest("Unable to determine a test command for " . a:filename)
     return
