@@ -20,22 +20,18 @@ alias -g WC="| wc"
 alias b='bundle'
 alias be='bundle exec'
 # awesome spec rake task
-alias s='bundle exec rspec'
+alias s='bin/rspec'
 # run each spec on its own (to verify that all dependencies are set up correctly, without requiring a global require-all-files setup step
 alias solospec='git ls | grep _spec.rb | while read specfile; do echo testing $specfile; bundle exec rspec $specfile; done'
 # stupid test:unit rake tasks
-alias mktest='RAILS_ENV=test bundle exec rake db:create'
-alias t='bundle exec rake test'
-alias tu='bundle exec rake test:units'
-alias tf='bundle exec rake test:functionals'
-alias ti='bundle exec rake test:integration'
-alias tc='bundle exec rake test:capybara'
+alias mktest='RAILS_ENV=test bin/rake db:create'
+alias t='bin/rake test'
 # and rake
-alias r='bundle exec rake'
+alias r='bin/rake'
 
-alias ra='bundle exec rails'
-alias rc='bundle exec rails console'
-alias rs='bundle exec rails server'
+alias ra='bin/rails'
+alias rc='bin/rails console'
+alias rs='bin/rails server'
 
 # create a tar file. usage: tarup filename.tar.gz directory/
 alias tarup='tar -cvzf'
