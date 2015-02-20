@@ -30,7 +30,7 @@ namespace :setup do
   end
 
   task :symlink_bin do
-    conditionally_symlink(File.join(Dir.pwd, "bin"), File.expand_path("~/bin"))
+    conditionally_symlink(File.join(Dir.pwd, "src", "bin"), File.expand_path("~/bin"))
   end
 
   desc "Set up private symlinks stored in ~/Dropbox/dotfiles"
