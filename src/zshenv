@@ -1,4 +1,4 @@
 # put it here because macvim loads .zshenv, not .zshrc
 # conditionally load rvm
 eval "$(rbenv init -)"
-
+eval "$(boot2docker shellinit 2>/dev/null)"
