@@ -418,7 +418,7 @@ autocmd BufWinLeave * call clearmatches()
 
 " when doing line wrap, prepend with a fancy character to distinguish from the
 " next actual line
-set showbreak=↪
+" set showbreak=↪
 
 " load my zsh settings
 " turned off until i figure out why this is causing vim to suspend all the time
