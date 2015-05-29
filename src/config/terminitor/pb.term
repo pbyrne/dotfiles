@@ -1,9 +1,0 @@
-setup 'cd ~/workspace/patrickbyrne.net/'
-
-tab do
-  run 'bundle exec guard'
-end
-
-tab do
-  run 'compass watch --time --config config/compass.rb'
-end
