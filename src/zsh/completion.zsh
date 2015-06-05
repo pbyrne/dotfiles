@@ -1,5 +1,5 @@
 # from homebrew's zsh-completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/site-functions $fpath)
 # And rebuild completions
 compinit
 
