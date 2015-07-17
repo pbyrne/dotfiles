@@ -127,8 +127,6 @@ nnoremap / /\v
 vnoremap / /\v
 " clear the search term
 nnoremap <leader><space> :noh<cr>
-" close windows other than the current
-noremap <Leader>w :ZoomWin<CR>
 " shortcuts for beginning and end of the line
 nnoremap <Leader>h ^
 nnoremap <Leader>l $
