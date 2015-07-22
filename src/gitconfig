@@ -49,6 +49,8 @@
 	details = log -n1 -p --format=fuller
 	# pipe the diff to textmate
 	dm = !git diff | mate
+	# edit new and modified files
+	edit = "!vim `git ls-files --modified --others --exclude-standard` -o"
 	# also clean up branches deleted from the server
 	f = fetch --prune
 	ff = !git fetch && git wtf
