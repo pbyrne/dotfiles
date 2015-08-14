@@ -141,3 +141,10 @@
 [status]
 	short = 1
 	branch = 1
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = Patrick Byrne
+	email = code@patrickbyrne.net
