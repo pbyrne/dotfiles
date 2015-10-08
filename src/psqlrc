@@ -14,4 +14,5 @@
 -- When in an interactive connection, do not immediately roll back within a
 -- transaction when an error occurs.
 \set ON_ERROR_ROLLBACK interactive
-
+-- Display query execution time
+\timing
