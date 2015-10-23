@@ -1,3 +1,5 @@
+-- With `\timing` below, this avoids noise when setting up the database for tests
+\set QUIET 1
 -- Inspired by http://robots.thoughtbot.com/improving-the-command-line-postgres-experience/
 -- By default, NULL displays as an empty space. Is it actually an empty
 -- string, or is it null? This makes that distinction visible.
@@ -16,5 +18,7 @@
 \set ON_ERROR_ROLLBACK interactive
 -- Display query execution time
 \timing
+-- And disable QUET again
+\set QUIET 0
 
 -- # vim: ft=sql
