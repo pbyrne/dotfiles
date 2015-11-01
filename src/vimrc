@@ -30,6 +30,7 @@ Bundle "tpope/vim-markdown"
 Bundle "tpope/vim-vinegar"
 Bundle "sjl/badwolf"
 Bundle "fatih/vim-go"
+Bundle "zenorocha/dracula-theme", {'rtp': 'vim/'}
 
 " general
 "let mapleader = ","
@@ -92,7 +93,7 @@ set splitright
 " Default color scheme
 set t_Co=256 " 256 colors
 set background=dark
-colorscheme badwolf
+colorscheme dracula
 
 " Undo settings, if available
 if has("persistent_undo")
