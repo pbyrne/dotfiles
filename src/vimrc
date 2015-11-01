@@ -6,31 +6,31 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle required!
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " and let's add some vundles
-Bundle "ervandew/supertab"
-Bundle "mileszs/ack.vim"
-Bundle "othree/html5-syntax.vim"
-Bundle "pangloss/vim-javascript"
-Bundle "tpope/vim-commentary"
-Bundle "tpope/vim-endwise"
-Bundle "tpope/vim-eunuch"
-Bundle "tpope/vim-fugitive"
-Bundle "tpope/vim-git"
-Bundle "tpope/vim-liquid"
-Bundle "tpope/vim-rails"
-Bundle "tpope/vim-rake"
-Bundle "tpope/vim-repeat"
-Bundle "tpope/vim-surround"
-Bundle "tpope/vim-unimpaired"
-Bundle "vim-ruby/vim-ruby"
-Bundle "ctrlp.vim"
-Bundle "tpope/vim-markdown"
-Bundle "tpope/vim-vinegar"
-Bundle "sjl/badwolf"
-Bundle "fatih/vim-go"
-Bundle "zenorocha/dracula-theme", {'rtp': 'vim/'}
+Plugin 'ervandew/supertab'
+Plugin 'mileszs/ack.vim'
+Plugin 'othree/html5-syntax.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-liquid'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'ctrlp.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-vinegar'
+Plugin 'sjl/badwolf'
+Plugin 'fatih/vim-go'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 
 " general
 "let mapleader = ","
