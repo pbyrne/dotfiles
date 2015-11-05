@@ -28,11 +28,7 @@ if [[ -e ~/.zsh ]]; then
   done
 fi
 
+eval "$(rbenv init -)"
+eval "$(boot2docker shellinit 2>/dev/null)"
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-
-# added by travis gem
-[ -f /Users/pbyrne/.travis/travis.sh ] && source /Users/pbyrne/.travis/travis.sh
