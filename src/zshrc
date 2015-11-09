@@ -29,6 +29,7 @@ if [[ -e ~/.zsh ]]; then
 fi
 
 eval "$(rbenv init -)"
-eval "$(boot2docker shellinit 2>/dev/null)"
+eval "$(docker-machine env default)"
+
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
