@@ -90,3 +90,6 @@ defaults -currentHost write -g AppleFontSmoothing -int 2
 defaults write com.apple.screencapture location ~/Downloads
 # so that the screencapture settings take effect
 killall SystemUIServer
+
+# Skip t.co Twitter redirect in Tweetbot
+defaults write com.tapbots.TweetbotMac OpenURLsDirectly YES
