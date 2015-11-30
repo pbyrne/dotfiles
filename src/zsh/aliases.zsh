@@ -79,7 +79,8 @@ alias curlgz='curl -sS -H "Accept-Encoding: gzip,deflate"'
 # fix duplicate entries in Open With
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
-# list open ports
+# list open UDP ports: ports udp
+# list open TCP ports: ports tcp
 alias ports='sudo netstat -tulanp'
 
 # run faster tests!
@@ -110,7 +111,7 @@ function receivefile() {
 # 5. reporting from most frequent to least frequent occurrence
 alias filextensions="g ls-files | xargs basename | grep '\.' | awk -F'.' '{ print \$(NF) }' | sort | uniq -c | sort -rn"
 
-# zero out log files. mainly to concerve disk for local development
+# zero out log files. mainly to conserve disk for local development
 function trimlogs() {
   echo `du -hcs log | tail -n1 | awk '{ print $1 }'` of logs
   for file in $(ls log/*); do
