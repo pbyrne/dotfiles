@@ -17,7 +17,7 @@
 -- transaction when an error occurs.
 \set ON_ERROR_ROLLBACK interactive
 -- Display query execution time
-\timing
+\timing on
 -- And disable QUET again
 \set QUIET 0
 
