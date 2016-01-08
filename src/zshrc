@@ -29,7 +29,7 @@ if [[ -e ~/.zsh ]]; then
 fi
 
 eval "$(rbenv init -)"
-eval "$(docker-machine env default)"
+# eval "$(docker-machine env default)"
 
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
