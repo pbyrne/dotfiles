@@ -18,7 +18,9 @@
 \set ON_ERROR_ROLLBACK interactive
 -- Display query execution time
 \timing on
+-- upper-case on autocompleted SQL keywords
+\set COMP_KEYWORD_CASE upper
 -- And disable QUET again
-\set QUIET 0
+\unset QUIET
 
 -- # vim: ft=sql
