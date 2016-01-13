@@ -424,15 +424,17 @@ let g:rails_projections = {
   \   "template": "class %S\nend",
   \   "keywords": "custom validators"
   \ },
-  \ "app/jobs/*.rb": {
-  \   "command": "job",
-  \   "template": "class %S\nend",
+  \ "app/observers/*_observer.rb": {
+  \   "command": "observer",
+  \   "template": "class %SObserver\nend",
+  \   "keywords": "observers",
   \   "test": [
-  \     "test/unit/jobs/%s_test.rb",
-  \     "test/jobs/%s_test.rb",
-  \     "spec/jobs/%_spec.rb"
-  \   ],
-  \   "keywords": "background jobs"}}
+  \     "test/observers/%s_test.rb",
+  \   ]
+  \ },
+  \ "app/delivery_methods/*.rb": {
+  \   "command": "delivery_method",
+  \   "keywords": "delivery methods"}}
 
 
 " CtrlP settings
