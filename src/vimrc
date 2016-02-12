@@ -424,6 +424,10 @@ let g:rails_projections = {
   \   "template": "class %S\nend",
   \   "keywords": "custom validators"
   \ },
+  \ "config/routes/*.rb": {
+  \   "command": "route",
+  \   "keywords": "routes"
+  \ },
   \ "app/observers/*_observer.rb": {
   \   "command": "observer",
   \   "template": "class %SObserver\nend",
