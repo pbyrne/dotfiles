@@ -28,6 +28,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-characterize'
 Plugin 'sjl/badwolf'
 Plugin 'fatih/vim-go'
 
