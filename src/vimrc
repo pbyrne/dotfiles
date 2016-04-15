@@ -212,7 +212,7 @@ function! RunTest()
     :w
   end
 
-  let in_test_file = match(expand("%"), '\(_spec.rb\|_test.rb\)') != -1
+  let in_test_file = match(expand("%"), '\(_spec.rb\|_test.rb\|\-test.js\)') != -1
   if in_test_file
     " capture the path to the test file
     call SetTestFile()
@@ -239,6 +239,9 @@ function! RunTestFile(filename)
   elseif match(a:filename, "_test") != -1
     " minitest + spring
     let pjb_test_command = ":!bin/rake test TEST=" . a:filename
+  elseif match(a:filename, "-test.js") != -1
+    " teaspoon test
+    let pjb_test_command = ":!bundle exec teaspoon " . a:filename
   else
     call UnableToRunTest("Unable to determine a test command for " . a:filename)
     return
