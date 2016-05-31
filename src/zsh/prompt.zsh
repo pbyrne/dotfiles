@@ -16,8 +16,8 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-incoming-outgoing
 # %u - unstaged changes
 # %c - staged changes
 # %a - current action (e.g., merge conflict, rebase)
-zstyle ':vcs_info:git*' formats "| %b %.7i %m%u%c"
-zstyle ':vcs_info:git*' actionformats "| %a %b %.7i %m%u%c"
+zstyle ':vcs_info:git*' formats "%b %.7i %m%u%c"
+zstyle ':vcs_info:git*' actionformats "%a %b %.7i %m%u%c"
 
 +vi-git-stash() {
   local stash_count
@@ -57,11 +57,6 @@ function pjb_path() {
   echo "%~"
 }
 
-function pjb_tools() {
-  # interpreter and short version (e.g., ruby-1.9.3 or ree-1.8.7)
-  echo `rbenv version-name 2> /dev/null`
-}
-
 function pjb_background_jobs() {
   # if at least one background job: %1(j
   # then display the number of jobs in brackets: [%j]
@@ -72,5 +67,5 @@ function pjb_background_jobs() {
 
 # lifted from http://sebastiancelis.com/2009/11/16/zsh-prompt-git-users/
 export PROMPT='
-$(pjb_path) $(pjb_background_jobs) $(pjb_tools) ${vcs_info_msg_0_}
+$(pjb_path) ${vcs_info_msg_0_} $(pjb_background_jobs)
 $(pjb_redgreen_prompt) '
