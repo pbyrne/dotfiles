@@ -41,8 +41,7 @@ filetype plugin indent on " load file type plugins and indentation
 set showmatch " highlight the matching {("/")}
 set backupdir=~/.vim/_backup " specify location for backup files
 set directory=~/.vim/_swp " specify location for swp files
-set relativenumber " relative line numbers; if you care about aboslute, look at the status bar
-set number " This, coupled with relativenumber, gives the real number on the current line but relative number for the rest
+set number " Show line numbers
 set cursorline " highlight the current line
 " set autoindent " perform auto-indentation
 set shiftround " round to the nearest tabstop when tabbing
