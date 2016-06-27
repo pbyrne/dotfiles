@@ -31,6 +31,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-characterize'
 Plugin 'sjl/badwolf'
 Plugin 'fatih/vim-go'
+Plugin 'junegunn/vim-easy-align'
 
 " general
 "let mapleader = ","
