@@ -36,6 +36,7 @@
 	# turning this off for now, because i want to start using the editor to encourage me to provide richer commit messages
 	# cm = commit -m
 	co = checkout
+	conflicts = "!$EDITOR $(git diff --name-only --diff-filter=U)"
 	# choose from other local branches you have checked out, and check it out
 	colist = "!select choice in $(git branch | grep -v '*'); do echo checking out $choice; git checkout $choice; break; done"
 	d = diff
