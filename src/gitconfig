@@ -10,9 +10,6 @@
 [alias]
 	a = add
 	aa = add .
-	# zsh-specific, conditionally abort the merge (prevent accidentally resetting to head
-	# not working for some reason, so skipping for now
-	# abortmerge = "!f() { resp=''; vared -p 'abort the merge? (y/n) ' resp; [ $resp = 'y' ] && echo aborting the merge && git reset --hard HEAD || echo doing nothing }; f"
 	# Files that are in the staging area
 	added = diff --cached --name-only
 	# edit the previous commit (don't use if already pushed)
@@ -30,11 +27,6 @@
 	c = commit --verbose
 	# display the changes between the two given commits
 	changes = "!f() { git log --pretty=format:'* %s' $1..$2; }; f"
-	# commit the updated changelog
-	clog = "!git add CHANGELOG.markdown && git commit -m 'update changelog'"
-	# commit with the given message
-	# turning this off for now, because i want to start using the editor to encourage me to provide richer commit messages
-	# cm = commit -m
 	co = checkout
 	conflicts = "!$EDITOR $(git diff --name-only --diff-filter=U)"
 	# choose from other local branches you have checked out, and check it out
@@ -42,30 +34,15 @@
 	d = diff
 	# perform diff against the index (files that have been added but not committed)
 	ds = diff --staged
-	# and pipe that to textmate
-	dsm = !git diff --staged | mate
 	# list the files deleted but not committed
 	deleted = ls-files --deleted
-	# give the complete details (diff, timestamps, author info) of a given commit
-	details = log -n1 -p --format=fuller
-	# pipe the diff to textmate
-	dm = !git diff | mate
 	# edit new and modified files
-	edit = "!vim `git ls-files --modified --others --exclude-standard` -o"
+	edit = "!$EDITOR `git ls-files --modified --others --exclude-standard`"
 	# also clean up branches deleted from the server
 	f = fetch --prune
 	ff = !git fetch && git wtf
 	freebase = !git fetch && git rebase origin/master
-	# latest commit (emulate's mercurials 'hg head' command)
-	head = log -n1
 	l = log --oneline --decorate
-	# pretty graphed log, including commits not merged into the branch
-	la = "!git l --all"
-	# just the most recent 25, but same format
-	r = !git l -25
-	# recent, including commits not merged into the branch
-	ra = "!git r --all"
-	# lg = log --graph --abbrev-commit --date=relative
 	# list the files in the repo, but using bash-like 'ls' command
 	ls = ls-files
 	m = merge
@@ -75,18 +52,13 @@
 	nb = "!f() { git checkout -b $1; }; f"
 	# new branch with the given name and set its upstream
 	nbp = "!f() { git checkout -b $1 && git push --set-upstream origin $1; }; f"
-	out = !git log `bundle exec cap deploy:revision -q`..HEAD
 	# Not yet added - doesn't include ignored files
 	new = ls-files --others --exclude-standard
 	p = "!f() { git push origin `git branchname`; }; f"
 	# push and set the upstream
 	pu = "!f() { git push --set-upstream origin `git branchname`; }; f"
 	s = status
-	# search through commit messages for the given word
-	searchlogs = !git log --oneline | grep
 	st = status
-	# initialize and update the repo's submodules
-	sub = submodule update --init --recursive
 	# show today's work
 	today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
 	u = pull --prune
