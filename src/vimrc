@@ -290,19 +290,16 @@ nnoremap <c-l> <c-w>l
 " loop through the open windows
 nnoremap <c-i> <c-w>w
 
+function! ResetCursor()
+  if line("'\"") <= line("$") && &filetype != "gitcommit"
+    normal! g`"
+    return 1
+  endif
+endfunction
+
 if has("autocmd")
   " Remember last location in file
-  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
-
-  " But in commit messages hop back to the top
-  augroup gitCommitEditMsg
-    autocmd!
-    autocmd BufReadPost *
-        \ if @% =~ '.git/COMMIT_EDITMSG$' |
-        \   exe "normal gg" |
-        \ endif
-  augroup END
+  autocmd BufReadPost * call ResetCursor()
 
   " maps .. to move up a directory when in Fugitive's Gedit view on a folder
   autocmd User fugitive
