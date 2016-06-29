@@ -299,7 +299,7 @@ if has("autocmd")
   augroup gitCommitEditMsg
     autocmd!
     autocmd BufReadPost *
-        \ if @% == '.git/COMMIT_EDITMSG' |
+        \ if @% =~ '.git/COMMIT_EDITMSG$' |
         \   exe "normal gg" |
         \ endif
   augroup END
