@@ -18,7 +18,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export REPORTTIME=5
 
 # i have a color screen, you know
-export TERM='xterm-color'
+export TERM='xterm-256color'
 
 
 if [[ -e ~/.zsh ]]; then
