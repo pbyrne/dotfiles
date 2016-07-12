@@ -29,9 +29,12 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-characterize'
-Plugin 'sjl/badwolf'
 Plugin 'fatih/vim-go'
 Plugin 'junegunn/vim-easy-align'
+
+" colorschemes
+Plugin 'sjl/badwolf'
+Plugin 'jonathanfilip/vim-lucius'
 
 " general
 "let mapleader = ","
@@ -93,7 +96,11 @@ set splitright
 " Default color scheme
 set t_Co=256 " 256 colors
 set background=dark
-colorscheme badwolf
+" colorscheme badwolf
+colorscheme lucius
+let g:lucius_style="dark"
+" let g:lucius_contrast="high"
+let g:lucius_contrast_bg="high"
 
 " Undo settings, if available
 if has("persistent_undo")
