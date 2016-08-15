@@ -36,6 +36,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'sjl/badwolf'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'reedes/vim-colors-pencil'
+Plugin 'altercation/vim-colors-solarized'
 
 " general
 "let mapleader = ","
@@ -97,7 +98,8 @@ set splitright
 " Default color scheme
 set t_Co=256 " 256 colors
 set background=dark
-colorscheme pencil
+colorscheme solarized
+let g:solarized_termcolors=256
 
 " Undo settings, if available
 if has("persistent_undo")
