@@ -31,6 +31,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-characterize'
 Plugin 'fatih/vim-go'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'rust-lang/rust.vim'
 
 " colorschemes
 Plugin 'sjl/badwolf'
