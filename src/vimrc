@@ -36,6 +36,7 @@ Plugin 'rust-lang/rust.vim'
 " colorschemes
 Plugin 'sjl/badwolf'
 Plugin 'jonathanfilip/vim-lucius'
+Plugin 'rakr/vim-two-firewatch'
 
 " general
 "let mapleader = ","
@@ -98,9 +99,9 @@ set splitright
 set t_Co=256 " 256 colors
 set background=dark
 " colorscheme badwolf
+" colorscheme two-firewatch
 colorscheme lucius
 let g:lucius_style="dark"
-" let g:lucius_contrast="high"
 let g:lucius_contrast_bg="high"
 
 " Undo settings, if available
