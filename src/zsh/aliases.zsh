@@ -120,5 +120,6 @@ function trimlogs() {
   echo Now `du -hcs log | tail -n1 | awk '{ print $1 }'` of logs
 }
 
-# why this isn't built into `brew update` is beyond me
-alias brewhaha="brew update && brew cleanup -s && brew cask cleanup && brew outdated"
+alias brewhaha="brew update && brew outdated"
+alias brupgrade="brew upgrade --all && brew cleanup"
+
