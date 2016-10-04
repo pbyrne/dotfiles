@@ -121,7 +121,7 @@ function trimlogs() {
 }
 
 alias brewhaha="brew update && brew outdated"
-alias brupgrade="brew upgrade --all && brew cleanup"
+alias brupgrade="brew upgrade && brew cleanup"
 
 # Some Mac OS X update doesn't play well with Spyhouse's rotating network
 # password. It hangs when trying to connect when I come back, rather than
