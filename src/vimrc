@@ -312,12 +312,6 @@ if has("autocmd")
   " Remember last location in file
   autocmd BufReadPost * call ResetCursor()
 
-  " maps .. to move up a directory when in Fugitive's Gedit view on a folder
-  autocmd User fugitive
-    \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-    \   nnoremap <buffer> .. :edit %:h<CR> |
-    \ endif
-
   " delete a Gedit view from the buffer list when leaving it
   autocmd BufReadPost fugitive://* set bufhidden=delete
 
