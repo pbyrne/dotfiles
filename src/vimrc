@@ -390,7 +390,7 @@ augroup cline
 augroup END
 
 " Try using the silver searcher instead of ack
-let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+let g:ackprg = 'ag --nogroup --vimgrep --smart-case'
 
 set shell=/bin/sh
 
