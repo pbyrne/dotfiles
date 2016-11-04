@@ -25,11 +25,11 @@ alias solospec='git ls | grep _spec.rb | while read specfile; do echo testing $s
 alias mktest='RAILS_ENV=test bundle exec rake db:create'
 alias t='bundle exec rake test'
 # and rake
-alias r='bundle exec rake'
+alias r='bin/rake'
 
-alias ra='bundle exec rails'
-alias rc='bundle exec rails console'
-alias rs='bundle exec rails server'
+alias ra='bin/rails'
+alias rc='bin/rails console'
+alias rs='bin/rails server'
 
 # create a tar file. usage: tarup filename.tar.gz directory/
 alias tarup='tar -cvzf'
