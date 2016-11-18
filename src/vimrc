@@ -428,6 +428,14 @@ let g:rails_projections = {
   \     "test/observers/%s_test.rb",
   \   ]
   \ },
+  \ "app/form_builders/*_form_builder.rb": {
+  \   "command": "form_builder",
+  \   "template": "class %SFormBuilder < ActionView::Helpers::FormBuilder\nend",
+  \   "keywords": "form builders",
+  \   "test": [
+  \     "test/form_builders/%s_form_builder_test.rb",
+  \   ]
+  \ },
   \ "app/delivery_methods/*.rb": {
   \   "command": "delivery_method",
   \   "keywords": "delivery methods"}}
