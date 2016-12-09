@@ -65,8 +65,10 @@ set nowrap " don't wrap lines
 set tabstop=2 shiftwidth=2 softtabstop=2 " 2 spaces for tabs
 set expandtab " use spaces, not tabs
 set backspace=indent,eol,start " backspace through everything
+
 set list " display whitespace characters
 set listchars=tab:\ \ ,trail:· " tabs, spaces, trailing whitespace
+
 
 " searching
 set hlsearch " highlight matches
@@ -207,7 +209,7 @@ vnoremap <C-Up> [egv
 vnoremap <C-Down> ]egv
 
 " CTags shortcuts
-noremap <Leader>rt :!ctags --exclude=tmp --exclude=app/assets --exclude=public --exclude=vendor --exclude=db --extra=+f -R *<CR><CR>
+noremap <Leader>rt :!ctags --exclude=tmp --exclude=app/assets --exclude=public --exclude=vendor --exclude=db --exclude=coverage --exclude=test/javascripts --extra=+f -R *<CR><CR>
 " open definition in a new tab
 noremap <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
