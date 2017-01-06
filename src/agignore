@@ -2,3 +2,4 @@ tags
 app/assets/javascripts/*.min.js
 app/assets/javascripts/*/*.min.js
 app/assets/javascripts/*/*/*.min.js
+test/fixtures
