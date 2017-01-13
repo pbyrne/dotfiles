@@ -39,6 +39,7 @@
 	# also clean up branches deleted from the server
 	f = fetch --prune
 	freebase = !git fetch && git rebase origin/master
+	autosquash = !git fetch && git rebase -i --autosquash origin/master
 	# list the files in the repo, but using bash-like 'ls' command
 	ls = ls-files
 	m = merge
@@ -61,6 +62,8 @@
 	orphans = "!source ~/.githelpers && locals_not_on_remote"
 	deleteorphans = "!source ~/.githelpers && delete_orphaned_local_branches"
 	empty = commit --allow-empty
+	fixup = commit --fixup=HEAD
+	squash = commit --squash=HEAD
 [color]
 	ui = auto
 [format]
