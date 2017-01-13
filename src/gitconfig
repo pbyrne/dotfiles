@@ -25,8 +25,6 @@
 	brs = branch -a
 	# display the diff to be committed when entring commit message
 	c = commit --verbose
-	# display the changes between the two given commits
-	changes = "!f() { git log --pretty=format:'* %s' $1..$2; }; f"
 	co = checkout
 	conflicts = "!$EDITOR $(git diff --name-only --diff-filter=U)"
 	# choose from other local branches you have checked out, and check it out
@@ -40,9 +38,7 @@
 	edit = "!$EDITOR `git ls-files --modified --others --exclude-standard`"
 	# also clean up branches deleted from the server
 	f = fetch --prune
-	ff = !git fetch && git wtf
 	freebase = !git fetch && git rebase origin/master
-	l = log --oneline --decorate
 	# list the files in the repo, but using bash-like 'ls' command
 	ls = ls-files
 	m = merge
@@ -50,8 +46,6 @@
 	mergeupstream = !git fetch upstream && git merge upstream/master master
 	# new branch with the given name
 	nb = "!f() { git checkout -b $1; }; f"
-	# new branch with the given name and set its upstream
-	nbp = "!f() { git checkout -b $1 && git push --set-upstream origin $1; }; f"
 	# Not yet added - doesn't include ignored files
 	new = ls-files --others --exclude-standard
 	p = "!f() { git push origin `git branchname`; }; f"
@@ -64,12 +58,9 @@
 	u = pull --prune
 	# remove file from the index - DOES NOT UNDO THE CHANGES
 	unstage = reset HEAD
-	ur = pull --rebase
-	; orphank = !gitk --all `git reflog | cut -c1-7`&
 	orphans = "!source ~/.githelpers && locals_not_on_remote"
 	deleteorphans = "!source ~/.githelpers && delete_orphaned_local_branches"
 	empty = commit --allow-empty
-	fs = !git fetch && git status
 [color]
 	ui = auto
 [format]
