@@ -16,6 +16,9 @@ export PATH=/Users/pbyrne/Dropbox/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Display time to complete commands longer than $REPORTTIME
 export REPORTTIME=5
+# Set up against legacy ImageMagick 6
+# export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
 
 # i have a color screen, you know
 export TERM='xterm-256color'
