@@ -450,4 +450,4 @@ let g:ctrlp_working_path_mode = 0
 
 " Populate some helpful macros
 let @h = 'xea:wdw' " convert from old Ruby hashes to new
-" let @n = ':cn' " move to the next quickfix match
+let @n = ']q' " move to the next quickfix match
