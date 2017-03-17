@@ -20,7 +20,7 @@
 	# search for braches that contain the given commit
 	branches-with = branch --all --contains
 	# how is this not built into git?
-	branchname = !git branch | grep '^* ' | awk '{ print $2 }'
+	branchname = symbolic-ref --short -q HEAD
 	# all branches, even remote
 	brs = branch -a
 	# display the diff to be committed when entring commit message
