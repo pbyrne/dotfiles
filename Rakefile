@@ -3,7 +3,7 @@ require 'pathname'
 require 'rake'
 require 'yaml'
 
-PRIVATE_DOTFILES = Pathname.new("~/Dropbox/dotfiles")
+PRIVATE_DOTFILES = Pathname.new("~/Library/Mobile\ Documents/com\~apple\~CloudDocs/dotfiles").expand_path
 
 desc "Run once to initially set up the computer to use the dotfiles"
 task :setup => ["setup:setup"]
