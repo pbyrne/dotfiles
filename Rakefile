@@ -1,6 +1,9 @@
-require 'rake'
 require 'date'
+require 'pathname'
+require 'rake'
 require 'yaml'
+
+PRIVATE_DOTFILES = Pathname.new("~/Dropbox/dotfiles")
 
 desc "Run once to initially set up the computer to use the dotfiles"
 task :setup => ["setup:setup"]
@@ -33,15 +36,13 @@ namespace :setup do
     conditionally_symlink(File.join(Dir.pwd, "src", "bin"), File.expand_path("~/bin"))
   end
 
-  desc "Set up private symlinks stored in ~/Dropbox/dotfiles"
+  desc "Set up private symlinks stored in #{PRIVATE_DOTFILES}"
   task :symlink_private_dotfiles do
-    dotfiles_location = "~/Dropbox/dotfiles"
-    manifest_path = "#{dotfiles_location}/manifest.yml"
-    full_path = File.expand_path(manifest_path)
-    if File.exist?(full_path)
-      manifest = YAML.load_file(full_path)
+    manifest_path = PRIVATE_DOTFILES.join("manifest.yml")
+    if File.exist?(manifest_path)
+      manifest = YAML.load_file(manifest_path)
       manifest.each do |orig, dest|
-        conditionally_symlink("#{dotfiles_location}/#{orig}", "~/#{dest}")
+        conditionally_symlink("#{PRIVATE_DOTFILES}/#{orig}", "~/#{dest}")
       end
     else
       puts "  #{manifest_path} does not exist, cannot continue"
