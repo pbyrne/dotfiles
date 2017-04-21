@@ -114,6 +114,6 @@ def conditionally_symlink(source, destination)
       FileUtils.ln_s(source, destination)
     end
   else
-    puts "  #{destination} doesn't exist, cannot create symlink"
+    puts "  #{source} doesn't exist, cannot create symlink"
   end
 end
