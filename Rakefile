@@ -18,6 +18,7 @@ namespace :setup do
     Rake::Task["setup:install_vundle"].invoke
   end
 
+  desc "Symlink dotfiles from this repo"
   task :symlink_dotfiles do
     # inspoired heavily from https://github.com/henrik/dotfiles/blob/master/Rakefile and https://github.com/ryanb/dotfiles/blob/master/Rakefile
     Dir["src/*"].each do |file|
@@ -32,6 +33,7 @@ namespace :setup do
     end
   end
 
+  desc "Symlink bin from this repo to ~/bin"
   task :symlink_bin do
     conditionally_symlink(File.join(Dir.pwd, "src", "bin"), File.expand_path("~/bin"))
   end
