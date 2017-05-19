@@ -420,6 +420,14 @@ autocmd FileType go nnoremap <leader>g :w<cr>:!go run %<cr>
 
 " Teach vim-rails about custom directories
 let g:rails_projections = {
+  \ "app/services/*_service.rb": {
+  \   "command": "service",
+  \   "template": "",
+  \   "keywords": "",
+  \   "test": [
+  \     "spec/services/%s_service_test.rb",
+  \   ]
+  \ },
   \ "app/validators/*_validator.rb": {
   \   "command": "validator",
   \   "template": "class %S\nend",
