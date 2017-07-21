@@ -33,6 +33,7 @@ Plugin 'fatih/vim-go'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'rust-lang/rust.vim'
 Plugin 'keith/swift.vim'
+Plugin 'elixir-lang/vim-elixir'
 
 " colorschemes
 Plugin 'sjl/badwolf'
@@ -220,6 +221,8 @@ noremap <Leader>rt :!ctags --exclude=tmp --exclude=app/assets --exclude=public -
 " open definition in a new tab
 noremap <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" Run current Elixir file
+autocmd FileType elixir noremap <leader>e :!elixir %<cr>
 " test running
 " lifted from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 noremap <leader>t :call RunTest()<cr>
