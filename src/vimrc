@@ -236,7 +236,7 @@ function! RunTest()
     :w
   end
 
-  let in_test_file = match(expand("%"), '\(_spec.rb\|_test.rb\|\-test.js\)') != -1
+  let in_test_file = match(expand("%"), '\(_spec.rb\|_test.rb\|\-test.js\|_test.exs\)') != -1
   if in_test_file
     " capture the path to the test file
     call SetTestFile()
@@ -257,15 +257,18 @@ endfunction
 
 " Run the given test file, using the appropriate command
 function! RunTestFile(filename)
-  if match(a:filename, "_spec") != -1
+  if match(a:filename, "_spec.rb") != -1
     " rspec
     let pjb_test_command = ":!bundle exec rspec " . a:filename
-  elseif match(a:filename, "_test") != -1
+  elseif match(a:filename, "_test.rb") != -1
     " minitest + spring
     let pjb_test_command = ":!bin/rake test TEST=" . a:filename
   elseif match(a:filename, "-test.js") != -1
     " teaspoon test
     let pjb_test_command = ":!bundle exec teaspoon " . a:filename
+  elseif match(a:filename, "_test.ex") != -1
+    " Elixir test
+    let pjb_test_command = ":!mix test " . a:filename
   else
     call UnableToRunTest("Unable to determine a test command for " . a:filename)
     return
