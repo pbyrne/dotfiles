@@ -15,6 +15,8 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Display time to complete commands longer than $REPORTTIME
 export REPORTTIME=5
 export ICLOUD_DRIVE=~/Library/Mobile\ Documents/com\~apple\~CloudDocs
+# Enable history in iex/Elixir
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Set up against legacy ImageMagick 6
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
