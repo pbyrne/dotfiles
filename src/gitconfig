@@ -62,8 +62,8 @@
 	orphans = "!source ~/.githelpers && locals_not_on_remote"
 	deleteorphans = "!source ~/.githelpers && delete_orphaned_local_branches"
 	empty = commit --allow-empty
-	fixup = commit --fixup=HEAD
-	squash = commit --squash=HEAD
+	fixup = "!source ~/.githelpers && update_prior_commit fixup"
+	squashup = "!source ~/.githelpers && update_prior_commit squash"
 [color]
 	ui = auto
 [format]

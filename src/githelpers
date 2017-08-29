@@ -86,3 +86,16 @@ strip_branches_on_remote() {
     git branch --remote | grep origin/$branch > /dev/null || echo $branch
   done
 }
+
+function update_prior_commit() {
+  local action=$1
+  local choices=$(git log origin/master..HEAD --format=%h)
+
+  echo Choose choose commit to $action
+  git log --oneline origin/master..HEAD
+  select opt in $choices; do
+    echo git commit --$action=$opt
+    # git commit --$action=$opt
+    break;
+  done
+}
