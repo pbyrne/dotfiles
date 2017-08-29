@@ -88,14 +88,16 @@ strip_branches_on_remote() {
 }
 
 function update_prior_commit() {
-  local action=$1
-  local choices=$(git log origin/master..HEAD --format=%h)
+  local action=$1 # fixup or squash
+  local IFS=$'\n' # split choices on newlines, not whitespace
+  local choices=($(git log --oneline origin/master..HEAD | tail -r))
 
   echo Choose choose commit to $action
-  git log --oneline origin/master..HEAD
-  select opt in $choices; do
-    echo git commit --$action=$opt
-    # git commit --$action=$opt
+  # Choose from menu
+  select opt in "${choices[@]}"; do
+    local sha=$(echo "$opt" | cut -d' ' -f1)
+    echo git commit --$action=$sha
+    git commit --$action=$sha
     break;
   done
 }
