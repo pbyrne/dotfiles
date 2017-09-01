@@ -8,16 +8,23 @@ alias r='trybin rake'
 
 function trybin() {
   local bin="$1"
-  local args="$2" # optional
+  local args=${*#${1}} # optional
+  local cmd
 
   if [ -z $bin ]; then
     echo 'Must provide a bin to try: `trybin foo`'
   elif [ -f "bin/$bin" ]; then
-    echo bin/$bin $args
-    bin/$bin "$args"
+    cmd=bin/$bin
   else
-    echo bundle exec $bin $args
-    bundle exec $bin "$args"
+    cmd="bundle exec $bin"
+  fi
+
+  if [ -z ${args// } ]; then # trim whitespace out of the value
+    echo "$cmd"
+    eval "$cmd"
+  else
+    echo "$cmd $args"
+    eval "$cmd $args"
   fi
 }
 
