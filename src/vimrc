@@ -34,6 +34,8 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'rust-lang/rust.vim'
 Plugin 'keith/swift.vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'c-brenn/phoenix.vim'
+Plugin 'tpope/vim-projectionist'
 
 " colorschemes
 Plugin 'sjl/badwolf'
