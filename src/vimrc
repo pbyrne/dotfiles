@@ -219,7 +219,7 @@ vnoremap <C-Up> [egv
 vnoremap <C-Down> ]egv
 
 " CTags shortcuts
-noremap <Leader>rt :!ctags --exclude=tmp --exclude=app/assets --exclude=public --exclude=vendor --exclude=db --exclude=coverage --exclude=test/javascripts --exclude=node_modules --exclude=deps --extra=+f -R *<CR><CR>
+noremap <Leader>rt :!ctags *<CR><CR>
 " open definition in a new tab
 noremap <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
