@@ -64,6 +64,7 @@
 	empty = commit --allow-empty
 	fixup = "!source ~/.githelpers && update_prior_commit fixup"
 	squashup = "!source ~/.githelpers && update_prior_commit squash"
+	wip = "commit -m 'WIP'"
 [color]
 	ui = auto
 [format]
