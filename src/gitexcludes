@@ -17,3 +17,6 @@ tmp/*
 
 # ruby
 .bundle/
+
+# local tweaks to Rails
+config/initializers/local_tweaks.rb
