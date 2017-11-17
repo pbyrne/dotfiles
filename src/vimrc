@@ -36,6 +36,7 @@ Plugin 'keith/swift.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'c-brenn/phoenix.vim'
 Plugin 'tpope/vim-projectionist'
+Plugin 'junegunn/fzf.vim'
 
 " colorschemes
 Plugin 'sjl/badwolf'
@@ -477,3 +478,16 @@ let @n = ']q' " move to the next quickfix match
 
 " Diable flashing (visual bell)
 set t_vb=
+
+" Load FZF libraries installed by Homebrew
+set rtp+=/usr/local/opt/fzf
+
+" Lifted (along with completion which uses it below) from https://blog.semanticart.com/2017/11/14/rails-route-completion-with-fzf-in-vim/
+function! s:parse_route(selected)
+  let l:squished = substitute(join(a:selected), '^\s\+', '', '')
+  return split(l:squished)[0] . '_path'
+endfunction
+
+inoremap <expr> <c-x><c-r> fzf#complete({
+  \ 'source':  'bin/rake routes',
+  \ 'reducer': '<sid>parse_route'})
