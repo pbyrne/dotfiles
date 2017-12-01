@@ -11,3 +11,5 @@ export GOPATH=$HOME/workspace/go
 mkdir -p $GOPATH
 export PATH=$GOPATH/bin:$PATH
 
+# Used by database.yml
+export DBUSER=postgres
