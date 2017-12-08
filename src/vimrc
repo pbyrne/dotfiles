@@ -10,7 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " and let's add some vundles
 Plugin 'ervandew/supertab'
-Plugin 'mileszs/ack.vim'
+" Plugin 'mileszs/ack.vim'
 Plugin 'othree/html5-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-commentary'
@@ -301,9 +301,9 @@ endfunction
 :command! -bang WQ :wa | :qa<bang>
 
 " ack
-noremap <Leader>a :Ack<space>
+noremap <Leader>a :Ag<space>
 " ack for current word (based on cursor)
-noremap <Leader>A :Ack<space><C-r><C-w>
+noremap <Leader>A :Ag<space><C-r><C-w>
 
 " make %% map to the directory path containing the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -409,7 +409,7 @@ augroup cline
 augroup END
 
 " Try using the silver searcher instead of ack
-let g:ackprg = 'ag --nogroup --vimgrep --smart-case'
+" let g:ackprg = 'ag --nogroup --vimgrep --smart-case'
 
 set shell=/bin/sh
 
