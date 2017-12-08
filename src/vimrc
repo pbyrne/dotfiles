@@ -25,7 +25,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-characterize'
@@ -467,10 +467,10 @@ let g:rails_projections = {
   \   "keywords": "delivery methods"}}
 
 
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --exclude-standard', 'find %s -type f']
-let g:ctrlp_working_path_mode = 0
+" let g:ctrlp_match_window = 'bottom,order:ttb'
+" let g:ctrlp_switch_buffer = 0
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --exclude-standard', 'find %s -type f']
+" let g:ctrlp_working_path_mode = 0
 
 " Populate some helpful macros
 let @h = 'xea:wdw' " convert from old Ruby hashes to new
@@ -491,3 +491,5 @@ endfunction
 inoremap <expr> <c-x><c-r> fzf#complete({
   \ 'source':  'bin/rake routes',
   \ 'reducer': '<sid>parse_route'})
+
+noremap <c-p> :GFiles<cr>
