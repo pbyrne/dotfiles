@@ -37,6 +37,8 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'c-brenn/phoenix.vim'
 Plugin 'tpope/vim-projectionist'
 Plugin 'junegunn/fzf.vim'
+Plugin 'kana/vim-textobj-user'
+Plugin 'andyl/vim-textobj-elixir'
 
 " colorschemes
 Plugin 'sjl/badwolf'
