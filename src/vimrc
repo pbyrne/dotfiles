@@ -39,6 +39,7 @@ Plugin 'tpope/vim-projectionist'
 Plugin 'junegunn/fzf.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'andyl/vim-textobj-elixir'
+Plugin 'hashivim/vim-terraform'
 
 " colorschemes
 Plugin 'sjl/badwolf'
