@@ -437,13 +437,38 @@ let g:rails_projections = {
   \   "template": "",
   \   "keywords": "",
   \   "test": [
-  \     "spec/services/%s_service_test.rb",
+  \     "spec/services/{}_service_test.rb",
   \   ]
   \ },
   \ "app/validators/*_validator.rb": {
   \   "command": "validator",
-  \   "template": "class %S\nend",
+  \   "template": [
+  \     "class {camelcase|capitalize|colons}Validator",
+  \     "end"
+  \   ],
   \   "keywords": "custom validators"
+  \ },
+  \ "app/uploaders/*_uploader.rb": {
+  \   "command": "uploader",
+  \   "template": [
+  \     "class {camelcase|capitalize|colons}Uploader < Shrine",
+  \     "end"
+  \   ],
+  \   "test": [
+  \     "test/uploader/{}_uploader_test.rb",
+  \   ],
+  \   "keywords": "Shrine uploaders"
+  \ },
+  \ "app/forms/*_form.rb": {
+  \   "command": "form",
+  \   "template": [
+  \     "class {camelcase|capitalize|colons}Form",
+  \     "end"
+  \   ],
+  \   "test": [
+  \     "test/forms/{}_form_test.rb",
+  \   ],
+  \   "keywords": "form objects"
   \ },
   \ "config/routes/*.rb": {
   \   "command": "route",
@@ -451,18 +476,24 @@ let g:rails_projections = {
   \ },
   \ "app/observers/*_observer.rb": {
   \   "command": "observer",
-  \   "template": "class %SObserver\nend",
+  \   "template": [
+  \     "class {camelcase|capitalize|colons}Observer",
+  \     "end"
+  \   ],
   \   "keywords": "observers",
   \   "test": [
-  \     "test/observers/%s_test.rb",
+  \     "test/observers/{}_test.rb",
   \   ]
   \ },
   \ "app/form_builders/*_form_builder.rb": {
   \   "command": "form_builder",
-  \   "template": "class %SFormBuilder < ActionView::Helpers::FormBuilder\nend",
+  \   "template": [
+  \     "class {camelcase|capitalize|colons}FormBuilder < ActionView::Helpers::FormBuilder",
+  \     "end"
+  \   ],
   \   "keywords": "form builders",
   \   "test": [
-  \     "test/form_builders/%s_form_builder_test.rb",
+  \     "test/form_builders/{}_form_builder_test.rb",
   \   ]
   \ },
   \ "app/delivery_methods/*.rb": {
