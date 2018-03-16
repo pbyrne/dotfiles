@@ -118,7 +118,3 @@ function spyvspy() {
   sudo networksetup -removepreferredwirelessnetwork en0 "Spyhouse"
   echo "Removed!"
 }
-
-# Perform the given command within the app container
-alias da="docker-compose run app"
-alias dab="docker-compose run app bundle exec"
