@@ -26,7 +26,7 @@
 	# display the diff to be committed when entring commit message
 	c = commit --verbose
 	co = checkout
-	conflicts = "!$EDITOR $(git diff --name-only --diff-filter=U)"
+	conflicts = "!git ls-files -u | awk '{print $4}' | sort -u"
 	# choose from other local branches you have checked out, and check it out
 	colist = "!select choice in $(git branch | grep -v '*'); do echo checking out $choice; git checkout $choice; break; done"
 	d = diff
@@ -34,8 +34,11 @@
 	ds = diff --staged
 	# list the files deleted but not committed
 	deleted = ls-files --deleted
+	# delete merged branches—depends on `merged` alias and `delete-branch` helper from `git-extras`.
+	delete-merged = "!git merged | xargs -n1 git delete-branch"
 	# edit new and modified files
 	edit = "!$EDITOR `git ls-files --modified --others --exclude-standard`"
+	editconflicts = "!$EDITOR $(git conflicts)"
 	# also clean up branches deleted from the server
 	f = fetch --prune
 	freebase = !git fetch && git rebase origin/master
@@ -45,6 +48,8 @@
 	m = merge
 	# for use with forked repos, assumes the original repo's remote is named 'upstream'
 	mergeupstream = !git fetch upstream && git merge upstream/master master
+	# show local branches which are already merged to master
+	merged = "!git branch --merged origin/master | grep -v master"
 	# new branch with the given name
 	nb = "!f() { git checkout -b $1; }; f"
 	# Not yet added - doesn't include ignored files
