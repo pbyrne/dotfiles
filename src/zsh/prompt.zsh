@@ -5,11 +5,11 @@ precmd() { vcs_info }
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true # support staged/unstaged changes output
-zstyle ':vcs_info:git*:*' get-revision true # spporrt getting additional revision information (like sha)
+zstyle ':vcs_info:git*:*' get-revision true # support getting additional revision information (like sha)
 zstyle ':vcs_info:git:*' stagedstr '+'
-zstyle ':vcs_info:git:*' unstagedstr '+'
+zstyle ':vcs_info:git:*' unstagedstr '?'
 # tell vcs_info how to populate %m (custom message)
-zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-incoming-outgoing
+zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-incoming-outgoing git-new-files
 
 # %b - branch name
 # %m - custom misc message
@@ -44,6 +44,13 @@ zstyle ':vcs_info:git*' actionformats "%a %b %.7i %m%u%c"
   fi
 
   hook_com[misc]+=$gitstatus
+  return 0
+}
+
++vi-git-new-files() {
+  new_files_count=$(git ls-files --others --exclude-standard 2> /dev/null | wc -l)
+
+  [[ $new_files_count -gt 0 ]] && hook_com[misc]+="*"
   return 0
 }
 
