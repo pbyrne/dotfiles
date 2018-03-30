@@ -168,7 +168,7 @@ inoremap kk <ESC>
 nnoremap gV `[v`]
 
 
-" open the .vimrc
+" open vim config
 noremap <Leader>` :sp $MYVIMRC<CR>
 " and reload it automatically when saving it
 augroup myvimrc
@@ -473,6 +473,10 @@ let g:rails_projections = {
   \ "config/routes/*.rb": {
   \   "command": "route",
   \   "keywords": "routes"
+  \ },
+  \ "test/factories/*.rb": {
+  \   "command": "factory",
+  \   "keywords": "factory"
   \ },
   \ "app/observers/*_observer.rb": {
   \   "command": "observer",
