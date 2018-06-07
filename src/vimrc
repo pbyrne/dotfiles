@@ -40,6 +40,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'andyl/vim-textobj-elixir'
 Plugin 'hashivim/vim-terraform'
+Plugin 'janko-m/vim-test'
 
 " colorschemes
 Plugin 'sjl/badwolf'
@@ -231,7 +232,7 @@ noremap <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd FileType elixir noremap <leader>e :!elixir %<cr>
 " test running
 " lifted from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-noremap <leader>t :call RunTest()<cr>
+" noremap <leader>t :call RunTest()<cr>
 " inoremap <leader>t <esc>:call RunTest()<cr>
 
 " Run tests in the current file, if the file is a test, or in the last test
@@ -536,3 +537,7 @@ noremap <c-p> :GFiles<cr>
 if executable('ag')
   set grepprg=ag\ --vimgrep\ --nogroup\ --nocolor
 endif
+
+nnoremap tt :w<CR>:TestFile<CR>
+nnoremap tT :wa<CR>:TestFile<CR>
+nnoremap tv :TestVisit<CR>
