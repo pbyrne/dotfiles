@@ -438,7 +438,15 @@ let g:rails_projections = {
   \   "template": "",
   \   "keywords": "",
   \   "test": [
-  \     "test/services/{}_service_test.rb",
+  \     "test/services/{}_test.rb",
+  \   ]
+  \ },
+  \ "app/commands/*.rb": {
+  \   "command": "command",
+  \   "template": "",
+  \   "keywords": "",
+  \   "test": [
+  \     "test/commands/{}_test.rb",
   \   ]
   \ },
   \ "app/validators/*_validator.rb": {
