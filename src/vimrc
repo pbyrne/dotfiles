@@ -49,6 +49,7 @@ Plugin 'rakr/vim-two-firewatch'
 Plugin 'sherifkandeel/vim-colors'
 Plugin 'jacoborus/tender.vim'
 Plugin 'dikiaap/minimalist'
+Plugin 'dracula/vim'
 
 " general
 "let mapleader = ","
