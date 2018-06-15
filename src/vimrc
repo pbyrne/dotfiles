@@ -549,4 +549,5 @@ endif
 
 nnoremap tt :w<CR>:TestFile<CR>
 nnoremap tT :wa<CR>:TestFile<CR>
+nnoremap tl :w<CR>:TestLast<CR>
 nnoremap tv :TestVisit<CR>
