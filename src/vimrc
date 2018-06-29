@@ -158,9 +158,6 @@ nnoremap / /\v
 vnoremap / /\v
 " clear the search term
 nnoremap <leader><space> :noh<cr>
-" shortcuts for beginning and end of the line
-nnoremap <Leader>h ^
-nnoremap <Leader>l $
 " jj to escape insert mode
 inoremap jj <ESC>
 " ug, and kk because i keep hitting it
