@@ -544,7 +544,8 @@ if executable('ag')
   set grepprg=ag\ --vimgrep\ --nogroup\ --nocolor
 endif
 
-nnoremap tt :w<CR>:TestFile<CR>
-nnoremap tT :wa<CR>:TestFile<CR>
-nnoremap tl :w<CR>:TestLast<CR>
-nnoremap tv :TestVisit<CR>
+nnoremap <leader>tt :w<CR>:TestFile<CR>
+nnoremap <leader>tT :wa<CR>:TestFile<CR>
+nnoremap <leader>tl :w<CR>:TestLast<CR>
+nnoremap <leader>tn :w<CR>:TestNearest<CR>
+nnoremap <leader>tv :TestVisit<CR>
