@@ -12,6 +12,8 @@ autoload colors; colors
 export PATH=~/bin:$PATH
 # and homebrew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# add pip
+export PATH=~/.local/bin:$PATH
 # Display time to complete commands longer than $REPORTTIME
 export REPORTTIME=5
 export ICLOUD_DRIVE=~/Library/Mobile\ Documents/com\~apple\~CloudDocs
@@ -35,6 +37,7 @@ if [[ -e ~/.zsh ]]; then
 fi
 
 eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 # eval "$(docker-machine env default)"
 
 
