@@ -49,7 +49,7 @@
 	# for use with forked repos, assumes the original repo's remote is named 'upstream'
 	mergeupstream = !git fetch upstream && git merge upstream/master master
 	# show local branches which are already merged to master
-	merged = "!git branch --merged origin/master | grep -v master | grep -v '*'"
+	merged = "!git branch --merged origin/master | grep -v master | grep -v staging | grep -v '*'"
 	# new branch with the given name
 	nb = "!f() { git checkout -b $1; }; f"
 	# Not yet added - doesn't include ignored files
