@@ -72,7 +72,11 @@ function pjb_background_jobs() {
   echo "%1(j|[%j]|)"
 }
 
+function pjb_aws_mfa_loaded() {
+  [ -n "$AWS_SESSION_TOKEN" ] && echo "[MFA]"
+}
+
 # lifted from http://sebastiancelis.com/2009/11/16/zsh-prompt-git-users/
 export PROMPT='
-$(pjb_path) ${vcs_info_msg_0_} $(pjb_background_jobs)
+$(pjb_path) ${vcs_info_msg_0_} $(pjb_aws_mfa_loaded) $(pjb_background_jobs)
 $(pjb_redgreen_prompt) '
