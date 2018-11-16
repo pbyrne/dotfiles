@@ -549,3 +549,10 @@ nnoremap <leader>tT :wa<CR>:TestFile<CR>
 nnoremap <leader>tl :w<CR>:TestLast<CR>
 nnoremap <leader>tn :w<CR>:TestNearest<CR>
 nnoremap <leader>tv :TestVisit<CR>
+
+nnoremap <silent> <Leader>T :call fzf#run({
+  \ 'source':  'suggest-tests ' . bufname('%'),
+  \   'sink':    'e',
+  \   'options': '--multi --reverse',
+  \   'down':    15
+  \ })<CR>

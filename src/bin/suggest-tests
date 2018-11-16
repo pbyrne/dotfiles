@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# given a file,
+# find all the test files changed in commits where that file was also changed,
+# return the unique list of those test files sorted by most-recently changed
+
+# get commits for the provided file (and follow renames)
+candidates=$(git log --follow --format='%H' -- $1 |
+  # show file names from those commits
+  xargs git show --name-only |
+  # get the test files from those file names
+  grep '^test.*_test\.rb$' |
+  # uniqify the names but preserve history order
+  awk '!x[$0]++')
+
+# get the root in case we're called from elsewhere
+git_root=$(git rev-parse --show-toplevel)
+
+# only return candidates that still exist on disk
+for candidate in $candidates
+do
+  if [ -f "$git_root/$candidate" ]; then
+    echo $candidate
+  fi
+done
