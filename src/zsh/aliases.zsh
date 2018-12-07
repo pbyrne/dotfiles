@@ -108,12 +108,12 @@ function trimlogs() {
 
 function brewhaha() {
   brew update
+  echo
   brew outdated
 }
 
 function brupgrade() {
-  brew upgrade
-  brew cleanup
+  brew upgrade --cleanup
 }
 
 # Some Mac OS X update doesn't play well with Spyhouse's rotating network
