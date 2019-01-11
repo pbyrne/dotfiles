@@ -121,3 +121,5 @@
 [user]
 	name = Patrick Byrne
 	email = 34053+pbyrne@users.noreply.github.com
+[init]
+	templatedir = ~/.git_template
