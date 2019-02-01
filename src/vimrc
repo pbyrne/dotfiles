@@ -537,6 +537,7 @@ inoremap <expr> <c-x><c-r> fzf#complete({
   \ 'reducer': '<sid>parse_route'})
 
 noremap <c-p> :GFiles<cr>
+noremap <c-b> :Buffers<cr>
 
 " Lifted from https://gist.github.com/manasthakur/5afd3166a14bbadc1dc0f42d070bd746
 if executable('ag')
