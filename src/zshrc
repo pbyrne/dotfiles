@@ -40,5 +40,7 @@ eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 # eval "$(docker-machine env default)"
 
+# Automatically run `clean` with Homebrew commands
+export HOMEBREW_INSTALL_CLEANUP=1
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
