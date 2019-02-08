@@ -13,3 +13,7 @@ export PATH=$GOPATH/bin:$PATH
 
 # Used by database.yml
 export DBUSER=postgres
+
+# Brew-installed openssl
+export OPENSSL_INCLUDE_DIR="/usr/local/opt/openssl/include"
+export OPENSSL_LIB_DIR="/usr/local/opt/openssl/lib"
