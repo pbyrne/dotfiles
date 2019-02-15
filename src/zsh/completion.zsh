@@ -1,7 +1,3 @@
-# from homebrew's zsh-completions
-fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/site-functions $fpath)
-# And rebuild completions
-compinit
 
 zstyle ':completion:*' use-cache on
 

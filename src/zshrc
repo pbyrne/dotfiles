@@ -3,6 +3,9 @@ autoload -U promptinit
 promptinit
 
 autoload -U compinit
+# from homebrew's zsh-completions
+fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/site-functions $fpath)
+# And rebuild completions
 compinit
 zmodload -i zsh/complist
 
