@@ -19,3 +19,16 @@ if [[ -e ~/.zsh ]]; then
 fi
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+export PATH="$HOME/.cargo/bin:$PATH"
+# add this repo's bin to PATH
+export PATH=~/bin:$PATH
+# and homebrew
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# add pip
+export PATH=~/.local/bin:$PATH
+# Set up against legacy ImageMagick 6
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+eval "$(rbenv init - --no-rehash)"
+(rbenv rehash &) 2> /dev/null # still rehash, but without blocking
+eval "$(pyenv init -)"

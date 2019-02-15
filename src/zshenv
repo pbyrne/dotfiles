@@ -1,10 +1,3 @@
-export PATH="$HOME/.cargo/bin:$PATH"
-# add this repo's bin to PATH
-export PATH=~/bin:$PATH
-# and homebrew
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-# add pip
-export PATH=~/.local/bin:$PATH
 # Display time to complete commands longer than $REPORTTIME
 export REPORTTIME=5
 export ICLOUD_DRIVE=~/Library/Mobile\ Documents/com\~apple\~CloudDocs
@@ -12,19 +5,40 @@ export ICLOUD_DRIVE=~/Library/Mobile\ Documents/com\~apple\~CloudDocs
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Set up against legacy ImageMagick 6
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export LDFLAGS=-L/usr/local/opt/imagemagick@6/lib
 export CPPFLAGS=-I/usr/local/opt/imagemagick@6/include
 export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
 
+# catch my readline
+export LDFLAGS="-L/usr/local/opt/readline/lib"
+export CPPFLAGS="-I/usr/local/opt/readline/include"
+export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
+
+export SHARED_WORKSPACE=~/workspace
+# open in gui vim and wait for the window to close
+export EDITOR='vim'
+export GREP_OPTIONS='--color=auto'
+
+# what to split on
+export WORDCHARS='*?[]~&;!$%^<>'
+
+# Tell shell where GO bins are installed
+export GOPATH=$HOME/workspace/go
+mkdir -p $GOPATH
+export PATH=$GOPATH/bin:$PATH
+
+# Used by database.yml
+export DBUSER=postgres
+
+# Brew-installed openssl
+export OPENSSL_INCLUDE_DIR="/usr/local/opt/openssl/include"
+export OPENSSL_LIB_DIR="/usr/local/opt/openssl/lib"
+
 # i have a color screen, you know
 export TERM='xterm-256color'
-
-eval "$(rbenv init - --no-rehash)"
-(rbenv rehash &) 2> /dev/null # still rehash, but without blocking
-eval "$(pyenv init -)"
-# eval "$(docker-machine env default)"
 
 # Automatically run `clean` with Homebrew commands
 export HOMEBREW_INSTALL_CLEANUP=1
 
+# Emacs bindkeys
+bindkey -e
