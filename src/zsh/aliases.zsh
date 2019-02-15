@@ -112,10 +112,6 @@ function brewhaha() {
   brew outdated
 }
 
-function brupgrade() {
-  brew upgrade --cleanup
-}
-
 # Some Mac OS X update doesn't play well with Spyhouse's rotating network
 # password. It hangs when trying to connect when I come back, rather than
 # prompting for the new password. This removes both networks from the system
