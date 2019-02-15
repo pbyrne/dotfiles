@@ -1,0 +1,29 @@
+export PATH="$HOME/.cargo/bin:$PATH"
+# add this repo's bin to PATH
+export PATH=~/bin:$PATH
+# and homebrew
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# add pip
+export PATH=~/.local/bin:$PATH
+# Display time to complete commands longer than $REPORTTIME
+export REPORTTIME=5
+export ICLOUD_DRIVE=~/Library/Mobile\ Documents/com\~apple\~CloudDocs
+# Enable history in iex/Elixir
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+# Set up against legacy ImageMagick 6
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export LDFLAGS=-L/usr/local/opt/imagemagick@6/lib
+export CPPFLAGS=-I/usr/local/opt/imagemagick@6/include
+export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
+
+# i have a color screen, you know
+export TERM='xterm-256color'
+
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
+# eval "$(docker-machine env default)"
+
+# Automatically run `clean` with Homebrew commands
+export HOMEBREW_INSTALL_CLEANUP=1
+
