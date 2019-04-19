@@ -93,3 +93,4 @@ killall SystemUIServer
 
 # Skip t.co Twitter redirect in Tweetbot
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly YES
+

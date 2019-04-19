@@ -1,9 +1,4 @@
-require 'date'
-require 'pathname'
-require 'rake'
-require 'yaml'
 
-PRIVATE_DOTFILES = Pathname.new("~/Library/Mobile\ Documents/com\~apple\~CloudDocs/dotfiles").expand_path
 
 desc "Run once to initially set up the computer to use the dotfiles"
 task :setup => ["setup:setup"]
@@ -74,21 +69,11 @@ namespace :setup do
   desc "Set up vundle so that the Vim Bundle command works"
   task :install_vundle do
     unless File.directory? File.expand_path "~/.vim/bundle/vundle.vim/.git"
-      sh "git clone https://github.com/vundlevim/vundle.vim ~/.vim/bundle/vundle.vim"
+      sh ""
     end
   end
 end
 
-
-desc "Update to the latest and greatest, and run any installs that need to happen"
-task :update do
-  sh "git pull"
-  # to ensure that git has loaded the submodules
-  sh "vim +PluginInstall! +qall"
-end
-
-# just running `rake` runs `rake update`
-task :default => :update
 
 def conditionally_symlink(source, destination)
   source = File.expand_path(source)
