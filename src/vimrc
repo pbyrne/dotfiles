@@ -405,9 +405,6 @@ augroup cline
   au WinEnter,InsertLeave * set cursorline
 augroup END
 
-" Try using the silver searcher instead of ack
-let g:ackprg = 'ag --nogroup --vimgrep --smart-case'
-
 set shell=/bin/sh
 
 " Open the current file with the :Marked command
