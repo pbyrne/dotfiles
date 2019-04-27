@@ -24,7 +24,7 @@ alias untar='tar -xvzf'
 # clear out the **.orig files left over from opendiff's merges
 alias rmorig="find . -name '*.orig' | xargs rm"
 # clear out vim's temporary files
-alias cleanvim='echo Cleaning up Vim files…; find ~/.vim/{_backup,_swp,_undo} -type f | grep -v .gitkeep | xargs -I{} rm -v {}'
+alias cleanvim='echo Cleaning up Vim files…; find /tmp/.vim/{_backup,_swp,_undo} -type f | grep -v .gitkeep | xargs -I{} rm -v {}'
 
 # don't want certain configuration choices when editing my crontab, so will check against VIM_CRONTAB in my .vimrc
 alias crontab="VIM_CRONTAB=true crontab"
