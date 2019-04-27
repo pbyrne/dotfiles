@@ -1,0 +1,2 @@
+:command! PromoteToLet :call PromoteToLet()
+

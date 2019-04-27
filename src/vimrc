@@ -9,46 +9,29 @@ call vundle#rc()
 Plugin 'VundleVim/Vundle.vim'
 
 " and let's add some vundles
-Plugin 'ervandew/supertab'
-Plugin 'othree/html5-syntax.vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
-" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-characterize'
-Plugin 'fatih/vim-go'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'rust-lang/rust.vim'
-Plugin 'keith/swift.vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'c-brenn/phoenix.vim'
-Plugin 'tpope/vim-projectionist'
 Plugin 'junegunn/fzf.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'andyl/vim-textobj-elixir'
-Plugin 'hashivim/vim-terraform'
 Plugin 'janko-m/vim-test'
 
+" syntax
+Plugin 'hashivim/vim-terraform'
+Plugin 'rust-lang/rust.vim'
+Plugin 'tpope/vim-git'
+
 " colorschemes
-Plugin 'sjl/badwolf'
-Plugin 'jonathanfilip/vim-lucius'
-Plugin 'rakr/vim-two-firewatch'
-Plugin 'sherifkandeel/vim-colors'
 Plugin 'jacoborus/tender.vim'
-Plugin 'dikiaap/minimalist'
-Plugin 'dracula/vim'
 
 " general
 "let mapleader = ","
@@ -77,7 +60,6 @@ set backspace=indent,eol,start " backspace through everything
 
 set list " display whitespace characters
 set listchars=tab:\ \ ,trail:· " tabs, spaces, trailing whitespace
-
 
 " searching
 set hlsearch " highlight matches
@@ -129,11 +111,7 @@ if has("persistent_undo")
   set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 endif
 
-" MacVIM shift+arrow-keys behavior (required in .vimrc)
-let macvim_hig_shift_movement = 1
-
 " % to bounce from do to end etc.
-" also necessary for textobj-rubyblock
 runtime! macros/matchit.vim
 
 " force you to Do The Right Thing (don't use arrows to move)
@@ -165,21 +143,13 @@ inoremap kk <ESC>
 " highlight last inserted text
 nnoremap gV `[v`]
 
-
 " open vim config
 noremap <Leader>` :sp $MYVIMRC<CR>
-" and reload it automatically when saving it
-augroup myvimrc
-    au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
-
-" save really quickly
-" noremap <cr> :w<cr>
 
 " emulate MacVim keybindings
 noremap <Leader>s :w<CR>
-noremap <Leader>S :W<CR>
+noremap <Leader>S :waW<CR>
+
 " the "* register is the system clipboard
 " cut the selection, if selected
 vnoremap <Leader>x "*d
@@ -200,97 +170,13 @@ inoremap <Leader>V <ESC>"*Pi
 "autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
 nnoremap <Leader>WS :%s/\s\+$//e<CR>
 
-if $VIM_CRONTAB == "true"
-set nobackup " don't back up, causes issues editing crontabs
-set nowritebackup " disabling other backup feature
-syntax off " my colorscheme's syntax highlighting in crontab is redongculous
-endif
-
 set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
-
-" Unimpaired shortcuts
-" Bubble single lines
-nnoremap <C-Up> [e
-nnoremap <C-Down> ]e
-" Bubble multiple lines
-vnoremap <C-Up> [egv
-vnoremap <C-Down> ]egv
 
 " CTags shortcuts
 noremap <Leader>rt :!ctags .<CR><CR>
 " open definition in a new tab
 noremap <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-" Run current Elixir file
-autocmd FileType elixir noremap <leader>e :!elixir %<cr>
-" test running
-" lifted from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-" noremap <leader>t :call RunTest()<cr>
-" inoremap <leader>t <esc>:call RunTest()<cr>
-
-" Run tests in the current file, if the file is a test, or in the last test
-" file this was called from.
-function! RunTest()
-  " Write the file and run tests for the given filename
-  if expand("%") != ""
-    :w
-  end
-
-  let in_test_file = match(expand("%"), '\(_spec.rb\|_test.rb\|\-test.js\|_test.exs\)') != -1
-  if in_test_file
-    " capture the path to the test file
-    call SetTestFile()
-  endif
-  if !exists("t:pjb_test_file")
-    " if the file doesn't exist, bomb out
-    call UnableToRunTest("No test file has been captured. Run this command from a test file.")
-    return
-  endif
-
-  call RunTestFile(t:pjb_test_file)
-endfunction
-
-" Set current file to be the test file to run
-function! SetTestFile()
-  let t:pjb_test_file=@%
-endfunction
-
-" Run the given test file, using the appropriate command
-function! RunTestFile(filename)
-  if match(a:filename, "_spec.rb") != -1
-    " rspec
-    let pjb_test_command = ":!bundle exec rspec " . a:filename
-  elseif match(a:filename, "_test.rb") != -1
-    " minitest + spring
-    let pjb_test_command = ":!bin/rake test TEST=" . a:filename
-  elseif match(a:filename, "-test.js") != -1
-    " teaspoon test
-    let pjb_test_command = ":!bundle exec teaspoon " . a:filename
-  elseif match(a:filename, "_test.ex") != -1
-    " Elixir test
-    let pjb_test_command = ":!mix test " . a:filename
-  else
-    call UnableToRunTest("Unable to determine a test command for " . a:filename)
-    return
-  endif
-
-  echo pjb_test_command
-  exec pjb_test_command
-endfunction
-
-" Bomb out of test run
-function! UnableToRunTest(reason)
-  exec ":!echo Unable to run test: " . a:reason
-endfunction
-
-function! PromoteToLet()
-  :normal! dd
-  :normal! P
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :normal ==
-  :normal j
-endfunction
-:command! PromoteToLet :call PromoteToLet()
 :noremap <leader>p :PromoteToLet<cr>
 
 " get out of here!
@@ -317,197 +203,16 @@ nnoremap <c-l> <c-w>l
 " loop through the open windows
 nnoremap <c-i> <c-w>w
 
-function! ResetCursor()
-  if line("'\"") <= line("$") && &filetype != "gitcommit"
-    normal! g`"
-    return 1
-  endif
-endfunction
-
 if has("autocmd")
-  " Remember last location in file
-  autocmd BufReadPost * call ResetCursor()
-
-  " delete a Gedit view from the buffer list when leaving it
-  autocmd BufReadPost fugitive://* set bufhidden=delete
-
-  " exit out of vimdiff mode from a fugitive diff, ugly and hacky but it works
-  " from http://stackoverflow.com/questions/2703644/how-do-you-exit-vimdiff-mode-in-vim
-  function! MyCloseDiff()
-    if (&diff == 0 || getbufvar('#', '&diff') == 0)
-          \ && (bufname('%') !~ '^fugitive:' && bufname('#') !~ '^fugitive:')
-      echom "Not in diff view."
-      return
-    endif
-
-    " close current buffer if alternate is not fugitive but current one is
-    if bufname('#') !~ '^fugitive:' && bufname('%') =~ '^fugitive:'
-      if bufwinnr("#") == -1
-        b #
-        bd #
-      else
-        bd
-      endif
-    else
-      bd #
-    endif
-  endfunction
-  nnoremap <Leader>dd :call MyCloseDiff()<cr>
-
-  " make uses real tabs
-  autocmd FileType make set noexpandtab
-
-  " clean up quickfix (e.g., Ack) output
-  autocmd Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
-
-  " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-  autocmd FileType python  set tabstop=4 textwidth=79
-
-  " For some reason, iskeyword gets set differently sometimes on ruby files,
-  " not splitting on '.' or ':', which makes namespaces and methods names a
-  " pain to autocomplete or modify. This ensures that iskeyword is always
-  " consistent until I figure out what's going wrong.
-  autocmd FileType ruby set iskeyword=@,48-57,_,192-255
-
-  " check spelling from within git commit messages
-  autocmd FileType gitcommit setlocal spell
-
   " automatically leave insert mode after 15 seconds of inactivity
   autocmd CursorHoldI * stopinsert
   autocmd InsertEnter * let updaterestore=&updatetime | set updatetime=15000
   autocmd InsertLeave * let &updatetime=updaterestore
 endif
 
-"""""""""""""""""""""""""""""""
-" Highlight Trailing Whitespace
-"""""""""""""""""""""""""""""""
-
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
-" when doing line wrap, prepend with a fancy character to distinguish from the
-" next actual line
-" set showbreak=↪
-
-" load my zsh settings
-" turned off until i figure out why this is causing vim to suspend all the time
-" set shell=/bin/zsh
-" set shellcmdflag=-ci
-
-" Only show cursorline in the current window and in normal mode.
-augroup cline
-  au!
-  au WinLeave,InsertEnter * set nocursorline
-  au WinEnter,InsertLeave * set cursorline
-augroup END
-
 set shell=/bin/sh
 
-" Open the current file with the :Marked command
-command! Marked silent exe "!open -a 'Marked 2.app' '%:p'" | redraw!
-
-" Go to the next conflict
-command! NextConflict silent :execute "normal /\\<\\<\\<\\<\\<\\<\\<\<CR>"
-
-" create first- and second-level markdown headings
-" copy the current line to the line below, replace with an equal number of =
-noremap <Leader>1 yypVr=
-noremap <Leader>2 yypVr-
-
-" Run the current .go file with <leader>g
-autocmd FileType go nnoremap <leader>g :w<cr>:!go run %<cr>
-
-" Teach vim-rails about custom directories
-let g:rails_projections = {
-  \ "app/services/*.rb": {
-  \   "command": "service",
-  \   "template": "",
-  \   "keywords": "",
-  \   "test": [
-  \     "test/services/{}_test.rb",
-  \   ]
-  \ },
-  \ "app/commands/*.rb": {
-  \   "command": "command",
-  \   "template": "",
-  \   "keywords": "",
-  \   "test": [
-  \     "test/commands/{}_test.rb",
-  \   ]
-  \ },
-  \ "app/validators/*_validator.rb": {
-  \   "command": "validator",
-  \   "template": [
-  \     "class {camelcase|capitalize|colons}Validator",
-  \     "end"
-  \   ],
-  \   "keywords": "custom validators"
-  \ },
-  \ "app/uploaders/*_uploader.rb": {
-  \   "command": "uploader",
-  \   "template": [
-  \     "class {camelcase|capitalize|colons}Uploader < Shrine",
-  \     "end"
-  \   ],
-  \   "test": [
-  \     "test/uploader/{}_uploader_test.rb",
-  \   ],
-  \   "keywords": "Shrine uploaders"
-  \ },
-  \ "app/forms/*_form.rb": {
-  \   "command": "form",
-  \   "template": [
-  \     "class {camelcase|capitalize|colons}Form",
-  \     "end"
-  \   ],
-  \   "test": [
-  \     "test/forms/{}_form_test.rb",
-  \   ],
-  \   "keywords": "form objects"
-  \ },
-  \ "config/routes/*.rb": {
-  \   "command": "route",
-  \   "keywords": "routes"
-  \ },
-  \ "test/factories/*.rb": {
-  \   "command": "factory",
-  \   "keywords": "factory"
-  \ },
-  \ "app/observers/*_observer.rb": {
-  \   "command": "observer",
-  \   "template": [
-  \     "class {camelcase|capitalize|colons}Observer",
-  \     "end"
-  \   ],
-  \   "keywords": "observers",
-  \   "test": [
-  \     "test/observers/{}_test.rb",
-  \   ]
-  \ },
-  \ "app/form_builders/*_form_builder.rb": {
-  \   "command": "form_builder",
-  \   "template": [
-  \     "class {camelcase|capitalize|colons}FormBuilder < ActionView::Helpers::FormBuilder",
-  \     "end"
-  \   ],
-  \   "keywords": "form builders",
-  \   "test": [
-  \     "test/form_builders/{}_form_builder_test.rb",
-  \   ]
-  \ },
-  \ "app/delivery_methods/*.rb": {
-  \   "command": "delivery_method",
-  \   "keywords": "delivery methods"}}
-
-
-" let g:ctrlp_match_window = 'bottom,order:ttb'
-" let g:ctrlp_switch_buffer = 0
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --exclude-standard', 'find %s -type f']
-" let g:ctrlp_working_path_mode = 0
+noremap <leader>n :NextConflict<cr>
 
 " Populate some helpful macros
 let @h = 'xea:wdw' " convert from old Ruby hashes to new
@@ -519,19 +224,8 @@ set t_vb=
 " Load FZF libraries installed by Homebrew
 set rtp+=/usr/local/opt/fzf
 
-" Lifted (along with completion which uses it below) from https://blog.semanticart.com/2017/11/14/rails-route-completion-with-fzf-in-vim/
-function! s:parse_route(selected)
-  let l:squished = substitute(join(a:selected), '^\s\+', '', '')
-  return split(l:squished)[0] . '_path'
-endfunction
-
-inoremap <expr> <c-x><c-r> fzf#complete({
-  \ 'source':  'bin/rake routes',
-  \ 'reducer': '<sid>parse_route'})
-
 noremap <c-p> :GFiles<cr>
 noremap <c-b> :Buffers<cr>
-
 
 nnoremap <leader>tt :w<CR>:TestFile<CR>
 nnoremap <leader>tT :wa<CR>:TestFile<CR>
@@ -545,3 +239,12 @@ nnoremap <silent> <Leader>T :call fzf#run({
   \   'options': '--multi --reverse',
   \   'down':    15
   \ })<CR>
+
+" Complete entire line
+noremap <silent> <leader>l <C-x><C-l>
+" Complete from routes
+inoremap <silent> <leader>r <C-x><C-r>
+inoremap <expr> <c-x><c-r> fzf#complete({
+  \ 'source':  'bin/rake routes',
+  \ 'reducer': '<sid>parse_route'})
+inoremap <silent> <leader>r <C-x><C-r>
