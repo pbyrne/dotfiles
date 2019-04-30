@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+function main() {
+	if [ -f /usr/local/bin/brew ]
+	then
+		echo "Homebrew already installed!"
+	else
+		echo "Installing Homebrew…"
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	fi
+}
+
+main
