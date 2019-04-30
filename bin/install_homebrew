@@ -2,14 +2,26 @@
 
 set -e
 
+homebrew=/usr/local/bin/brew
+
 function main() {
-	if [ -f /usr/local/bin/brew ]
-	then
-		echo "Homebrew already installed!"
-	else
-		echo "Installing Homebrew…"
-		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	fi
+  install_homebrew
+  install_homebrew_packages
+}
+
+function install_homebrew() {
+  if [ -f $homebrew ]
+  then
+    echo "Homebrew already installed!"
+  else
+    echo "Installing Homebrew…"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+}
+
+function install_homebrew_packages() {
+  echo "Installing Homebrew packages…"
+  $homebrew bundle
 }
 
 main
