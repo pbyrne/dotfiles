@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e
+
+rustup="$HOME/.cargo/bin/rustup"
+
+function main() {
+  install_rust
+  install_rust_components
+}
+
+function install_rust() {
+  if [ -f $rustup ]
+  then
+    echo "Rust already installed!"
+  else
+    echo "Installing Rust…"
+    curl https://sh.rustup.rs -sSf | sh
+  fi
+}
+
+function install_rust_components() {
+  $rustup component add clippy
+  $rustup component add rustfmt
+}
+
+main
