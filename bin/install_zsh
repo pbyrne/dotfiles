@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+homebrew_zsh=/usr/local/bin/zsh
+
+if [[ "$SHELL" != "$homebrew_zsh" ]]; then
+  echo "Setting up Homebrew ZSH as shell…"
+  sudo dscl . -create /Users/$USER UserShell "$homebrew_zsh"
+else
+  echo "Homebrew ZSH already set up as shell."
+fi
