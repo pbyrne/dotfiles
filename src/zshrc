@@ -32,3 +32,5 @@ export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
 (rbenv rehash &) 2> /dev/null # still rehash, but without blocking
 eval "$(pyenv init -)"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+echo Choose commit to fixup
+choice=$(git log --oneline origin/master..HEAD | tail -r | fzf)
+sha=$(echo "$choice" | cut -d' ' -f1)
+
+echo git commit --fixup=$sha
+git commit --fixup=$sha

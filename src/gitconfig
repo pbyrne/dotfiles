@@ -64,11 +64,8 @@
 	u = pull --prune
 	# remove file from the index - DOES NOT UNDO THE CHANGES
 	unstage = reset HEAD
-	orphans = "!source ~/.githelpers && locals_not_on_remote"
-	deleteorphans = "!source ~/.githelpers && delete_orphaned_local_branches"
+	delete-orphans = "!git branch -D $(git orphans)"
 	empty = commit --allow-empty
-	fixup = "!source ~/.githelpers && update_prior_commit fixup"
-	squashup = "!source ~/.githelpers && update_prior_commit squash"
 	wip = "commit -m 'WIP'"
 [color]
 	ui = auto
