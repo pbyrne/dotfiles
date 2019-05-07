@@ -16,6 +16,7 @@
 	amend = commit --amend
 	# sometimes i can't spell
 	ammend = commit --amend
+	b = "!git checkout $(git recent-branches | fzf --preview 'git log --stat {} | head -n 100')"
 	br = branch
 	# search for braches that contain the given commit
 	branches-with = branch --all --contains
@@ -67,6 +68,7 @@
 	delete-orphans = "!git branch -D $(git orphans)"
 	empty = commit --allow-empty
 	wip = "commit -m 'WIP'"
+	recent-branches = for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
 [color]
 	ui = auto
 [format]
