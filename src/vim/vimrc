@@ -178,8 +178,6 @@ inoremap <Leader>V <ESC>"*Pi
 "autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
 nnoremap <Leader>WS :%s/\s\+$//e<CR>
 
-set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
-
 " CTags shortcuts
 noremap <Leader>rt :!ctags .<CR><CR>
 " open definition in a new tab
