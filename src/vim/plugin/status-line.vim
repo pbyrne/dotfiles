@@ -8,7 +8,7 @@ set statusline=
 " git status, highlighted
 set statusline+=%#PmenuSel#
 set statusline+=%{FugitiveStatusline()}
-set statusline+=%#LineNr#
+set statusline+=%#StatusLine#
 " path to file
 set statusline+=\ %f
 " left/right divider
