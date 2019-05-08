@@ -1,13 +1,13 @@
-" function! StatuslineGit()
-"   let l:branchname = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-"   return strlen(l:branchname) > 0?'  ['.l:branchname.'] ':''
-" endfunction
+function! PJB_VCSStatusLine()
+  let l:status = system("git vim-status")
+  return strlen(l:status) > 0?'['.l:status.']':''
+endfunction
 
 " clear the deck
 set statusline=
 " git status, highlighted
 set statusline+=%#PmenuSel#
-set statusline+=%{FugitiveStatusline()}
+set statusline+=%{PJB_VCSStatusLine()}
 set statusline+=%#StatusLine#
 " path to file
 set statusline+=\ %f

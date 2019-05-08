@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+source ~/.zsh/prompt.zsh
+
+vcs_info # populate using ZSH configuration
+echo -n $vcs_info_msg_0_
