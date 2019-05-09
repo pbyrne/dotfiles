@@ -1,6 +1,27 @@
 #!/bin/zsh
 
-source ~/.zsh/prompt.zsh
+main() {
+  local sha=$(git rev-parse --short HEAD 2> /dev/null)
 
-vcs_info # populate using ZSH configuration
-echo -n $vcs_info_msg_0_
+  if [ -n "$sha" ];
+  then
+    local branchname=$(git symbolic-ref --short HEAD)
+
+    local ahead=$(git rev-list ${branchname}@{upstream}..HEAD 2>/dev/null | wc -l)
+    local behind=$(git rev-list HEAD..${branchname}@{upstream} 2>/dev/null | wc -l)
+    local incoming_outgoing
+    if [ $ahead -gt 0 -a $behind -gt 0 ]; then
+      incoming_outgoing=" ↕"
+    elif [ $ahead -gt 0 ]; then
+      incoming_outgoing=" ↑"
+    elif [ $behind -gt 0 ]; then
+      incoming_outgoing=" ↓"
+    fi
+
+    echo -n "$branchname $sha$incoming_outgoing"
+  else
+    echo -n "n/a"
+  fi
+}
+
+main
