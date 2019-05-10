@@ -7,7 +7,7 @@ endfunction
 set statusline=
 " git status, highlighted
 set statusline+=%#PmenuSel#
-set statusline+=%{PJB_VCSStatusLine()}
+set statusline+=%{FugitiveStatusline()}
 set statusline+=%#StatusLine#
 " path to file
 set statusline+=\ %f
