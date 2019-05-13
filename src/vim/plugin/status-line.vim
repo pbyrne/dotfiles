@@ -9,8 +9,8 @@ set statusline=
 set statusline+=%#PmenuSel#
 set statusline+=%{FugitiveStatusline()}
 set statusline+=%#StatusLine#
-" path to file
-set statusline+=\ %f
+" current filename
+set statusline+=\ %t
 " left/right divider
 set statusline+=%=
 " help status
