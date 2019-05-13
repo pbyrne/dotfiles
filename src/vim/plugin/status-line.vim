@@ -22,6 +22,6 @@ set statusline+=%r
 " filetype
 set statusline+=%y
 " line and column
-set statusline+=\ %-14.(%l,%c%v%)
+set statusline+=\ %-10.(%l,%c%v%)
 " percentage through file
 set statusline+=\ %P
