@@ -13,3 +13,21 @@ function killspring() {
   echo "Now we have these springs…"
   springs || echo "None"
 }
+
+# autocomplete for bin/deploy helper
+_deploy() {
+  envs=("${(@)${(f)$(grep ':$' .opsicle | tr -d :)}}")
+  branches=("${(@)${(f)$(git branch | sed 's/\*/ /g')}#??}")
+  _arguments "1: :($envs)" "2: :($branches)"
+}
+
+compdef _deploy deploy
+
+_opsicle() {
+  actions=("chef-update instances ssh")
+  envs=("${(@)${(f)$(grep ':$' .opsicle | tr -d :)}}")
+
+  _arguments "1: :($actions)" "2: :($envs)"
+}
+
+compdef _opsicle opsicle
