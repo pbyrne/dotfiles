@@ -33,6 +33,7 @@ Plugin 'tpope/vim-git'
 " colorschemes
 Plugin 'jacoborus/tender.vim'
 Plugin 'jonathanfilip/vim-lucius'
+Plugin 'morhetz/gruvbox'
 
 " general
 "let mapleader = ","
@@ -93,8 +94,7 @@ set splitright
 " Default color scheme
 set t_Co=256 " 256 colors
 set background=dark
-" colorscheme tender
-colorscheme lucius
+colorscheme gruvbox
 
 if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
