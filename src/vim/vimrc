@@ -94,6 +94,10 @@ set splitright
 " Default color scheme
 set t_Co=256 " 256 colors
 set background=dark
+let g:gruvbox_bold="0"
+let g:gruvbox_contrast_dark="soft"
+let g:gruvbox_italicize_comments="1"
+let g:gruvbox_invert_selection="0"
 colorscheme gruvbox
 
 if &term =~ '256color'
