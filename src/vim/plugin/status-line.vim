@@ -9,8 +9,8 @@ set statusline=
 set statusline+=%#PmenuSel#
 set statusline+=%{FugitiveStatusline()}
 set statusline+=%#StatusLine#
-" current filename
-set statusline+=\ %t
+" current filename, truncate from the left if too long to fit
+set statusline+=\ %<%f
 " left/right divider
 set statusline+=%=
 " help status
@@ -22,6 +22,6 @@ set statusline+=%r
 " filetype
 set statusline+=%y
 " line and column
-set statusline+=\ %-10.(%l,%c%v%)
+set statusline+=\ %-8.(%l,%c%V%)
 " percentage through file
 set statusline+=\ %P
