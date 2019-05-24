@@ -13,10 +13,12 @@ tmp/*
 
 # filemerge
 *.orig
-.ruby-version
 
 # ruby
 .bundle/
+.ruby-version
+
+.python-version
 
 # local tweaks to Rails
 config/initializers/local_tweaks.rb
