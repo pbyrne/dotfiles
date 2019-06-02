@@ -222,8 +222,6 @@ if has("autocmd")
   autocmd InsertLeave * let &updatetime=updaterestore
 endif
 
-set shell=/bin/sh
-
 noremap <leader>n :NextConflict<cr>
 
 " Populate some helpful macros
