@@ -44,22 +44,26 @@ filetype plugin indent on " load file type plugins and indentation
 set showmatch " highlight the matching {("/")}
 set number " Show line numbers
 set cursorline " highlight the current line
-" set autoindent " perform auto-indentation
+set autoindent " perform auto-indentation
+set autoread " automatically update changes from disk made outside of Vim
 set shiftround " round to the nearest tabstop when tabbing
-set scrolloff=3 " start scrolling within 3 lines of the edge of the window
+set scrolloff=2 " start scrolling within N lines of the top/bottom of the window
+set sidescrolloff=5 " start scrolling within N lines of the left/right of the window
 set title " show a window title, even in command-line vim
 set visualbell " eliminate audio bells
 set hidden " allow an unsaved buffer to become hidden (no longer the visible), and load its marks and undo history upon becoming visible again
 set history=1000 " store command history FOREVER
+set tabpagemax=50
 set lazyredraw
+set smarttab
+set formatoptions+=j " Delete comment character when joining commented lines
 " whitespace settings
 set nowrap " don't wrap lines
 set tabstop=2 shiftwidth=2 softtabstop=2 " 2 spaces for tabs
 set expandtab " use spaces, not tabs
 set backspace=indent,eol,start " backspace through everything
-
 set list " display whitespace characters
-set listchars=tab:\ \ ,trail:· " tabs, spaces, trailing whitespace
+set listchars=tab:>-,trail:·,extends:>,precedes:<,nbsp:+
 
 " searching
 set hlsearch " highlight matches
