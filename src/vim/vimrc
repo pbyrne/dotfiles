@@ -24,6 +24,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-characterize'
 Plugin 'junegunn/fzf.vim'
 Plugin 'janko-m/vim-test'
+Plugin 'editorconfig/editorconfig-vim'
 
 " syntax
 Plugin 'hashivim/vim-terraform'
@@ -262,3 +263,6 @@ inoremap <expr> <c-x><c-r> fzf#complete({
   \ 'source':  'bin/rake routes',
   \ 'reducer': '<sid>parse_route'})
 inoremap <silent> <leader>r <C-x><C-r>
+
+" Don't apply editorconfig values to Fugitive view
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
