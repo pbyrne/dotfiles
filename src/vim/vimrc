@@ -255,14 +255,14 @@ nnoremap <silent> <Leader>T :call fzf#run({
   \   'down':    15
   \ })<CR>
 
-" Complete entire line
-noremap <silent> <leader>l <C-x><C-l>
 " Complete from routes
 inoremap <silent> <leader>r <C-x><C-r>
 inoremap <expr> <c-x><c-r> fzf#complete({
   \ 'source':  'bin/rake routes',
   \ 'reducer': '<sid>parse_route'})
-inoremap <silent> <leader>r <C-x><C-r>
+" Complete entire line
+imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
+imap <silent> <leader>l <plug>(fzf-complete-buffer-line)
 
 " Don't apply editorconfig values to Fugitive view
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
