@@ -3,5 +3,6 @@ if executable('ag')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-command! -nargs=+ Ag execute 'silent grep! <args>' | copen | redraw!
+" Let's use fzf's `:Ag` for a bit
+" command! -nargs=+ Ag execute 'silent grep! <args>' | copen | redraw!
 
