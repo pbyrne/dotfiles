@@ -3,15 +3,17 @@ functions springs() {
 }
 
 function killspring() {
-  echo "Starting with these springs…"
-  springs || echo "None"
+  while [[ -n $(springs) ]]; do
+    echo "Current springs running…"
+    springs
 
-  echo "Killing those springs…"
-  springs | awk '{ print $2 }' | xargs -n1 kill
-  sleep 1
+    springs | awk '{ print $2 }' | xargs -n1 kill
 
-  echo "Now we have these springs…"
-  springs || echo "None"
+    echo
+    sleep 2
+  done
+
+  echo "No springs running!"
 }
 
 # autocomplete for bin/deploy helper
