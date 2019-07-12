@@ -1,8 +1,11 @@
 if executable('ag')
+  " Use ag for built-in grep commands
   set grepprg=ag\ --vimgrep\ --nogroup\ --nocolor
   set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
 
-" Let's use fzf's `:Ag` for a bit
-" command! -nargs=+ Ag execute 'silent grep! <args>' | copen | redraw!
+  " Configure ack.vim to use ag instead
+  let g:ackprg = 'ag --vimgrep'
+  cnoreabbrev ag Ack
+  cnoreabbrev Ag Ack
+endif
 
