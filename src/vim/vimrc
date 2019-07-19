@@ -202,9 +202,9 @@ noremap <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 :command! -bang WQ :wa | :qa<bang>
 
 " ack
-noremap <Leader>a :Ag<space>
+noremap <Leader>a :Ack<space>
 " ack for current word (based on cursor)
-noremap <Leader>A :Ag<space><C-r><C-w>
+noremap <Leader>A :Ack<space><C-r><C-w>
 
 " make %% map to the directory path containing the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
