@@ -26,6 +26,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'janko-m/vim-test'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'posva/vim-vue'
 
 " syntax
 Plugin 'hashivim/vim-terraform'
