@@ -17,6 +17,8 @@ alias -g H="| head"
 alias -g T="| tail"
 alias -g WC="| wc"
 
+alias -g PSGKILL="TWO | xargs -n1 kill"
+
 # create a tar file. usage: tarup filename.tar.gz directory/
 alias tarup='tar -cvzf'
 alias untar='tar -xvzf'
