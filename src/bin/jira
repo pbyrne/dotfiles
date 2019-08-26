@@ -2,7 +2,7 @@
 
 set -e
 
-issue_jq="{id: .key, title: .fields.summary, type: .fields.issuetype.name, priority: .fields.priority.name, assignee: .fields.assignee.displayName}"
+issue_jq="{id: .key, title: .fields.summary, type: .fields.issuetype.name, priority: .fields.priority.name, assignee: .fields.assignee.displayName, url: \"https://$JIRA_API_HOSTNAME/browse/\(.key)\"}"
 
 main() {
   local cmd="$1"
