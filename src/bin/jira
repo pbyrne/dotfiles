@@ -2,7 +2,17 @@
 
 set -e
 
-issue_jq="{id: .key, title: .fields.summary, type: .fields.issuetype.name, priority: .fields.priority.name, assignee: .fields.assignee.displayName, url: \"https://$JIRA_API_HOSTNAME/browse/\(.key)\"}"
+issue_jq=$(cat <<EOJQ
+{
+  id: .key,
+  title: .fields.summary,
+  type: .fields.issuetype.name,
+  priority: .fields.priority.name,
+  assignee: .fields.assignee.displayName,
+  url: "https://$JIRA_API_HOSTNAME/browse/\(.key)",
+}
+EOJQ
+)
 
 main() {
   local cmd="$1"
