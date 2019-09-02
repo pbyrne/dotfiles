@@ -42,20 +42,16 @@ function exit_failure_code() {
 function usage() {
   echo "$(basename $0) (issue ID | list | help)"
   echo
-  echo "  issue ID               - display information about issue ID (ex: HE-404)"
-  echo "  list [--closed|--open] - list issues assigned to you in active sprints (either open or closed; default open)"
-  echo "  help                   - display this help"
+  echo "  issue ID   - display information about issue ID (ex: HE-404)"
+  echo "  list       - list issues assigned to you in active sprints"
+  echo "  help       - display this help"
 }
 
 function list_issues() {
   fail_if_missing_jq
   local flag="$1"
-  local resolution="Unresolved"
 
-  if [ "$flag" = "--closed" ]; then
-    resolution="Done"
-  fi
-  query="assignee in (currentUser()) AND sprint in openSprints() AND resolution = $resolution ORDER BY project ASC, key ASC"
+  query="assignee in (currentUser()) AND sprint in openSprints() ORDER BY project ASC, key ASC"
   search="jql=$(echo $query | jq -sRr @uri)"
 
   _jira_curl "search?$search" "[.issues | .[] | $issue_jq]"
