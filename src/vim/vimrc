@@ -268,4 +268,3 @@ imap <silent> <leader>l <plug>(fzf-complete-buffer-line)
 
 " Don't apply editorconfig values to Fugitive view
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
-
