@@ -7,7 +7,7 @@ issue_jq=$(cat <<EOJQ
   id: .key,
   assignee: .fields.assignee.displayName,
   priority: .fields.priority.name,
-  status: .fields.resolution.name,
+  status: .fields.status.name,
   title: .fields.summary,
   type: .fields.issuetype.name,
   url: "https://$JIRA_API_HOSTNAME/browse/\(.key)",
@@ -67,6 +67,7 @@ function _jira_curl() {
   local filter=$2
   local url="https://$JIRA_API_HOSTNAME/rest/api/latest/$path"
 
+  # echo curl --silent -u '$JIRA_API_USERNAME:$JIRA_API_TOKEN' -X GET -H '"Content-Type: application/json"' "$url"
   curl --silent -u $JIRA_API_USERNAME:$JIRA_API_TOKEN -X GET -H "Content-Type: application/json" "$url" | jq "$filter"
 }
 
