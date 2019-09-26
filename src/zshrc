@@ -13,6 +13,9 @@ zmodload -i zsh/complist
 
 autoload colors; colors
 
+# cd into additional subdirectories than .
+cdpath=($HOME/workspace $HOME)
+
 if [[ -e ~/.zsh ]]; then
   for a in `ls ~/.zsh/*.zsh`; do
     # echo sourcing $a
