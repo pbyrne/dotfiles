@@ -1,0 +1,28 @@
+#!/bin/bash
+
+function echoerr() {
+  echo $* >&2
+}
+
+ACTION=$1
+case $ACTION in
+  start | enable )
+    echoerr "Turning on Do Not Disturb…"
+    defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean true
+    defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturbDate -date "`date -u +\"%Y-%m-%d %H:%M:%S +0000\"`"
+    killall NotificationCenter
+    ;;
+  stop | disable )
+    echoerr "Turning off Do Not Disturb…"
+    defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean false
+    defaults -currentHost delete ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturbDate
+    killall NotificationCenter
+    ;;
+  read )
+    defaults -currentHost read ~/Library/Preferences/ByHost/com.apple.notificationcenterui
+    ;;
+  * )
+    echoerr "Unknown action: '$ACTION'; Please use 'start' or 'stop'."
+    exit 1
+    ;;
+esac
