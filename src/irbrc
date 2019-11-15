@@ -15,10 +15,6 @@ IRB.conf[:PROMPT][:PBYRNE] = {
 }
 IRB.conf[:PROMPT_MODE] = :PBYRNE
 
-def me
-  @me ||= User[:pbyrne]
-end
-
 # Lifted from https://coderwall.com/p/qp2aha/ruby-pbcopy-and-pbpaste
 def pbcopy(input)
   str = input.to_s
