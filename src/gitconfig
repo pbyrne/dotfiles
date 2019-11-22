@@ -65,7 +65,7 @@
 	u = pull --prune
 	# remove file from the index - DOES NOT UNDO THE CHANGES
 	unstage = reset HEAD
-	delete-orphans = "!git branch -D $(git orphans)"
+	delete-orphans = "!git orphans | xargs git branch -D"
 	empty = commit --allow-empty
 	wip = "commit -m 'WIP'"
 	recent-branches = for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
