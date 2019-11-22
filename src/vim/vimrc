@@ -27,6 +27,8 @@ Plugin 'janko-m/vim-test'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'posva/vim-vue'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'avdgaag/vim-phoenix'
 
 " syntax
 Plugin 'hashivim/vim-terraform'
