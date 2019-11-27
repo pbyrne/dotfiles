@@ -12,7 +12,6 @@ if Pry::Prompt[:rails]
 end
 
 current_printer = Pry.config.print
-
 AR_ATTRS = Hash.new { |hash, key| hash[key] = [] }
 AR_ATTRS.merge!({
   "Screenshot" => [:title],
@@ -32,7 +31,7 @@ PJB_PRINT = -> (output, value, pry) {
       when Symbol
         attrs[getter] = value.send(getter)
       when String
-        attrs[getter.gsub(/\&\./, "."] = value.instance_eval(getter)
+        attrs[getter.gsub(/\&\./, ".")] = value.instance_eval(getter)
       end
     end
     current_printer.call(output, attrs, pry)
