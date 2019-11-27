@@ -69,6 +69,7 @@
 	empty = commit --allow-empty
 	wip = "commit -m 'WIP'"
 	recent-branches = for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
+	sha = rev-parse --short HEAD
 [color]
 	ui = auto
 [format]
