@@ -1,6 +1,43 @@
-if defined?(Pry)
-  Pry.commands.alias_command 'c', 'continue'
-  Pry.commands.alias_command 's', 'step'
-  Pry.commands.alias_command 'n', 'next'
-  Pry.commands.alias_command 'f', 'finish'
+# byebug mappings
+Pry.commands.alias_command 'c', 'continue'
+Pry.commands.alias_command 's', 'step'
+Pry.commands.alias_command 'n', 'next'
+Pry.commands.alias_command 'f', 'finish'
+
+Pry.config.pager = false
+
+# Include project name and Rails development environment in prompt
+if Pry::Prompt[:rails]
+  Pry.config.prompt = Pry::Prompt[:rails][:value]
 end
+
+current_printer = Pry.config.print
+
+AR_ATTRS = Hash.new { |hash, key| hash[key] = [] }
+AR_ATTRS.merge!({
+  "Screenshot" => [:title],
+  "TalentApplication" => [:user_id, "user.login"],
+  "TalentCandidacy" => [:user_id, "user.login", :status, :talent_job_order_id],
+  "TalentClient" => ["company&.name", "user.login"],
+  "TalentJobOrder" => ["talent_company&.name", :location, :role],
+  "User" => [:login, :name, :email],
+})
+
+PJB_PRINT = -> (output, value, pry) {
+  if defined?(ActiveRecord::Base) && value.class < ActiveRecord::Base
+    current_printer.call(output, "#<#{value.class.name}:#{value.object_id}>", pry)
+    attrs = {id: value.id}
+    AR_ATTRS[value.class.name].each do |getter|
+      case getter
+      when Symbol
+        attrs[getter] = value.send(getter)
+      when String
+        attrs[getter.gsub(/\&\./, "."] = value.instance_eval(getter)
+      end
+    end
+    current_printer.call(output, attrs, pry)
+  else
+    current_printer.call(output, value, pry)
+  end
+}
+Pry.config.print = PJB_PRINT
