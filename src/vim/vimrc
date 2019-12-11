@@ -44,6 +44,7 @@ Plugin 'morhetz/gruvbox'
 "let mapleader = ","
 syntax enable " enable syntax highlighting
 set encoding=utf-8 " default encoding
+set termencoding=utf-8
 set showcmd " display incomplete commands
 filetype plugin indent on " load file type plugins and indentation
 set showmatch " highlight the matching {("/")}
@@ -109,6 +110,7 @@ let g:gruvbox_italicize_comments="1"
 let g:gruvbox_invert_selection="0"
 colorscheme gruvbox
 
+set term=xterm-256color
 if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
   " render properly when inside 256-color tmux and GNU screen.

@@ -1,0 +1,9 @@
+#!zsh
+
+tmux new-session -s rails -d docker-compose up
+tmux new-window -n server bin/rails server
+tmux new-window -n console bin/rails console
+tmux new-window vim
+tmux new-window -n scratch
+
+tmux -2 attach-session -d
