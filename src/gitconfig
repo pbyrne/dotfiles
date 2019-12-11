@@ -122,5 +122,8 @@
 [user]
 	name = Patrick Byrne
 	email = 34053+pbyrne@users.noreply.github.com
+	signingkey = AEDBAC9C6C09C0DC
 [init]
 	templatedir = ~/.git_template
+[commit]
+	gpgsign = true
