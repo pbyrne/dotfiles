@@ -26,6 +26,7 @@
 	brs = branch -a
 	# display the diff to be committed when entring commit message
 	c = commit --verbose
+	cleanup = "!git delete-orphans; git delete-merged"
 	co = checkout
 	conflicts = "!git ls-files -u | awk '{print $4}' | sort -u"
 	# choose from other local branches you have checked out, and check it out
