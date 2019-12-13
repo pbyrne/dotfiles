@@ -1,0 +1,56 @@
+#!bash
+
+set -e # Fail on first failure
+
+main() {
+  local cmd="$1"
+  local arg="$2"
+
+  case "$cmd" in
+    configure) perform_configure;;
+    instances) list_instances $arg;;
+    stacks) list_stacks;;
+    *) usage;;
+  esac
+}
+
+function _echoerr() {
+  echo "$*" >&2
+}
+
+function _choose_stack() {
+  local query=$1 # optional
+
+  aws --region us-east-1 opsworks describe-stacks |
+    jq --raw-output '.Stacks | .[] | .Name + "|" + .StackId' |
+    sort -r |
+    column -t -s'|' |
+    fzf --select-1 --exit-0 --query=$query |
+    awk -F' ' '{print $NF}'
+}
+
+function usage() {
+  echo "(basename $0) (instances STACK stacks)"
+  echo
+  echo "  instances STACK   - list instances in a given Opsworks stack"
+  echo "  stacks            - list Opsworks stacks"
+  echo "  configure STACK   - perform Configure event for a given Opsworks stack"
+}
+
+function list_stacks() {
+  aws --region us-east-1 opsworks describe-stacks |
+    jq '[.Stacks | .[] | {id: .StackId, name: .Name}]'
+}
+
+function list_instances() {
+  local query=$1
+  local stackID=$(_choose_stack $1)
+  aws --region us-east-1 opsworks describe-instances --stack-id=$stackID |
+    jq '[.Instances | .[] | {name: .Hostname, id: .InstanceId, type: .InstanceType}]'
+}
+
+function perform_configure() {
+  _echoerr "TK; choose stack then open log in browser?"
+}
+
+main $*
