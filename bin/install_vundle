@@ -13,3 +13,5 @@ function main() {
 		echo Already cloned…
 	fi
 }
+
+main
