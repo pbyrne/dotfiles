@@ -53,7 +53,7 @@
 	# show local branches which are already merged to master
 	merged = "!git branch --merged origin/master | grep -v master | grep -v staging | grep -v '*'"
 	# new branch with the given name
-	nb = "!f() { git checkout -b $1; }; f"
+	nb = switch -C
 	# Not yet added - doesn't include ignored files
 	new = ls-files --others --exclude-standard
 	p = "!f() { git push origin `git branchname`; }; f"
