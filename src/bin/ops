@@ -9,6 +9,7 @@ main() {
   case "$cmd" in
     configure) perform_configure;;
     instances) list_instances $arg;;
+    layers) list_layers $arg;;
     stacks) list_stacks;;
     *) usage;;
   esac
@@ -29,28 +30,50 @@ function _choose_stack() {
     awk -F' ' '{print $NF}'
 }
 
+function _choose_layer() {
+  local stackId=$1
+  local query=$2 # optional
+
+  if [ -z $stackId ]; then
+    _echoerr "Must select a stack to choose a layer"
+    exit 1
+  fi
+
+  aws --region us-east-1 opsworks describe-layers --stack-id=$stackId |
+    jq --raw-output '.Layers | .[] | .Name + "|" + .LayerId' |
+    sort -r |
+    column -t -s'|' |
+    fzf --select-1 --exit-0 --query=$query |
+    awk -F' ' '{print $NF}'
+}
+
 function usage() {
-  echo "(basename $0) (instances STACK stacks)"
+  echo "$(basename $0) (instances layers stacks)"
   echo
-  echo "  instances STACK   - list instances in a given Opsworks stack"
-  echo "  stacks            - list Opsworks stacks"
-  echo "  configure STACK   - perform Configure event for a given Opsworks stack"
+  column -s',' -t <<-EOH
+  instances [STACK],list instances in a given Opsworks stack
+  layers [STACK],list layers in a given Opsworks stack
+  stacks,list Opsworks stacks
+EOH
+}
+
+function list_instances() {
+  local stackQuery=$1
+  local stackId=$(_choose_stack $stackQuery)
+  aws --region us-east-1 opsworks describe-instances --stack-id=$stackId |
+    jq '[.Instances | .[] | {name: .Hostname, id: .InstanceId, ip: .PublicIp, layers: .LayerIds, status: .Status, type: .InstanceType}]'
+}
+
+function list_layers() {
+  local stackQuery=$1
+  local stackId=$(_choose_stack $stackQuery)
+  aws --region us-east-1 opsworks describe-layers --stack-id=$stackId |
+    jq '[.Layers | .[] | {id: .LayerId, name: .Name, shortname: .Shortname}]'
 }
 
 function list_stacks() {
   aws --region us-east-1 opsworks describe-stacks |
     jq '[.Stacks | .[] | {id: .StackId, name: .Name}]'
-}
-
-function list_instances() {
-  local query=$1
-  local stackID=$(_choose_stack $1)
-  aws --region us-east-1 opsworks describe-instances --stack-id=$stackID |
-    jq '[.Instances | .[] | {name: .Hostname, id: .InstanceId, type: .InstanceType}]'
-}
-
-function perform_configure() {
-  _echoerr "TK; choose stack then open log in browser?"
 }
 
 main $*
