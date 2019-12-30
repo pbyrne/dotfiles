@@ -1,6 +1,6 @@
 #!bash
 
-set -e # Fail on first failure
+set -e # Exit on first failure
 
 main() {
   local cmd="$1"
@@ -120,9 +120,8 @@ function connect_with_ssh() {
   local username=$(_fetch_username)
   local instanceIp=$(_fetch_instance_details $instanceId PublicIp)
 
-  cmd="ssh $username@$instanceIp"
-  echo $cmd
-  exec $cmd
+  # echo command when executing
+  (set -x; ssh $username@$instanceIp)
 }
 
 main $*
