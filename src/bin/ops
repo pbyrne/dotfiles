@@ -4,14 +4,15 @@ set -e # Fail on first failure
 
 main() {
   local cmd="$1"
-  local arg="$2"
+  local arg1="$2"
+  local arg2="$3"
 
   case "$cmd" in
     configure) perform_configure;;
-    instances) list_instances $arg;;
-    layers) list_layers $arg;;
-    ssh) connect_with_ssh $arg;;
-    ssh-tunnel) establish_ssh_tunnel $arg;;
+    instances) list_instances $arg1;;
+    layers) list_layers $arg1;;
+    ssh) connect_with_ssh $arg1 $arg2;;
+    ssh-tunnel) establish_ssh_tunnel $arg1 $arg2;;
     stacks) list_stacks;;
     *) usage;;
   esac
@@ -19,6 +20,18 @@ main() {
 
 function _echoerr() {
   echo "$*" >&2
+}
+
+function _choose_instance() {
+  local stackId=$1
+  local query=$2
+
+  aws --region us-east-1 opsworks describe-instances --stack-id=$stackId |
+    jq --raw-output '.Instances | .[] | "\(.Hostname)|\(.PublicIp)|\(.InstanceId)"' |
+    sort -r |
+    column -t -s'|' |
+    fzf --select-1 --exit-0 --query=$query |
+    awk -F' ' '{print $NF}'
 }
 
 function _choose_stack() {
@@ -49,13 +62,26 @@ function _choose_layer() {
     awk -F' ' '{print $NF}'
 }
 
+function _fetch_username() {
+  aws --region us-east-1 opsworks describe-my-user-profile |
+    jq --raw-output .UserProfile.SshUsername
+}
+
+function _fetch_instance_details() {
+  instanceId=$1
+  field=$2
+
+  aws --region us-east-1 opsworks describe-instances --instance-id=$instanceId |
+    jq --raw-output ".Instances[0].$field"
+}
+
 function usage() {
   echo "$(basename $0) (instances layers stacks)"
   echo
-  column -s',' -t <<-EOH
-  instances [STACK],list instances in a given Opsworks stack
-  layers [STACK],list layers in a given Opsworks stack
-  stacks,list Opsworks stacks
+  column -s'|' -t <<-EOH
+  instances [STACK]|list instances in a given Opsworks stack
+  layers [STACK]|list layers in a given Opsworks stack
+  stacks|list Opsworks stacks
 EOH
 }
 
@@ -86,8 +112,17 @@ function list_stacks() {
 }
 
 function connect_with_ssh() {
-  # TODO need to get OpsWorks username to connect with; then `exec ssh username@ip`
-  _echoerr "TK; SSH not yet implemented"
+  local stackQuery=$1
+  local instanceQuery=$2
+  local stackId=$(_choose_stack $stackQuery)
+  local instanceId=$(_choose_instance $stackId $instanceQuery)
+
+  local username=$(_fetch_username)
+  local instanceIp=$(_fetch_instance_details $instanceId PublicIp)
+
+  cmd="ssh $username@$instanceIp"
+  echo $cmd
+  exec $cmd
 }
 
 main $*
