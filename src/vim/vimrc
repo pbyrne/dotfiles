@@ -39,6 +39,7 @@ Plugin 'tpope/vim-git'
 Plugin 'jacoborus/tender.vim'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'morhetz/gruvbox'
+Plugin 'jaredgorski/SpaceCamp'
 
 " general
 "let mapleader = ","
@@ -170,6 +171,7 @@ nnoremap gV `[v`]
 
 " open vim config
 noremap <Leader>` :sp $MYVIMRC<CR>
+autocmd BufWrite *.vim*,vimrc :source $MYVIMRC
 
 " emulate MacVim keybindings
 noremap <Leader>s :w<CR>

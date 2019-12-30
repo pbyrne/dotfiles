@@ -10,6 +10,8 @@ main() {
     configure) perform_configure;;
     instances) list_instances $arg;;
     layers) list_layers $arg;;
+    ssh) connect_with_ssh $arg;;
+    ssh-tunnel) establish_ssh_tunnel $arg;;
     stacks) list_stacks;;
     *) usage;;
   esac
@@ -57,9 +59,16 @@ function usage() {
 EOH
 }
 
+function establish_ssh_tunnel() {
+  # TODO need to get OpsWorks username to connect with; then `exec ssh username@ip`
+  _echoerr "TK; SSH tunnel not yet implemented"
+}
+
 function list_instances() {
   local stackQuery=$1
   local stackId=$(_choose_stack $stackQuery)
+  # TODO map layer IDs to human-readable names
+  # for reference, hash with ID as the key: jq '.Layers | map({(.LayerId): {name: .Name, shortname: .Shortname}}) | add'
   aws --region us-east-1 opsworks describe-instances --stack-id=$stackId |
     jq '[.Instances | .[] | {name: .Hostname, id: .InstanceId, ip: .PublicIp, layers: .LayerIds, status: .Status, type: .InstanceType}]'
 }
@@ -74,6 +83,11 @@ function list_layers() {
 function list_stacks() {
   aws --region us-east-1 opsworks describe-stacks |
     jq '[.Stacks | .[] | {id: .StackId, name: .Name}]'
+}
+
+function connect_with_ssh() {
+  # TODO need to get OpsWorks username to connect with; then `exec ssh username@ip`
+  _echoerr "TK; SSH not yet implemented"
 }
 
 main $*
