@@ -26,7 +26,7 @@ function _choose_instance() {
   local query=$2
 
   aws --region us-east-1 opsworks describe-instances --stack-id=$stackId |
-    jq --raw-output '.Instances | .[] | "\(.Hostname)|\(.PublicIp)|\(.InstanceId)"' |
+    jq --raw-output '.Instances[] | "\(.Hostname)|\(.PublicIp)|\(.InstanceId)"' |
     sort -r |
     column -t -s'|' |
     fzf --select-1 --exit-0 --query=$query |
@@ -37,7 +37,7 @@ function _choose_stack() {
   local query=$1 # optional
 
   aws --region us-east-1 opsworks describe-stacks |
-    jq --raw-output '.Stacks | .[] | .Name + "|" + .StackId' |
+    jq --raw-output '.Stacks[] | .Name + "|" + .StackId' |
     sort -r |
     column -t -s'|' |
     fzf --select-1 --exit-0 --query=$query |
@@ -54,7 +54,7 @@ function _choose_layer() {
   fi
 
   aws --region us-east-1 opsworks describe-layers --stack-id=$stackId |
-    jq --raw-output '.Layers | .[] | .Name + "|" + .LayerId' |
+    jq --raw-output '.Layers[] | .Name + "|" + .LayerId' |
     sort -r |
     column -t -s'|' |
     fzf --select-1 --exit-0 --query=$query |
@@ -95,19 +95,19 @@ function list_instances() {
   # TODO map layer IDs to human-readable names
   # for reference, hash with ID as the key: jq '.Layers | map({(.LayerId): {name: .Name, shortname: .Shortname}}) | add'
   aws --region us-east-1 opsworks describe-instances --stack-id=$stackId |
-    jq '[.Instances | .[] | {name: .Hostname, id: .InstanceId, ip: .PublicIp, layers: .LayerIds, status: .Status, type: .InstanceType}]'
+    jq '[.Instances[] | {name: .Hostname, id: .InstanceId, ip: .PublicIp, layers: .LayerIds, status: .Status, type: .InstanceType}]'
 }
 
 function list_layers() {
   local stackQuery=$1
   local stackId=$(_choose_stack $stackQuery)
   aws --region us-east-1 opsworks describe-layers --stack-id=$stackId |
-    jq '[.Layers | .[] | {id: .LayerId, name: .Name, shortname: .Shortname}]'
+    jq '[.Layers[] | {id: .LayerId, name: .Name, shortname: .Shortname}]'
 }
 
 function list_stacks() {
   aws --region us-east-1 opsworks describe-stacks |
-    jq '[.Stacks | .[] | {id: .StackId, name: .Name}]'
+    jq '[.Stacks[] | {id: .StackId, name: .Name}]'
 }
 
 function connect_with_ssh() {
