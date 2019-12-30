@@ -8,7 +8,6 @@ main() {
   local arg2="$3"
 
   case "$cmd" in
-    configure) perform_configure;;
     instances) list_instances $arg1;;
     layers) list_layers $arg1;;
     ssh) connect_with_ssh $arg1 $arg2;;
