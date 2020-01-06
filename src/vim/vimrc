@@ -29,6 +29,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'posva/vim-vue'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'avdgaag/vim-phoenix'
+Plugin 'leafgarland/typescript-vim'
 
 " syntax
 Plugin 'hashivim/vim-terraform'
