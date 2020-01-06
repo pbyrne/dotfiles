@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# List files changed on the current branch versus a provided branch/sha/etc.
+# (or the default of origin/master)
+to_compare=${1:-origin/master}
+
+(
+# First get already-committed file names that have been
+# (C)opied, (R)enamed, (A)added, or (M)odified
+#
+# We specify the diff-filter because we explicitly _don't_ care about Deleted
+# files.
+git diff ${to_compare}... --name-only --diff-filter=CRAM &&
+  # Then get files that are currently modified (staged or unstaged)
+  (git status --porcelain | awk '{print $2}')
+) |
+  # Finally, remove duplicates without changing the sort order
+    awk '!x[$0]++'
+

@@ -41,6 +41,7 @@
 	# edit new and modified files
 	edit = "!$EDITOR `git ls-files --modified --others --exclude-standard`"
 	editconflicts = "!$EDITOR $(git conflicts)"
+	editchanged = "git changed-on-branch | fzf -m --height 40% | xargs -o $EDITOR"
 	# also clean up branches deleted from the server
 	f = fetch --prune
 	freebase = !git fetch && git rebase origin/master
@@ -59,6 +60,7 @@
 	p = "!f() { git push origin `git branchname`; }; f"
 	# push and set the upstream
 	pu = "!f() { git push --set-upstream origin `git branchname`; }; f"
+	run-changed-test = "git changed-on-branch | grep test | fzf --height 40% | xargs bin/rails test"
 	s = status
 	st = status
 	# show today's work
