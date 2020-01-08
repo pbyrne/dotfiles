@@ -85,8 +85,31 @@ EOH
 }
 
 function establish_ssh_tunnel() {
-  # TODO need to get OpsWorks username to connect with; then `exec ssh username@ip`
-  _echoerr "TK; SSH tunnel not yet implemented"
+  local stackQuery=$1
+  local instanceQuery=$2
+  local stackId=$(_choose_stack $stackQuery)
+  local instanceId=$(_choose_instance $stackId $instanceQuery)
+
+  local username=$(_fetch_username)
+  local instanceIp=$(_fetch_instance_details $instanceId PublicIp)
+
+  local db_host=$(ssh $username@$instanceIp 'source .bashrc.d/rails.sh; printenv DATABASE_HOST')
+  local db_user=$(ssh $username@$instanceIp 'source .bashrc.d/rails.sh; printenv DATABASE_USERNAME')
+  local db_pass=$(ssh $username@$instanceIp 'source .bashrc.d/rails.sh; printenv DATABASE_PASSWORD')
+  local db_local_port=3333
+  local pgpass="localhost:$db_local_port:$db_user:$db_user:$db_pass"
+
+  echo Adding ~/.pgpass entry…
+  # Add line only if not already there; -q quiet/no output; -x full-line match; -F plain-text match
+  grep -qxF -- $pgpass ~/.pgpass || echo $pgpass >> ~/.pgpass
+
+  echo Update your connection to use:
+  echo   host: localhost
+  echo   port: $db_local_port
+  echo   username: $db_user
+
+  echo Establishing SSH tunnel to $db_host via $username@$instanceIp. Ctrl-C to exit…
+  ssh -L $db_local_port:$db_host:5432 -N $username@$instanceIp
 }
 
 function list_instances() {
