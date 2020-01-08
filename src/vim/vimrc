@@ -269,6 +269,11 @@ inoremap <silent> <leader>r <C-x><C-r>
 inoremap <expr> <c-x><c-r> fzf#complete({
   \ 'source':  'bin/rake routes',
   \ 'reducer': '<sid>parse_route'})
+function! s:parse_route(selected)
+  let l:squished = substitute(join(a:selected), '^\s\+', '', '')
+  return split(l:squished)[0] . '_path'
+endfunction
+
 " Complete entire line
 imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
 imap <silent> <leader>l <plug>(fzf-complete-buffer-line)
