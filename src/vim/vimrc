@@ -283,3 +283,5 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
 " If a .vimlocal exists, source it
 silent! so .vimlocal
+
+nnoremap <silent> <Leader>gc :call fzf#run({'source':  'git changed-on-branch', 'sink': 'e', 'options': '--multi --reverse', 'down':    15})<CR>
