@@ -3,6 +3,8 @@
 set -e # Exit on first failure
 
 main() {
+  verify_dependencies
+
   local cmd="$1"
   local arg1="$2"
   local arg2="$3"
@@ -49,8 +51,7 @@ function _choose_layer() {
   local query=$2 # optional
 
   if [ -z $stackId ]; then
-    _echoerr "Must select a stack to choose a layer"
-    exit 1
+    _exit_failure_code "Must select a stack to choose a layer"
   fi
 
   aws --region us-east-1 opsworks describe-layers --stack-id=$stackId |
@@ -59,6 +60,11 @@ function _choose_layer() {
     column -t -s'|' |
     fzf --select-1 --exit-0 --query=$query |
     awk -F' ' '{print $NF}'
+}
+
+function _exit_failure_code () {
+  _echoerr "$*"
+  exit 1
 }
 
 function _fetch_username() {
@@ -72,6 +78,12 @@ function _fetch_instance_details() {
 
   aws --region us-east-1 opsworks describe-instances --instance-id=$instanceId |
     jq --raw-output ".Instances[0].$field"
+}
+
+function verify_dependencies() {
+  command -v jq >/dev/null 2>&1 || _exit_failure_code "This leverages the 'jq' command-line tool for parsing JSON. Install it."
+  command -v aws >/dev/null 2>&1 || _exit_failure_code "This leverages the 'aws' command-line tool for communicating with AWS's API. Install it."
+  command -v fzf >/dev/null 2>&1 || _exit_failure_code "This leverages the 'fzf' command-line tool for choosing options. Install it."
 }
 
 function usage() {
