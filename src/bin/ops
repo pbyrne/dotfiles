@@ -3,8 +3,6 @@
 set -e # Exit on first failure
 
 main() {
-  verify_dependencies
-
   local cmd="$1"
   local arg1="$2"
   local arg2="$3"
@@ -24,6 +22,8 @@ function _echoerr() {
 }
 
 function _choose_instance() {
+  verify_dependencies
+
   local stackId=$1
   local query=$2
 
@@ -36,6 +36,8 @@ function _choose_instance() {
 }
 
 function _choose_stack() {
+  verify_dependencies
+
   local query=$1 # optional
 
   aws --region us-east-1 opsworks describe-stacks |
@@ -47,6 +49,8 @@ function _choose_stack() {
 }
 
 function _choose_layer() {
+  verify_dependencies
+
   local stackId=$1
   local query=$2 # optional
 
@@ -68,11 +72,15 @@ function _exit_failure_code () {
 }
 
 function _fetch_username() {
+  verify_dependencies
+
   aws --region us-east-1 opsworks describe-my-user-profile |
     jq --raw-output .UserProfile.SshUsername
 }
 
 function _fetch_instance_details() {
+  verify_dependencies
+
   instanceId=$1
   field=$2
 
@@ -87,11 +95,13 @@ function verify_dependencies() {
 }
 
 function usage() {
-  echo "$(basename $0) (instances layers stacks)"
+  echo "$(basename $0) (instances layers ssh ssh-tunnel stacks)"
   echo
   column -s'|' -t <<-EOH
   instances [STACK]|list instances in a given Opsworks stack
   layers [STACK]|list layers in a given Opsworks stack
+  ssh [STACK]|SSH to an instance
+  ssh-tunnel [STACK]|Establish an SSH tunnel to an instance
   stacks|list Opsworks stacks
 EOH
 }
