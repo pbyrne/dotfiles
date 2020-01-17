@@ -73,6 +73,7 @@
 	wip = "commit -m 'WIP'"
 	recent-branches = for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
 	sha = rev-parse --short HEAD
+	openpr = !hub pr show
 [color]
 	ui = auto
 [format]
