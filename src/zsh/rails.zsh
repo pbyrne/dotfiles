@@ -33,3 +33,12 @@ _opsicle() {
 }
 
 compdef _opsicle opsicle
+
+_ops() {
+  actions=("${(@)${(f)$(ops help | grep '  \w' | cut -d' ' -f3)}}")
+  envs=("${(@)${(f)$(grep ':$' .opsicle | tr -d :)}}")
+
+  _arguments "1: :($actions)" "2: :($envs)"
+}
+
+compdef _ops ops
