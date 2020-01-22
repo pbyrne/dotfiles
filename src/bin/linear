@@ -1,0 +1,61 @@
+#!bash
+
+function main() {
+  local cmd="$1"
+  shift # drop that from the positional arguments
+
+  case "$cmd" in
+    teams) list_teams;;
+    query) execute_query "$*";;
+    *) usage;;
+  esac
+}
+
+function execute_query() {
+  query="$*"
+
+  _perform_query $query | jq .
+}
+
+function list_teams() {
+  _perform_query "{ teams { nodes { id name } } }" |
+    jq --raw-output '.data.teams.nodes[] | .name + "|" + .id' |
+    column -s'|' -t |
+    sort
+}
+
+function usage() {
+  echo "$(basename $0) (teams)"
+  echo
+  column -s'|' -t <<-EOH
+  teams | list teams you are a member of
+  help, usage | display this help
+EOH
+}
+
+function _exit_failure_code() {
+  echo "$*" >&2
+  exit 1
+}
+
+function _perform_query() {
+  _verify_setup
+  local query="$*"
+  local request=$(echo '{}' | jq ".query = \"$(echo $query)\"")
+
+  # echo query is
+  # echo $query
+  # echo request is
+  # echo $request
+
+  echo $request |
+    curl -sS -H "Content-type: application/json" -H "Authorization: $LINEAR_API_TOKEN" -XPOST --data "@-" https://api.linear.app/graphql
+}
+
+function _verify_setup() {
+  if [ -z $LINEAR_API_TOKEN ]; then
+    _exit_failure_code "Must provide LINEAR_API_TOKEN environment variable"
+  fi
+}
+
+main $*
