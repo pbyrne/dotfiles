@@ -13,14 +13,14 @@ notes() {
 # FIXME is for known problems to be fixed
 # TODO is for longer-term, lower-priority work to be done
 _notes_tags() {
-  echo "XXX" "FIXME" "TODO"
+  echo "FIXME" "TODO"
 }
 
 _notes_search() {
   for tag in `_notes_tags`; do
     echo Searching for $tag
     # Output matches, or if none found, indicate this and insert a new line
-    ack $tag || echo None found && echo
+    ag $tag || echo None found && echo
   done
 }
 
