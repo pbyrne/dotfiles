@@ -14,7 +14,6 @@ export LDFLAGS="$LDFLAGS -L/usr/local/opt/readline/lib"
 export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/readline/include"
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/readline/lib/pkgconfig"
 
-export SHARED_WORKSPACE=~/workspace
 # open in gui vim and wait for the window to close
 export EDITOR='vim'
 export GREP_OPTIONS='--color=auto'
