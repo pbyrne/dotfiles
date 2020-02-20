@@ -127,6 +127,7 @@
 	email = 34053+pbyrne@users.noreply.github.com
 	signingkey = AEDBAC9C6C09C0DC
 [init]
-	templatedir = ~/.git_template
+	templatedir = ~/.git/template
 [commit]
 	gpgsign = true
+	template = ~/.git/commit_template
