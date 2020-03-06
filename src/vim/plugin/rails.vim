@@ -65,6 +65,17 @@ let g:rails_projections = {
   \     "test/observers/{}_test.rb",
   \   ]
   \ },
+  \ "app/permissions/*_permissions.rb": {
+  \   "command": "permission",
+  \   "template": [
+  \    "class {camelcase|capitalize|colons}Permissions",
+  \    "end"
+  \   ],
+  \   "keywords": "permissions",
+  \   "test": [
+  \     "test/permissions/{}_test.rb",
+  \   ]
+  \ },
   \ "app/form_builders/*_form_builder.rb": {
   \   "command": "form_builder",
   \   "template": [
