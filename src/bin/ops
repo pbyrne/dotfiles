@@ -13,6 +13,8 @@ main() {
     ssh) connect_with_ssh $arg1 $arg2;;
     ssh-tunnel) establish_ssh_tunnel $arg1 $arg2;;
     stacks) list_stacks;;
+    chef-update) deploy update_custom_cookbooks $arg1;;
+    configure) deploy configure $arg1;;
     *) usage;;
   esac
 }
@@ -103,6 +105,8 @@ function usage() {
   ssh [STACK]|SSH to an instance
   ssh-tunnel [STACK]|Establish an SSH tunnel to an instance
   stacks|list Opsworks stacks
+  chef-update [STACK]|update custom cookbooks in a given stack
+  configure [STACK]|run the configure deployment in a given stack
 EOH
 }
 
@@ -166,6 +170,30 @@ function connect_with_ssh() {
 
   # echo command when executing
   (set -x; ssh $username@$instanceIp)
+}
+
+function _create_deployment() {
+  local stackId=$1
+  local command=$2
+
+  aws --region us-east-1 opsworks create-deployment --stack-id=$stackId --command=Name=$command |
+    jq --raw-output .DeploymentId
+}
+
+function _open_deployment() {
+  local stackId=$1
+  local deploymentId=$2
+
+  open "https://console.aws.amazon.com/opsworks/home?region=us-east-1#/stack/$stackId/deployments/$deploymentId"
+}
+
+function deploy() {
+  local command=$1
+  local stackQuery=$2
+  local stackId=$(_choose_stack $stackQuery)
+
+  local deploymentId=$(_create_deployment $stackId $command)
+  _open_deployment $stackId $deploymentId
 }
 
 main $*
