@@ -1,0 +1,11 @@
+#!zsh
+
+if [[ -d log ]]; then
+  echo Purging log files…
+  for log in $(ls log/*.log); do
+    echo "  * $log"
+    echo > $log
+  done
+else
+  echo No log directory. Nothing truncated.
+fi
