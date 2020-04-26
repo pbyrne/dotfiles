@@ -25,15 +25,6 @@ _deploy() {
 
 compdef _deploy deploy
 
-_opsicle() {
-  actions=("chef-update instances ssh")
-  envs=("${(@)${(f)$(grep ':$' .opsicle | tr -d :)}}")
-
-  _arguments "1: :($actions)" "2: :($envs)"
-}
-
-compdef _opsicle opsicle
-
 _ops() {
   actions=("${(@)${(f)$(ops help | grep '  \w' | cut -d' ' -f3)}}")
   envs=("${(@)${(f)$(grep ':$' .opsicle | tr -d :)}}")
