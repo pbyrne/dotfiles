@@ -30,7 +30,7 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 # add this repo's bin to PATH
-export PATH=~/bin:$PATH
+export PATH=~/bin:~/.sbin:$PATH
 # and homebrew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # add pip
