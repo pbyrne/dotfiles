@@ -2,7 +2,7 @@ set nocompatible " enable lots of cool vim-only features
 filetype off " required for vundle setup
 
 " set up vundle iteself
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle.vim
 call vundle#rc()
 
 " let Vundle manage Vundle required!
