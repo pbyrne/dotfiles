@@ -33,12 +33,17 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=~/bin:~/.sbin:$PATH
 # and homebrew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# and rbenv (if installed from source)
+export PATH=~/.rbenv/bin:$PATH
 # add pip
 export PATH=~/.local/bin:$PATH
 # Set up against legacy ImageMagick 6
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-eval "$(rbenv init - --no-rehash)"
-(rbenv rehash &) 2> /dev/null # still rehash, but without blocking
+if [[ (( $+commands[rbenv] )) ]]; then
+  eval "$(rbenv init - --no-rehash)"
+  (rbenv rehash &) 2> /dev/null # still rehash, but without blocking
+fi
+
 # eval "$(pyenv init -)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

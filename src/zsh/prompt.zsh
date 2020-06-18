@@ -61,7 +61,12 @@ function pjb_redgreen_prompt() {
 
 function pjb_path() {
   # collapsed path (e.g., substituing ~ and environment variables in the PWD
-  echo "%~"
+  if [[ -n "$SSH_CONNECTION" ]];
+  then
+    echo "`hostname`@%~"
+  else
+    echo "%~"
+  fi
 }
 
 function pjb_background_jobs() {
