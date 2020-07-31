@@ -1,8 +1,3 @@
-function! PJB_VCSStatusLine()
-  let l:status = system("git vim-status")
-  return strlen(l:status) > 0?'['.l:status.']':''
-endfunction
-
 " clear the deck
 set statusline=
 " git status, highlighted
