@@ -1,4 +1,4 @@
-# enable zsh autocompletion
+#asdf/ enable zsh autocompletion
 autoload -U promptinit
 promptinit
 
@@ -33,20 +33,16 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=~/bin:~/.sbin:$PATH
 # and homebrew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-# and rbenv (if installed from source)
-export PATH=~/.rbenv/bin:$PATH
 # add pip
 export PATH=~/.local/bin:$PATH
 # Set up against legacy ImageMagick 6
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-if [[ (( $+commands[rbenv] )) ]]; then
-  eval "$(rbenv init - --no-rehash)"
-  (rbenv rehash &) 2> /dev/null # still rehash, but without blocking
-fi
-
-# eval "$(pyenv init -)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+if [[ (( $+commands[brew] )) && -f "/usr/local/opt/asdf/asdf.sh" ]]; then
+  source /usr/local/opt/asdf/asdf.sh
+fi
 
 # Created with /usr/local/opt/fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh || true
