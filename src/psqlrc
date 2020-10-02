@@ -17,7 +17,7 @@
 -- transaction when an error occurs.
 \set ON_ERROR_ROLLBACK interactive
 -- Display query execution time
-\timing on
+-- \timing on
 -- upper-case on autocompleted SQL keywords
 \set COMP_KEYWORD_CASE upper
 -- And disable QUET again
