@@ -1,5 +1,5 @@
 for k in $(git branch --all --format="%(refname:short)"); do
-  if (($(git log -1 --since='1 year ago' -s $k|wc -l)==0)); then
+  if (($(git log -1 --since='6 months ago' -s $k|wc -l)==0)); then
     echo $k
   fi
 done
