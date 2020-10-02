@@ -24,6 +24,8 @@
 	branchname = symbolic-ref --short -q HEAD
 	# all branches, even remote
 	brs = branch -a
+	buildurl = "!hub ci-status --format='%U%n'"
+	openbuild = "!hub ci-status --format='%U%n' | xargs open"
 	# display the diff to be committed when entring commit message
 	c = commit --verbose
 	cleanup = "!git delete-orphans; git delete-merged"
