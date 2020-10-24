@@ -2,7 +2,7 @@
 set statusline=
 " git status, highlighted
 set statusline+=%#PmenuSel#
-set statusline+=%{FugitiveStatusline()}
+set statusline+=%<%{FugitiveStatusline()}
 set statusline+=%#StatusLine#
 " current filename, truncate from the left if too long to fit
 set statusline+=\ %<%f
