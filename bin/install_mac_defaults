@@ -90,3 +90,6 @@ killall SystemUIServer
 # Skip t.co Twitter redirect in Tweetbot
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly YES
 
+# Don't auto-hide proxy icons in Big Sur
+defaults write -g NSToolbarTitleViewRolloverDelay -float 0
+
