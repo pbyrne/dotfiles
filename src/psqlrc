@@ -1,5 +1,5 @@
 -- With `\timing` below, this avoids noise when setting up the database for tests
-\set QUIET 1
+-- \set QUIET 1
 -- Inspired by http://robots.thoughtbot.com/improving-the-command-line-postgres-experience/
 -- By default, NULL displays as an empty space. Is it actually an empty
 -- string, or is it null? This makes that distinction visible.
@@ -21,6 +21,6 @@
 -- upper-case on autocompleted SQL keywords
 \set COMP_KEYWORD_CASE upper
 -- And disable QUET again
-\unset QUIET
+-- \unset QUIET
 
 -- # vim: ft=sql
