@@ -5,7 +5,5 @@ if executable('ag')
 
   " Configure ack.vim to use ag instead
   let g:ackprg = 'ag --vimgrep'
-  cnoreabbrev ag Ack
-  cnoreabbrev Ag Ack
 endif
 
