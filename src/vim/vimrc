@@ -221,6 +221,9 @@ noremap <C-\> :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 noremap <Leader>a :Ack<space>
 " ack for current word (based on cursor)
 noremap <Leader>A :Ack<space><C-r><C-w>
+" Ack only in files changed in the current branch
+noremap <Leader>B :Ack<space><space>$(git changed-on-branch)<C-b><right><right><right><right>
+:command -nargs=1 Back :Ack <args> $(git changed-on-branch)
 
 " make %% map to the directory path containing the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
