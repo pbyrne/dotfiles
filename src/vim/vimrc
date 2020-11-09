@@ -1,4 +1,5 @@
 set nocompatible " enable lots of cool vim-only features
+set noesckeys " Prevent the small delay in adding blank newline with Shift+O after leaving insert mode; https://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
 filetype off " required for vundle setup
 
 " set up vundle iteself
