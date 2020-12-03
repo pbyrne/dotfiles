@@ -9,3 +9,9 @@ install:
 	bin/install_vundle
 	bin/install_rust
 	bin/update
+
+install-linux:
+	bin/install_symlinks
+	bin/install_vundle
+	bin/install_rust
+	bin/update
