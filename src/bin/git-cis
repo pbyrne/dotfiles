@@ -2,6 +2,48 @@
 
 set -e
 
+function fetch_ci() {
+  local branch=$1
+
+  # echo "{\"query\": \"$(query $branch)\"}" | tr '\n' ' '
+  # echo
+  curl -sS -H "Authorization: Bearer $GITHUB_TOKEN" -XPOST --data "{\"query\": \"$(query $branch | tr '\n' ' ')\"}" https://api.github.com/graphql |
+    jq --raw-output '.data.search.nodes[] | {name: .ref.name, status: .ref.target.status} | {name: .name, url: .status.contexts[] | .targetUrl} | "\(.name)|\(.url)"' 2> /dev/null
+}
+
+function query() {
+  local branch=$1
+
+  cat <<-EOF
+{
+  search(query: \\"repo:dribbble/dribbble\\", type: REPOSITORY, last: 100) {
+    nodes {
+      ... on Repository {
+        nameWithOwner
+        ref(qualifiedName:\\"$branch\\") {
+          name
+          target {
+            ... on Commit {
+              oid
+              committedDate
+              status {
+                id
+                contexts {
+                  id
+                  targetUrl
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+EOF
+}
+
 for branch in $(git branch --format="%(refname:short)"); do
-  echo "$branch|$(hub ci-status $branch)" &
+  fetch_ci $branch &
 done | sort | column -t -s'|'
