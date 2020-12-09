@@ -8,7 +8,7 @@ function fetch_ci() {
   # echo "{\"query\": \"$(query $branch)\"}" | tr '\n' ' '
   # echo
   curl -sS -H "Authorization: Bearer $GITHUB_TOKEN" -XPOST --data "{\"query\": \"$(query $branch | tr '\n' ' ')\"}" https://api.github.com/graphql |
-    jq --raw-output '.data.search.nodes[] | {name: .ref.name, status: .ref.target.status} | {name: .name, url: .status.contexts[] | .targetUrl} | "\(.name)|\(.url)"' 2> /dev/null
+    jq --raw-output '.data.search.nodes[] | {name: .ref.name, status: .ref.target.status} | {name: .name, state: .status.contexts[] | .state, url: .status.contexts[] | .targetUrl} | "\(.name)|\(.state)|\(.url)"' 2> /dev/null
 }
 
 function query() {
@@ -30,6 +30,7 @@ function query() {
                 id
                 contexts {
                   id
+                  state
                   targetUrl
                 }
               }
