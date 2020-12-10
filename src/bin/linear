@@ -6,6 +6,7 @@ function main() {
 
   case "$cmd" in
     teams) list_teams;;
+    queue) queue;;
     query) execute_query "$*";;
     *) usage;;
   esac
@@ -15,6 +16,44 @@ function execute_query() {
   query="$*"
 
   _perform_query $query | jq .
+}
+
+function queue() {
+  _perform_query $(_my_issues_query) |
+    jq '[.data.viewer.assignedIssues.nodes[] | {identifier: .identifier, title: .title, order: .priority, priority: .priorityLabel, status: .state.name, parent: (if .parent then "\(.parent.identifier) \(.parent.title)" else null end)}]' |
+    jq 'sort_by(.order) | map(select(.status != "Done" and .status != "Canceled" and .status != "Backlog"))';
+}
+
+function _my_issues_query() {
+  cat <<-EOQ
+    {
+      viewer {
+        id
+        name
+        assignedIssues {
+          nodes {
+            id
+            identifier
+            title
+            dueDate
+            priority
+            parent {
+              identifier
+              title
+            }
+            project {
+              id
+              name
+            }
+            priorityLabel
+            state {
+              name
+            }
+          }
+        }
+      }
+    }
+EOQ
 }
 
 function list_teams() {
