@@ -2,7 +2,7 @@
 
 set -e
 
-homebrew=/usr/local/bin/brew
+homebrew=/opt/homebrew/bin/brew
 
 function main() {
   install_homebrew
@@ -15,7 +15,7 @@ function install_homebrew() {
     echo "Homebrew already installed!"
   else
     echo "Installing Homebrew…"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 }
 

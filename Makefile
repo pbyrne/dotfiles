@@ -7,7 +7,7 @@ install:
 	bin/install_symlinks
 	bin/install_mac_defaults
 	bin/install_vundle
-	bin/install_rust
+#	bin/install_rust
 	bin/update
 
 install-linux:

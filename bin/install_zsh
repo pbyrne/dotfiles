@@ -2,7 +2,7 @@
 
 set -e
 
-homebrew_zsh=/usr/local/bin/zsh
+homebrew_zsh=/opt/homebrew/bin/zsh
 
 if [[ "$SHELL" != "$homebrew_zsh" ]]; then
   echo "Setting up Homebrew ZSH as shell…"
