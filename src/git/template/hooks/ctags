@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
-PATH="/usr/local/bin:$PATH"
+PATH="/opt/homebrew/bin:$PATH"
 cd $(git rev-parse --show-toplevel) && ctags .
 

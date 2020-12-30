@@ -5,14 +5,14 @@ export ICLOUD_DRIVE=~/Library/Mobile\ Documents/com\~apple\~CloudDocs
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Set up against legacy ImageMagick 6
-export LDFLAGS=-L/usr/local/opt/imagemagick@6/lib
-export CPPFLAGS=-I/usr/local/opt/imagemagick@6/include
-export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
+# export LDFLAGS=-L/usr/local/opt/imagemagick@6/lib
+# export CPPFLAGS=-I/usr/local/opt/imagemagick@6/include
+# export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
 
 # catch my readline
-export LDFLAGS="$LDFLAGS -L/usr/local/opt/readline/lib"
-export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/readline/include"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/readline/lib/pkgconfig"
+# export LDFLAGS="$LDFLAGS -L/usr/local/opt/readline/lib"
+# export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/readline/include"
+# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/readline/lib/pkgconfig"
 
 # open in gui vim and wait for the window to close
 export EDITOR='vim'
@@ -29,8 +29,8 @@ export PATH=$GOPATH/bin:$PATH
 export DBUSER=postgres
 
 # Brew-installed openssl
-export OPENSSL_INCLUDE_DIR="/usr/local/opt/openssl/include"
-export OPENSSL_LIB_DIR="/usr/local/opt/openssl/lib"
+# export OPENSSL_INCLUDE_DIR="/usr/local/opt/openssl/include"
+# export OPENSSL_LIB_DIR="/usr/local/opt/openssl/lib"
 
 # i have a color screen, you know
 export TERM='xterm-256color'

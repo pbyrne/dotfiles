@@ -258,7 +258,7 @@ let @n = ']q' " move to the next quickfix match
 set t_vb=
 
 " Load FZF libraries installed by Homebrew
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 noremap <c-p> :GFiles<cr>
 noremap <c-b> :Buffers<cr>
