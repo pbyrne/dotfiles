@@ -16,15 +16,6 @@ cdpath=($HOME/workspace $HOME)
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/patrickbyrne/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
-if [[ -e ~/.zsh ]]; then
-  for a in `ls ~/.zsh/*.zsh`; do
-    # echo sourcing $a
-    source $a
-  done
-fi
-
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
 export PATH="$HOME/.cargo/bin:$PATH"
 # add this repo's bin to PATH
 export PATH=~/bin:~/.sbin:$PATH
@@ -54,3 +45,13 @@ fi
 # And rebuild completions
 compinit
 zmodload -i zsh/complist
+
+if [[ -e ~/.zsh ]]; then
+  for a in `ls ~/.zsh/*.zsh`; do
+    # echo sourcing $a
+    source $a
+  done
+fi
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
