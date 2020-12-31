@@ -1,4 +1,4 @@
-#asdf/ enable zsh autocompletion
+# enable zsh autocompletion
 autoload -U promptinit
 promptinit
 
@@ -7,9 +7,6 @@ autoload -U compinit
 fpath=(/opt/homebrew/share/zsh-completions /opt/homebrew/share/zsh/site-functions $fpath)
 # and my own
 fpath=(~/.zfunc $fpath)
-# And rebuild completions
-compinit
-zmodload -i zsh/complist
 
 autoload colors; colors
 
@@ -40,9 +37,20 @@ export PATH=~/.local/bin:$PATH
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# brew-provided asdf
 if [[ (( $+commands[brew] )) && -f "/opt/homebrew/opt/asdf/asdf.sh" ]]; then
   source /opt/homebrew/opt/asdf/asdf.sh
 fi
 
+# git-installed asdf
+if [[ -f "$HOME/.asdf/asdf.sh" ]]; then
+  source $HOME/.asdf/asdf.sh
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi
+
 # Created with /opt/homebrew/opt/fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh || true
+
+# And rebuild completions
+compinit
+zmodload -i zsh/complist
