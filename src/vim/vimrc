@@ -259,6 +259,8 @@ set t_vb=
 
 " Load FZF libraries installed by Homebrew
 set rtp+=/opt/homebrew/opt/fzf
+" Load Linux bins
+set rtp+=~/.fzf
 
 noremap <c-p> :GFiles<cr>
 noremap <c-b> :Buffers<cr>
