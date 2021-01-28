@@ -55,3 +55,13 @@ fi
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
+# Make tmux on a remote server play nicely with SSH Agent forwarding; if get disconnected the agent stops forwarding
+if [ -z ${TMUX+x} ]; then
+  # If this is not a tmux session then symlink $SSH_AUTH_SOCK
+  if [ ! -S ~/.ssh/ssh_auth_sock ] && [ -S "$SSH_AUTH_SOCK" ]; then
+    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+  fi
+else
+  # If this is a tmux session then use the symlinked SSH_AUTH_SOCK
+  export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+fi
