@@ -43,7 +43,7 @@ Plugin 'jacoborus/tender.vim'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'morhetz/gruvbox'
 Plugin 'jaredgorski/SpaceCamp'
-Plugin 'file:///Users/patrickbyrne/.themes/dracula_pro/themes/vim'
+" Plugin 'file:///Users/patrickbyrne/.themes/dracula_pro/themes/vim'
 Plugin 'arcticicestudio/nord-vim'
 
 " general
