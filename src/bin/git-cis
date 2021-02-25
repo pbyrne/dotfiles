@@ -3,20 +3,24 @@
 set -e
 
 function fetch_ci() {
+  local repo=$(get_repo_name)
   local branch=$1
+
+  # echo Fetching from $repo and branch $branch
 
   # echo "{\"query\": \"$(query $branch)\"}" | tr '\n' ' '
   # echo
-  curl -sS -H "Authorization: Bearer $GITHUB_TOKEN" -XPOST --data "{\"query\": \"$(query $branch | tr '\n' ' ')\"}" https://api.github.com/graphql |
+  curl -sS -H "Authorization: Bearer $GITHUB_TOKEN" -XPOST --data "{\"query\": \"$(query $repo $branch | tr '\n' ' ')\"}" https://api.github.com/graphql |
     jq --raw-output '.data.search.nodes[] | {name: .ref.name, status: .ref.target.status} | {name: .name, state: .status.contexts[] | .state, url: .status.contexts[] | .targetUrl} | "\(.name)|\(.state)|\(.url)"' 2> /dev/null
 }
 
 function query() {
-  local branch=$1
+  local repo=$1
+  local branch=$2
 
   cat <<-EOF
 {
-  search(query: \\"repo:dribbble/dribbble\\", type: REPOSITORY, last: 100) {
+  search(query: \\"repo:$repo\\", type: REPOSITORY, last: 100) {
     nodes {
       ... on Repository {
         nameWithOwner
@@ -43,6 +47,10 @@ function query() {
 }
 
 EOF
+}
+
+function get_repo_name() {
+  git remote -v | grep fetch | cut -d: -f2 | cut -d. -f1
 }
 
 for branch in $(git branch --format="%(refname:short)"); do
