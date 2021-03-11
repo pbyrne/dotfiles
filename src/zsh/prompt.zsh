@@ -84,5 +84,5 @@ function pjb_credentials() {
 
 # lifted from http://sebastiancelis.com/2009/11/16/zsh-prompt-git-users/
 export PROMPT='
-$(pjb_path) ${vcs_info_msg_0_} $(pjb_credentials)  $(pjb_background_jobs)
+$(pjb_path) ${vcs_info_msg_0_} $(pjb_credentials) $(pjb_background_jobs)
 $(pjb_redgreen_prompt) '
