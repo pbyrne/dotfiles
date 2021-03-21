@@ -1,0 +1,49 @@
+# Trig
+pi = 4*a(1)
+define deg(x) { return 180*x/pi }
+define rad(x) { return pi*x/180 }
+
+define t(x) { return s(x)/c(x) }
+define sin(x) { return s(x) }
+define sind(x) { return s(rad(x)) }
+define cos(x) { return c(x) }
+define cosd(x) { return c(rad(x)) }
+define tan(x) { return t(x) }
+define tand(x) { return t(rad(x)) }
+define atan(x) { return a(x) }
+define atand(x) { return deg(a(x)) }
+
+define asin(x) {
+ if (x == 1) {
+   ans = pi/2
+ } else {
+    if (x == -1) {
+     ans = -pi/2
+    } else {
+      ans = a(x/sqrt(1 - x^2))
+    }
+  }
+  return ans
+}
+define asind(x) { return deg(asin(x)) }
+
+define acos(x) {
+  if (x == 0 ) {
+    ans = pi/2
+  } else {
+    if (x > 0) {
+      ans = a(sqrt(1 - x^2)/x)
+    } else {
+      ans = a(sqrt(1 - x^2)/x) + pi
+    }
+  }
+  return ans
+}
+define acosd(x) { return deg(acos(x)) }
+
+# Exponential
+define exp(x) { return e(x) }
+define log(x) { return l(x) }
+define ln(x) { return l(x) }
+define log10(x) { return l(x)/l(10) }
+define log2(x) { return l(x)/l(2) }
