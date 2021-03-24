@@ -1,0 +1,32 @@
+#!/bin/bash
+
+mac_library=$HOME/Library
+destination="${HOME}/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/Apps/LaunchBar"
+
+set -e
+
+function main() {
+  if [ -d $mac_library ]
+  then
+    echo "Backing up LaunchBar settings from $mac_library"
+    # paths stolen from https://github.com/lra/mackup/blob/master/mackup/applications/launchbar.cfg
+    mkdir -p "$destination"/{Preferences,Application\ Support}
+    # preferences
+    cp $mac_library/Preferences/at.obdev.LaunchBar.plist "$destination"/Preferences
+
+    # application support
+    cp -r $mac_library/Application\ Support/LaunchBar/Actions \
+      $mac_library/Application\ Support/LaunchBar/Snippets \
+      $mac_library/Application\ Support/LaunchBar/Configuration.plist \
+      $mac_library/Application\ Support/LaunchBar/CustomShortcuts.plist \
+      "$destination"/Application\ Support
+  else
+    echo "Not on a Mac, it seems, so doing nothing"
+  fi
+}
+
+function back_up_preferences() {
+  mkdir -p $destination/Preferences
+}
+
+main

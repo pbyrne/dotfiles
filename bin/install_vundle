@@ -3,15 +3,15 @@
 set -e
 
 function main() {
-	local origin=https://github.com/vundlevim/vundle.vim
-	local local=~/.vim/bundle/vundle.vim
+  local origin=https://github.com/vundlevim/vundle.vim
+  local local=~/.vim/bundle/vundle.vim
 
-	if [ ! -d "$local" ]
- 	then
-		git clone $origin $local
-	else
-		echo Already cloned…
-	fi
+  if [ ! -d "$local" ]
+  then
+    git clone $origin $local
+  else
+    echo Already cloned…
+  fi
 }
 
 main
