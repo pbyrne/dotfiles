@@ -76,6 +76,10 @@ let g:rails_projections = {
   \     "test/permissions/{}_test.rb",
   \   ]
   \ },
+  \ "app/javascript/controllers/*_controller.js": {
+  \   "command": "stimulus",
+  \   "keywords": "stimulus",
+  \ },
   \ "app/form_builders/*_form_builder.rb": {
   \   "command": "form_builder",
   \   "template": [
@@ -96,5 +100,3 @@ function! s:parse_route(selected)
   let l:squished = substitute(join(a:selected), '^\s\+', '', '')
   return split(l:squished)[0] . '_path'
 endfunction
-
-
