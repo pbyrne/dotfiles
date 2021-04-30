@@ -24,8 +24,6 @@
 	branchname = symbolic-ref --short -q HEAD
 	# all branches, even remote
 	brs = branch -a
-	buildurl = "!hub ci-status --format='%U%n'"
-	openbuild = "!hub ci-status --format='%U%n' | xargs open"
 	# display the diff to be committed when entring commit message
 	c = commit --verbose
 	cleanup = "!git delete-orphans; git delete-merged"
@@ -75,7 +73,7 @@
 	wip = "commit -m 'WIP'"
 	recent-branches = for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
 	sha = rev-parse --short HEAD
-	openpr = !hub pr show
+	openpr = !gh pr view --web
 [color]
 	ui = auto
 [format]
@@ -105,8 +103,6 @@
 [rerere]
 	# http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
 	enabled = true
-[hub]
-	protocol = https
 [branch]
 	autosetuprebase = always
 [url "git@github.com:tstmedia/"]
