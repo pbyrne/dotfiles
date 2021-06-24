@@ -3,7 +3,7 @@
 set -e
 
 echo Choose commit to fixup
-choice=$(git log --oneline origin/master..HEAD | tac | fzf)
+choice=$(git log --oneline origin/HEAD..HEAD | tac | fzf)
 sha=$(echo "$choice" | cut -d' ' -f1)
 
 echo git commit --fixup=$sha
