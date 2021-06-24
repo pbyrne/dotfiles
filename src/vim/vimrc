@@ -31,7 +31,8 @@ Plugin 'posva/vim-vue'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'avdgaag/vim-phoenix'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'prabirshrestha/vim-lsp'
+" Plugin 'prabirshrestha/vim-lsp'
+Plugin 'dense-analysis/ale'
 
 " syntax
 Plugin 'hashivim/vim-terraform'
