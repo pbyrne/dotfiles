@@ -1,2 +1,4 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export MAKE="make -j$(nproc)"
+# Different apps look for different variables to options for Make
+export MAKE_OPTS="-j$(nproc)"
+export MAKEOPTS="-j$(nproc)"
