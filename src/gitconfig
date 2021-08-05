@@ -22,7 +22,7 @@
 	# search for braches that contain the given commit
 	branches-with = branch --all --contains
 	# how is this not built into git?
-	branchname = symbolic-ref --short -q HEAD
+	branchname = branch --show-current
 	# all branches, even remote
 	brs = branch -a
 	# display the diff to be committed when entring commit message
@@ -74,6 +74,7 @@
 	recent-branches = for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
 	sha = rev-parse --short HEAD
 	openpr = !gh pr view --web
+	praise = blame
 [color]
 	ui = auto
 [format]
@@ -105,12 +106,6 @@
 	enabled = true
 [branch]
 	autosetuprebase = always
-[url "git@github.com:tstmedia/"]
-	insteadOf = gtst://
-[url "git@github.com:pbyrne/"]
-	insteadOf = gpb://
-[url "git@github.com:/"]
-	insteadOf = gh://
 [credential]
 	helper = osxkeychain
 [status]
@@ -128,5 +123,5 @@
 	templatedir = ~/.git/template
 	defaultBranch = main
 [commit]
-	; gpgsign = true ; disabling for now until I get signing working on EC2 instances (need newer GnuPG)
+	gpgsign = true ; disabling for now until I get signing working on EC2 instances (need newer GnuPG)
 	template = ~/.git/commit_template
