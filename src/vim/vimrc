@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/vundle.vim
 call vundle#rc()
 
 " let Vundle manage Vundle required!
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'vundlevim/vundle.vim'
 
 " and let's add some plugins
 Plugin 'tpope/vim-commentary'
