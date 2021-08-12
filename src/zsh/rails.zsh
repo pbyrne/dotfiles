@@ -18,7 +18,7 @@ function killspring() {
 
 # autocomplete for bin/deploy helper
 _deploy() {
-  envs=("${(@)${(f)$(grep ':$' .opsicle | tr -d :)}}")
+  envs=("${(@)${(f)$(grep ':$' .opsworks | tr -d :)}}")
   branches=("${(@)${(f)$(git branch | sed 's/\*/ /g')}#??}")
   _arguments "1: :($envs)" "2: :($branches)"
 }
@@ -27,7 +27,7 @@ compdef _deploy deploy
 
 _ops() {
   actions=("${(@)${(f)$(ops help | grep '  \w' | cut -d' ' -f3)}}")
-  envs=("${(@)${(f)$(grep ':$' .opsicle | tr -d :)}}")
+  envs=("${(@)${(f)$(grep ':$' .opsworks | tr -d :)}}")
 
   _arguments "1: :($actions)" "2: :($envs)"
 }
