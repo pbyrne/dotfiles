@@ -167,10 +167,6 @@ nnoremap B ^
 nnoremap E $
 
 " Custom shortcuts
-" use sane (not the vim-default) regexes in search
-nnoremap / /\v
-" use sane (not the vim-default) regexes in search
-vnoremap / /\v
 " clear the search term
 nnoremap <leader><space> :noh<cr>
 " jj to escape insert mode
