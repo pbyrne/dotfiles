@@ -123,5 +123,5 @@
 	templatedir = ~/.git/template
 	defaultBranch = main
 [commit]
-	gpgsign = true ; disabling for now until I get signing working on EC2 instances (need newer GnuPG)
+	; gpgsign = true ; disabling for now until I get signing working on EC2 instances (need newer GnuPG)
 	template = ~/.git/commit_template
