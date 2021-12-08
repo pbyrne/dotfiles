@@ -269,6 +269,8 @@ nnoremap <leader>tl :w<CR>:TestLast<CR>
 nnoremap <leader>tn :w<CR>:TestNearest<CR>
 nnoremap <leader>tv :TestVisit<CR>
 
+let test#javascript#jest#executable = 'NODE_OPTIONS=--experimental-vm-modules npx jest'
+
 nnoremap <silent> <Leader>T :call fzf#run({
   \ 'source':  'suggest-tests ' . bufname('%'),
   \   'sink':    'e',
