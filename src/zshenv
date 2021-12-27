@@ -41,4 +41,4 @@ export HOMEBREW_INSTALL_CLEANUP=1
 # Emacs bindkeys
 bindkey -e
 if [ -e /Users/patrickbyrne/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/patrickbyrne/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-source "$HOME/.cargo/env"
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
