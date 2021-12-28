@@ -707,6 +707,15 @@
             }
           }
         }
+      },
+      "hashicorp/tap/terraform": {
+        "version": "1.1.2",
+        "bottle": false
+      }
+    },
+    "tap": {
+      "hashicorp/tap": {
+        "revision": "480bb96a30700c5a52802922c7118c136e2831a4"
       }
     }
   },
@@ -731,7 +740,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.3.9",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "85b17f342d2c217ab520bae780be5280a33c3cce",
+        "Homebrew/homebrew-core": "55e480c5de695cdd1ae39312a6922d6dc547a839",
         "CLT": "13.0.0.0.1.1627064638",
         "Xcode": "13.1",
         "macOS": "12.1"
