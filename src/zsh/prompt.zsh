@@ -78,8 +78,7 @@ function pjb_background_jobs() {
 }
 
 function pjb_credentials() {
-  swap-credentials --current
-  [ -n "$AWS_SESSION_TOKEN" ] && echo "[MFA]"
+  [ -n "$AWS_SESSION_TOKEN" ] && echo -n "[MFA]"
 }
 
 # lifted from http://sebastiancelis.com/2009/11/16/zsh-prompt-git-users/
