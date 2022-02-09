@@ -130,9 +130,9 @@ let g:dracula_inverse = 0
 
 colorscheme nord
 
-set backupdir=/tmp/.vim/_backup " specify location for backup files
-set directory=/tmp/.vim/_swp " specify location for swp files
-set undodir=/tmp/.vim/_undo " specify location of undo files
+set backupdir=~/.tmp/.vim/_backup " specify location for backup files
+set directory=~/.tmp/.vim/_swp " specify location for swp files
+set undodir=~/.tmp/.vim/_undo " specify location of undo files
 
 " Make those folders automatically if they don't already exist.
 if !isdirectory(&undodir)
