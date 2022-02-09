@@ -1,5 +1,6 @@
 brew "asdf"
 brew "awscli"
+brew "cmake"
 brew "coreutils"
 brew "ctags"
 brew "fzf"
