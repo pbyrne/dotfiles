@@ -789,6 +789,20 @@
       "hashicorp/tap": {
         "revision": "889c774a42141889e7f5bcb8159db475d5f654e6"
       }
+    },
+    "mas": {
+      "Fantastical": {
+        "id": "975937182",
+        "version": "3.6.4"
+      },
+      "Marked 2": {
+        "id": "890031187",
+        "version": "2.6.16"
+      },
+      "DevUtilsAppStore": {
+        "id": "1533756032",
+        "version": "1.14.0"
+      }
     }
   },
   "system": {

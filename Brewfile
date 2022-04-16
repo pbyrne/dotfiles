@@ -22,3 +22,8 @@ brew "zsh-completions"
 
 tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"
+
+# mas "1Password", id: 1333542190
+mas "DevUtilsAppStore", id: 1533756032
+mas "Fantastical", id: 975937182
+mas "Marked 2", id: 890031187
