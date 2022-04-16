@@ -11,7 +11,7 @@ Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
 
 Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: with_fixed_indentation
+  EnforcedStyle: indented_relative_to_receiver
 
 Layout/SpaceInLambdaLiteral:
   EnforcedStyle: require_space
