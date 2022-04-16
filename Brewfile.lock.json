@@ -802,6 +802,54 @@
       "DevUtilsAppStore": {
         "id": "1533756032",
         "version": "1.14.0"
+      },
+      "1Blocker": {
+        "id": "1365531024",
+        "version": "4.1.4"
+      },
+      "Actions": {
+        "id": "1586435171",
+        "version": "1.11.0"
+      },
+      "Cardhop": {
+        "id": "1290358394",
+        "version": "2.0.10"
+      },
+      "Hush": {
+        "id": "1544743900",
+        "version": "1.0.7"
+      },
+      "Irvue": {
+        "id": "1039633667",
+        "version": "2.7.14"
+      },
+      "Mela": {
+        "id": "1568924476",
+        "version": "1.4.2"
+      },
+      "Owly": {
+        "id": "882812218",
+        "version": "2.4"
+      },
+      "Reeder": {
+        "id": "1529448980",
+        "version": "5.1"
+      },
+      "Transmit": {
+        "id": "1436522307",
+        "version": "5.8.4"
+      },
+      "Wakeout": {
+        "id": "1242116567",
+        "version": "1.22"
+      },
+      "MindNode": {
+        "id": "1289197285",
+        "version": "2022.1.2"
+      },
+      "1Password 7": {
+        "id": "1333542190",
+        "version": "7.9.4"
       }
     }
   },
@@ -826,7 +874,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.4.6",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "31925014726b2e9576626bc40aab33f4a752e850",
+        "Homebrew/homebrew-core": "36a1e5bc2c0d4eebd2d45a638265e9f8f3418d63",
         "CLT": "13.3.0.0.1.1645755326",
         "Xcode": "13.3",
         "macOS": "12.3"
