@@ -1,3 +1,5 @@
+tap "hashicorp/tap"
+
 brew "asdf"
 brew "awscli"
 brew "cmake"
@@ -7,6 +9,9 @@ brew "fzf"
 brew "gh"
 brew "git"
 brew "git-extras"
+brew "hashicorp/tap/nomad"
+brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/waypoint"
 brew "jq"
 brew "mackup"
 brew "mas"
@@ -19,9 +24,6 @@ brew "vim"
 brew "watch"
 brew "zsh"
 brew "zsh-completions"
-
-tap "hashicorp/tap"
-brew "hashicorp/tap/terraform"
 
 mas "1Blocker", id: 1365531024
 mas "1Password 7", id: 1333542190

@@ -783,6 +783,14 @@
             }
           }
         }
+      },
+      "hashicorp/tap/waypoint": {
+        "version": "0.8.1",
+        "bottle": false
+      },
+      "hashicorp/tap/nomad": {
+        "version": "1.2.6",
+        "bottle": false
       }
     },
     "tap": {
@@ -874,7 +882,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.4.6",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "36a1e5bc2c0d4eebd2d45a638265e9f8f3418d63",
+        "Homebrew/homebrew-core": "bcb056b9864f61d383d46ff2594c17f6f9b0c181",
         "CLT": "13.3.0.0.1.1645755326",
         "Xcode": "13.3",
         "macOS": "12.3"
