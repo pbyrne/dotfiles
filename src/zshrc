@@ -67,3 +67,10 @@ else
   # If this is a tmux session then use the symlinked SSH_AUTH_SOCK
   export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 fi
+
+# Terraform tab completion
+if [ -f /opt/homebrew/bin/terraform ]
+then
+  autoload -U +X bashcompinit && bashcompinit
+  complete -o nospace -C /opt/homebrew/bin/terraform terraform
+fi
