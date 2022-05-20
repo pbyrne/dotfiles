@@ -6,3 +6,4 @@ test/fixtures
 vendor
 
 www/inc/templates/blade/tools/swagger-ui-dist
+composer.phar
