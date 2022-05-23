@@ -2,12 +2,12 @@
 
 set -e
 
-PRIVATE_DOTFILES="${HOME}/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/symlinks"
+PRIVATE_DOTFILES="${HOME}/Library/CloudStorage/Strongsync-Fastmail/dotfiles"
 
 function main() {
   symlink_bin
-  symlink_dotfiles "src/"
-  symlink_dotfiles "$PRIVATE_DOTFILES"
+  symlink_public_dotfiles "src/"
+  symlink_private_dotfiles "$PRIVATE_DOTFILES"
 }
 
 function conditionally_symlink() {
@@ -44,14 +44,23 @@ function symlink_bin() {
   conditionally_symlink src/bin/ ~/bin
 }
 
-function symlink_dotfiles() {
+function symlink_public_dotfiles() {
   local src_path="$1"
-  echo Symlinking $src_path
+  echo Symlinking public dotfiles from $src_path
 
   for src in $(ls "$src_path"); do
     dest="${HOME}/.$(basename $src)"
     conditionally_symlink "$src_path/$src" "$dest"
   done
 }
+
+# NOTE: Defined function with ( … ) instead of { … } to not change working directory of script
+function symlink_private_dotfiles() (
+  local src_path="$1"
+  echo Symlinking private dotfiles from $src_path
+
+  cd $src_path
+  make
+)
 
 main
