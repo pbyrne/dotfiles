@@ -2,7 +2,7 @@
 
 set -e
 
-PRIVATE_DOTFILES="${HOME}/Library/CloudStorage/Strongsync-Fastmail/dotfiles"
+PRIVATE_DOTFILES="${HOME}/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/symlinks"
 
 function main() {
   symlink_bin
@@ -59,7 +59,7 @@ function symlink_private_dotfiles() (
   local src_path="$1"
   echo Symlinking private dotfiles from $src_path
 
-  cd $src_path
+  cd "$src_path"
   make
 )
 
