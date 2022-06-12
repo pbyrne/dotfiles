@@ -3,8 +3,10 @@
 set -e
 
 echo Choose commit to fixup
-choice=$(git log --oneline origin/HEAD..HEAD | tac | fzf)
-sha=$(echo "$choice" | cut -d' ' -f1)
+sha=$(git log --oneline origin/HEAD..HEAD |
+  fzf --tac --select-1 --exit-0 --preview 'git show {1}' --height 40% --with-nth='2..' |
+  awk '{ print $1 }'
+)
 
 echo git commit --fixup=$sha
 git commit --fixup=$sha
