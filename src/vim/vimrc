@@ -43,9 +43,12 @@ Plugin 'tpope/vim-git'
 Plugin 'jacoborus/tender.vim'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'morhetz/gruvbox'
+Plugin 'lifepillar/vim-gruvbox8'
 Plugin 'jaredgorski/SpaceCamp'
 " Plugin 'file:///Users/patrickbyrne/.themes/dracula_pro/themes/vim'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'embark-theme/vim', {'name': 'embark'}
+Plugin 'catppuccin/vim', {'name': 'catppuccin'}
 
 " general
 "let mapleader = ","
@@ -118,17 +121,21 @@ endif
 " Default color scheme
 set t_Co=256 " 256 colors
 set background=dark
+" Legacy gruvbox
 let g:gruvbox_bold="0"
 let g:gruvbox_contrast_dark="soft"
 let g:gruvbox_italicize_comments="1"
 let g:gruvbox_invert_selection="0"
-" colorscheme gruvbox
+colorscheme gruvbox8
 
 let g:dracula_colorterm = 0
 let g:dracula_inverse = 0
 " colorscheme dracula_pro
 
-colorscheme nord
+let g:embark_terminal_italics = 1
+" colorscheme embark
+
+" colorscheme nord
 
 set backupdir=~/.tmp/.vim/_backup " specify location for backup files
 set directory=~/.tmp/.vim/_swp " specify location for swp files
