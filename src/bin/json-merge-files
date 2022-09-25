@@ -1,0 +1,11 @@
+#!zsh
+
+
+case "$1" in
+  (--help|--usage)
+    echo "$(basename $0) *.json > output.json" >&2
+    ;;
+  *)
+    cat $@ | jq -s
+    ;;
+esac
