@@ -74,3 +74,9 @@ then
   autoload -U +X bashcompinit && bashcompinit
   complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fi
+
+if [ -f /usr/local/bin/op ]
+then
+  eval "$(/usr/local/bin/op completion zsh)"
+  compdef _op op
+fi
