@@ -1,0 +1,38 @@
+#!/bin/bash
+
+function main() {
+  local awsprofile;
+
+  if [[ -n "$1" ]]
+  then
+    awsprofile="$1"
+  else
+    >&2 echo "Missing AWS profile name: `basename $0` PROFILE_NAME"
+    exit 1
+  fi
+
+  local instance_id=$(choose_instance $awsprofile)
+
+  if [ -n "$instance_id" ]; then
+    >&2 echo "Connecting to ${instance_id}…" 
+    # echo command when executing
+    (set -x; aws ssm start-session --profile $awsprofile --target=$instance_id)
+  else
+    >&2 echo "No instance selected. Halting."
+    exit 1
+  fi
+}
+
+function choose_instance() {
+  local awsprofile=$1
+
+  >&2 echo "Fetching servers from AWS for profile ${awsprofile}…"
+
+  aws ssm describe-instance-information --profile $awsprofile --filters=Key=AssociationStatus,Values=Success |
+    jq --raw-output '.InstanceInformationList[] | "\(.ComputerName)|\(.InstanceId)"' |
+    sort |
+    column -t -s'|' |
+    fzf --select-1 --exit-0 | awk -F' ' '{print $NF}'
+}
+
+main $*
