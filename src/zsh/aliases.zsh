@@ -55,7 +55,8 @@ alias serve='python -mSimpleHTTPServer'
 alias json='python -mjson.tool'
 
 # capture my public IP address
-alias publicip='dig +short myip.opendns.com @resolver1.opendns.com'
+# alias publicip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias publicip='curl -sS https://myipv4.p1.opendns.com/get_my_ip | jq -r .ip'
 
 # generate a sha checksum of a given file
 alias sha='shasum'
