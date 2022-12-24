@@ -1,32 +1,41 @@
 #!/bin/bash
 
 mac_library=$HOME/Library
-destination="${HOME}/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/Apps/LaunchBar"
 
 set -e
 
 function main() {
-  if [ -d $mac_library ]
+  if [ ! -d $mac_library ]
   then
-    echo "Backing up LaunchBar settings from $mac_library"
-    # paths stolen from https://github.com/lra/mackup/blob/master/mackup/applications/launchbar.cfg
-    mkdir -p "$destination"/{Preferences,Application\ Support}
-    # preferences
-    cp $mac_library/Preferences/at.obdev.LaunchBar.plist "$destination"/Preferences
-
-    # application support
-    cp -r $mac_library/Application\ Support/LaunchBar/Actions \
-      $mac_library/Application\ Support/LaunchBar/Snippets \
-      $mac_library/Application\ Support/LaunchBar/Configuration.plist \
-      $mac_library/Application\ Support/LaunchBar/CustomShortcuts.plist \
-      "$destination"/Application\ Support
-  else
     echo "Not on a Mac, it seems, so doing nothing"
+    exit 0
   fi
-}
 
-function back_up_preferences() {
-  mkdir -p $destination/Preferences
+  # paths stolen from https://github.com/lra/mackup/blob/master/mackup/applications/launchbar.cfg
+  launchbar_prefs=$mac_library/Preferences/at.obdev.LaunchBar.plist
+  launchbar_config_dir=$mac_library/Application\ Support/LaunchBar/
+  destination="${HOME}/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/Apps/LaunchBar"
+
+  mkdir -p "$destination"/{Preferences,Application\ Support}
+
+  echo "Backing up LaunchBar preferences from ${launchbar_prefs}…"
+  if [ -f "$launchbar_prefs" ]
+  then
+    # preferences
+    cp $launchbar_prefs "$destination"/Preferences
+    echo "Done!"
+  else
+    echo "None found."
+  fi
+
+  echo "Backing up LaunchBar configuration from ${launchbar_config_dir}…"
+  if [ -d "$launchbar_config_dir" ]
+  then
+    cp -r $launchbar_config_dir/{Actions,Snippets,Configuration.plist,CustomShortcuts.plist} "$destination"/Application\ Support
+    echo "Done!"
+  else
+    echo "None found."
+  fi
 }
 
 main
