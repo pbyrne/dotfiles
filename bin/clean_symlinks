@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+function main() {
+  local action="$1"
+
+  case $action in
+    rm)
+      broken_symlinks | xargs -t rm
+      ;;
+    *)
+      broken_symlinks
+      ;;
+  esac
+}
+
+function broken_symlinks() {
+  find ~ -maxdepth 1 -type l ! -exec test -e {} \; -print
+}
+
+main $*
