@@ -53,7 +53,7 @@
 	m = merge
 	max-tag = "!git tag | sort --version-sort | tail -n1"
 	# show local branches which are already merged to master
-	merged = "!git branch --merged origin/HEAD | grep -v master | grep -v staging | grep -v main | grep -v '*'"
+	merged = "!git branch --merged origin/HEAD | grep -v master | grep -v staging | grep -v nonprd | grep -v main | grep -v '*'"
 	# new branch with the given name
 	nb = switch -C
 	# Not yet added - doesn't include ignored files
