@@ -1,9 +1,9 @@
 tags
 app/assets/javascripts/*.min.js
-app/assets/javascripts/*/*.min.js
-app/assets/javascripts/*/*/*.min.js
+app/assets/javascripts/**/*.min.js
 test/fixtures
 vendor
+node_modules
 
 www/inc/templates/blade/tools/swagger-ui-dist
 composer.phar
