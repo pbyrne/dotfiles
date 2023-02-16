@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -e
+
+function main() {
+  local ami_id=$(choose_ami)
+
+  result=$(boot_instance $ami_id)
+  instance_id=$(echo $result | jq -r '.Instances[0].InstanceId')
+  echo "Review the instance at https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#InstanceDetails:instanceId=$instance_id"
+}
+
+function choose_ami() {
+  # TODO Flags like `--latest` or fzf to choose from list
+  aws ec2 describe-images --owners self | jq -r '.Images[] | .Name + "\t" + .ImageId' | sort | tail -n1 | cut -f2
+}
+
+function boot_instance() {
+  local ami_id=$1
+  local keypair_name="Patrick 2020-11"
+  local instance_type="c5.xlarge"
+  local sg_id="sg-05b5373c02e579b97" # "EC2 Dev" for booting development images
+  local subnet_id="subnet-edf245c6" # "Staging Public B"
+
+  # Reference https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html
+  local options=(
+    --image-id "$ami_id"
+    --count 1
+    --instance-type "$instance_type"
+    --key-name "$keypair_name"
+    --subnet-id "$subnet_id"
+    --security-group-ids "$sg_id"
+    --associate-public-ip-address
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=pjb-test-instance}]"
+  )
+  aws ec2 run-instances "${options[@]}"
+}
+
+
+main $*
+
