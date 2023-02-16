@@ -33,9 +33,11 @@ Plugin 'avdgaag/vim-phoenix'
 Plugin 'leafgarland/typescript-vim'
 " Plugin 'prabirshrestha/vim-lsp'
 Plugin 'dense-analysis/ale'
+Plugin 'tpope/vim-projectionist'
 
 " syntax
 Plugin 'hashivim/vim-terraform'
+Plugin 'hashivim/vim-packer'
 Plugin 'rust-lang/rust.vim'
 Plugin 'tpope/vim-git'
 
@@ -308,3 +310,4 @@ silent! so .vimlocal
 nnoremap <silent> <Leader>gc :call fzf#run({'source':  'git changed-on-branch', 'sink': 'e', 'options': '--multi --reverse', 'down':    15})<CR>
 
 let g:terraform_fmt_on_save = 1
+let g:packer_fmt_on_save = 1
