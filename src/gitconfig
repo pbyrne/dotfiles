@@ -75,6 +75,8 @@
 	recent-branches = for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
 	sha = rev-parse --short HEAD
 	praise = blame
+	ignored = ls-files --others
+	untracked = ignored
 [color]
 	ui = auto
 [format]
