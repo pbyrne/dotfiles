@@ -6,15 +6,16 @@ PRIVATE_DOTFILES="${HOME}/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/
 
 function main() {
   symlink_bin
-  symlink_public_dotfiles "src/"
+  symlink_public_dotfiles "src"
   symlink_private_dotfiles "$PRIVATE_DOTFILES"
 }
 
 function conditionally_symlink() {
   local src=$1
-  local expanded_src=$(realpath "$src")
+  local expanded_src=$(readlink -f "$src")
   local dest=$2
 
+  echo "Linking ${expanded_src} (from ${src}) to ${dest}…"
   if [[ ! -e $expanded_src ]]
   then
     echo "  $src doesn't exist. Skipping."
