@@ -37,7 +37,7 @@
 	ds = diff --staged
 	# list the files deleted but not committed
 	deleted = ls-files --deleted
-	# delete merged branches—depends on `merged` alias and `delete-branch` helper from `git-extras`.
+	# delete merged branches—depends on `merged` alias
 	delete-merged = "!for br in $(git merged); do git branch -D $br; done"
 	# edit new and modified files
 	edit = "!$EDITOR `git ls-files --modified --others --exclude-standard`"
