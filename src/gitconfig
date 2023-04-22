@@ -58,9 +58,9 @@
 	nb = switch -C
 	# Not yet added - doesn't include ignored files
 	new = ls-files --others --exclude-standard
-	p = "!f() { git push origin `git branchname`; }; f"
+	p = push
 	# push and set the upstream
-	pu = "!f() { git push --set-upstream origin `git branchname`; }; f"
+	pu = push --set-upstream
 	run-changed-test = "git changed-on-branch | grep test | fzf --height 40% | xargs bin/rails test"
 	s = status
 	st = status
@@ -86,7 +86,7 @@
 	# pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
 [push]
 	# only push the current git branch, not all branches
-	default = tracking
+	default = current
 [fetch]
 	# always prune when fetching
 	prune = true
