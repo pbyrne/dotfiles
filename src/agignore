@@ -2,7 +2,7 @@ tags
 app/assets/javascripts/*.min.js
 app/assets/javascripts/**/*.min.js
 test/fixtures
-vendor
+# vendor
 node_modules
 
 www/inc/templates/blade/tools/swagger-ui-dist
