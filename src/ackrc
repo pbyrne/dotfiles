@@ -36,4 +36,7 @@
 --ignore-dir=app/flash
 --ignore-dir=cache
 --ignore-dir=node_modules
-
+--ignore-dir=public/assets
+--ignore-dir=public/vite-dev
+--ignore-dir=public/vite-test
+--ignore-dir=vendor/assets
