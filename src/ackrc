@@ -24,14 +24,15 @@
 --nobin
 
 # Specify types to search
---ruby
---css
---js
---markdown
---html
---actionscript
---shell
---zsh
+# --ruby
+# --css
+# --js
+# --markdown
+# --html
+# --actionscript
+# --shell
+# --zsh
+# --terraform
 
 --ignore-dir=tmp
 --ignore-dir=coverage
