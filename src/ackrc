@@ -40,6 +40,13 @@
 --ignore-dir=cache
 --ignore-dir=node_modules
 --ignore-dir=public/assets
+--ignore-dir=public/sitemap
 --ignore-dir=public/vite-dev
 --ignore-dir=public/vite-test
 --ignore-dir=vendor/assets
+--ignore-dir=log
+--ignore-dir=.yarn
+--ignore-dir=test/fixtures/vcr_cassettes
+--ignore-dir=.docker-cache
+
+--ignore-file=is:tags
