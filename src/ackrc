@@ -9,6 +9,8 @@
 --type-set=cucumber=.feature
 # treat PDFs as binary files
 --type-set=bin=.pdf
+--type-set=js=.vue
+--type-set=terraform=.tf
 
 # search haml, sass, erb, and coffeescript
 --type-add=ruby=.haml,Gemfile,.gemspec
