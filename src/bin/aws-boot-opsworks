@@ -9,13 +9,14 @@ set -e
 # -K allows us to set default values without zparseopts overwriting them
 # Remember that the first dash is automatically handled, so long options are -opt, not --opt
 zmodload zsh/zutil
-zparseopts -D -F -K -- {n,-name}:=args_name {s,-stack-id}:=args_stack {t,-type}:=args_type {a,-availability-zone}:=args_az {l,-layer-id}:=args_layer {o,-load-based}=flag_load_based || exit 1
+zparseopts -D -F -K -- {n,-name}:=args_name {s,-stack-id}:=args_stack {t,-type}:=args_type {a,-availability-zone}:=args_az {s,-subnet}:=args_subnet {l,-layer-id}:=args_layer {o,-load-based}=flag_load_based || exit 1
 
 stack_id=$args_stack[-1]
 layer_id=$args_layer[-1]
 name=$args_name[-1]
 instance_type=$args_type[-1]
 availability_zone=${args_az[-1]}
+subnet_id=$args_subnet[-1]
 
 echo "Stack ID: $stack_id"
 echo "Layer ID: $layer_id"
@@ -36,19 +37,7 @@ echo
 [[ -z "$name" ]] && echo "Name required" && exit 1
 [[ -z "$instance_type" ]] && echo "Instance type required" && exit 1
 [[ -z "$availability_zone" ]] && echo "Availability zone required" && exit 1
-
-case $availability_zone in
-  us-east-1b)
-    subnet_id=subnet-a0c3478b
-    ;;
-  us-east-1d)
-    subnet_id=subnet-ed25b7b4
-    ;;
-  *)
-    echo "Unrecognized availability zone"
-    exit 1
-    ;;
-esac
+[[ -z "$subnet_id" ]] && echo "Subnet required" && exit 1
 
 echo "Creating instance…"
 result=$(aws opsworks create-instance --stack-id $stack_id --hostname $name --layer-ids $layer_id --instance-type $instance_type --availability-zone $availability_zone --subnet-id $subnet_id --os "Ubuntu 18.04 LTS" --root-device-type ebs --block-device-mappings '{"DeviceName": "ROOT_DEVICE", "Ebs": {"VolumeSize": 100,"VolumeType": "gp2"}}'  --ebs-optimized ${=maybe_load_based})
