@@ -22,6 +22,7 @@
 
 # ignore binary files
 --nobin
+--nosvg
 
 # Specify types to search
 # --ruby
@@ -48,5 +49,7 @@
 --ignore-dir=.yarn
 --ignore-dir=test/fixtures/vcr_cassettes
 --ignore-dir=.docker-cache
+--ignore-dir=.terraform
+--ignore-dir=hypernova/dist
 
 --ignore-file=is:tags
