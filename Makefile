@@ -1,6 +1,5 @@
 update:
 	bin/update
-	bin/back_up_launchbar
 
 install:
 	bin/install_homebrew
