@@ -51,5 +51,6 @@
 --ignore-dir=.docker-cache
 --ignore-dir=.terraform
 --ignore-dir=hypernova/dist
+--ignore-dir=.cache
 
 --ignore-file=is:tags
