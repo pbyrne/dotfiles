@@ -297,10 +297,6 @@ function! s:parse_route(selected)
   return split(l:squished)[0] . '_path'
 endfunction
 
-" Complete entire line
-imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
-imap <silent> <leader>l <plug>(fzf-complete-buffer-line)
-
 map <leader>k <Plug>(ale_next_wrap)
 map <leader>j <Plug>(ale_previous_wrap)
 
