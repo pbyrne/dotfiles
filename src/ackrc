@@ -52,5 +52,6 @@
 --ignore-dir=.terraform
 --ignore-dir=hypernova/dist
 --ignore-dir=.cache
+--ignore-dir=_site
 
 --ignore-file=is:tags
