@@ -40,6 +40,7 @@ Plugin 'hashivim/vim-terraform'
 Plugin 'hashivim/vim-packer'
 Plugin 'rust-lang/rust.vim'
 Plugin 'tpope/vim-git'
+Plugin 'saltstack/salt-vim'
 
 " colorschemes
 Plugin 'jacoborus/tender.vim'
