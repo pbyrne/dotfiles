@@ -179,10 +179,6 @@ nnoremap E $
 " Custom shortcuts
 " clear the search term
 nnoremap <leader><space> :noh<cr>
-" jj to escape insert mode
-inoremap jj <ESC>
-" ug, and kk because i keep hitting it
-inoremap kk <ESC>
 
 " highlight last inserted text
 nnoremap gV `[v`]
