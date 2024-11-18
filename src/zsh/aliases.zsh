@@ -116,3 +116,10 @@ function brewhaha() {
   echo
   brew outdated
 }
+
+# List all open ports and the name of the process listening on it
+# Lifted from https://x.com/seldo/status/1823126087423099192
+function usedports() {
+  sudo lsof -iTCP -sTCP:LISTEN -n -P | awk 'NR>1 {print $9, $1, $2}' | sed 's/.*://' | while read port process pid; do echo "Port $port: $(ps -p $pid -o command= | sed 's/^-//') (PID: $pid)"; done | sort -n
+}
+
