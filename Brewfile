@@ -27,12 +27,10 @@ brew "zsh"
 brew "zsh-completions"
 
 # via `mas list | sed -e 's/ *(.*//'`
-mas "1Blocker", id: 1365531024
 mas "CARROT Weather", id: 993487541
 mas "Cardhop", id: 1290358394
 mas "Deliveries", id: 290986013
 mas "DevUtilsAppStore", id: 1533756032
-mas "Focus", id: 777233759
 mas "Hush", id: 1544743900
 mas "Irvue", id: 1039633667
 mas "Marked 2", id: 890031187
