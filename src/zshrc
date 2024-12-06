@@ -79,3 +79,5 @@ then
   compdef _op op
 fi
 
+# Fix Puma `__NSCFConstantString initialize` error when forking
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
