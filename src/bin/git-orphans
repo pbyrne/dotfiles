@@ -3,6 +3,6 @@
 set -e
 
 # clean up remote
-git remote prune origin > /dev/null
+git fetch origin --prune
 # find local branches whose remote is "gone" and print the branch name
 git branch -vv | grep ': gone]' | awk '{print $1}'
