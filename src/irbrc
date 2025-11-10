@@ -1,5 +1,4 @@
-require 'irb/completion'
-require 'irb/ext/save-history'
+require "irb/completion"
 IRB.conf[:SAVE_HISTORY] = 100
 IRB.conf[:HISTORY_FILE] = File.expand_path "~/.irb-history"
 IRB.conf[:BACK_TRACE_LIMIT] = 5
@@ -14,14 +13,3 @@ IRB.conf[:PROMPT][:PBYRNE] = {
   RETURN: "# => %s\n",
 }
 IRB.conf[:PROMPT_MODE] = :PBYRNE
-
-# Lifted from https://coderwall.com/p/qp2aha/ruby-pbcopy-and-pbpaste
-def pbcopy(input)
-  str = input.to_s
-  IO.popen('pbcopy', 'w') { |f| f << str }
-  str
-end
-
-def pbpaste
-  `pbpaste`
-end
